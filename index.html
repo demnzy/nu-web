@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nu-Age | The Future of Digital Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nuage: {
+                            primary: '#37BF14', /* Bright Green */
+                            dark: '#035800',    /* Deep Green */
+                            white: '#FFFFFF',   /* White */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-nuage-primary selection:text-white">
+
+    <nav class="bg-nuage-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="h-11 w-11 rounded-full border-2 border-nuage-primary p-0.5 shadow-md flex items-center justify-center bg-white overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu-Age Logo" class="h-full w-full rounded-full object-cover">
+                </div>
+                <span class="text-2xl font-black text-nuage-dark tracking-tighter">Nu Age<span class="text-nuage-primary">.</span></span>
+            </a>
+            
+            <div class="hidden lg:flex space-x-6 text-sm font-semibold text-gray-600">
+                <a href="#problem" class="hover:text-nuage-primary transition duration-200">The Problem</a>
+                <a href="#solution" class="hover:text-nuage-primary transition duration-200">The Solution</a>
+                <a href="#audiences" class="hover:text-nuage-primary transition duration-200">Who It's For</a>
+                <a href="#pricing" class="hover:text-nuage-primary transition duration-200">Pricing</a>
+                <a href="#founder" class="hover:text-nuage-primary transition duration-200">About the Builder</a>
+            </div>
+            <div>
+                <a href="#waitlist" class="bg-nuage-primary hover:bg-green-600 text-nuage-white px-5 py-2.5 rounded text-sm font-bold transition duration-300 shadow-md hover:shadow-lg">Join Waitlist</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-nuage-dark bg-pattern text-nuage-white py-20 md:py-28 border-b-8 border-nuage-primary overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 text-center md:text-left z-10">
+                <span class="text-nuage-primary font-bold tracking-wider uppercase text-sm mb-4 block">Welcome to Nu-Age</span>
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                    The Future of Digital Learning
+                </h1>
+                <p class="text-xl text-gray-200 mb-10 font-light">
+                    Remove the friction between the student and the knowledge. A premium Learning Management System designed for the modern internet.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                    <a href="#waitlist" class="bg-nuage-primary text-nuage-white px-8 py-4 rounded font-bold text-lg hover:bg-green-500 transition duration-300 shadow-lg text-center">Join the Waitlist</a>
+                    <a href="#solution" class="bg-transparent border border-gray-400 text-nuage-white px-8 py-4 rounded font-bold text-lg hover:bg-white/10 transition duration-300 text-center">Explore Architecture</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 w-full">
+                <img src="https://media.licdn.com/dms/image/v2/C5612AQFrZaoOisTYjw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1587814696984?e=2147483647&v=beta&t=N9oXGXsuhBYT4gt57nvCwdpjuX8yBeG06ozGV3w5cok" alt="Students using modern LMS" class="rounded-lg shadow-2xl border border-white/20 transform md:rotate-2 hover:rotate-0 transition duration-500">
+            </div>
+        </div>
+    </header>
+
+    <section id="problem" class="py-24 bg-nuage-white">
+        <div class="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/051/591/882/small/poor-internet-speed-frustrates-students-using-laptops-and-waiting-for-educational-apps-to-load-slow-internet-speed-reduces-team-productivity-idle-due-to-software-or-website-freezes-png.png" alt="Frustrated student with slow internet" class="rounded-lg shadow-lg grayscale hover:grayscale-0 transition duration-500">
+            </div>
+            <div class="md:w-1/2">
+                <div class="border-l-4 border-nuage-dark pl-6 mb-8">
+                    <h2 class="text-3xl font-bold text-nuage-dark mb-2">The Problem</h2>
+                    <p class="text-gray-500 uppercase tracking-widest text-sm font-semibold">Why education needed an upgrade</p>
+                </div>
+                <div class="prose prose-lg text-gray-600">
+                    <p class="mb-6 leading-relaxed">
+                        We’ve all been there. You sign up for an online course, excited to learn something new, only to be met with a platform that feels like it was built in 2005. It’s clunky. The videos buffer or kick you out to YouTube where you get distracted by ads. Clicking from one lesson to the next takes forever, and trying to use it on your phone is a nightmare.
+                    </p>
+                    <p class="text-xl font-medium text-nuage-dark bg-gray-50 p-6 border-l-4 border-nuage-primary shadow-sm">
+                        Most learning platforms today are just digital filing cabinets. They get in the way of actual learning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-4xl font-bold text-nuage-dark mb-6">Enter Nu-Age</h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                Nu-Age is a premium Learning Management System designed for the modern internet. We threw out the old playbook to build a platform that feels less like schoolwork and more like using your favorite apps.
+            </p>
+            <p class="text-2xl font-bold text-nuage-primary mb-12">
+                Our goal is simple: remove the friction between the student and the knowledge.
+            </p>
+            <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20age%20courses.png" alt="Nu-Age Clean Interface Mockup" class="rounded-xl shadow-xl border border-gray-200 mx-auto">
+        </div>
+    </section>
+
+    <section id="audiences" class="py-24 bg-nuage-white border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-nuage-dark mb-4">Built for Everyone in the Ecosystem</h2>
+                <div class="w-24 h-1 bg-nuage-primary mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition duration-300">
+                    <h3 class="text-2xl font-bold text-nuage-dark mb-3 border-b-2 border-nuage-primary pb-3 inline-block">For Learners</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Stop fighting the platform and start learning. Nu-Age is designed to keep you in the flow state with a distraction-free, app-like experience.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Instant video playback with no buffering
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Offline-first access for low-bandwidth areas
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Beautiful, responsive mobile experience
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition duration-300">
+                    <h3 class="text-2xl font-bold text-nuage-dark mb-3 border-b-2 border-nuage-primary pb-3 inline-block">For Teachers</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Your content is your livelihood. We give you the tools to deliver it beautifully while keeping it entirely secure from piracy.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Total content security and DRM protection
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Support for Self-Paced or Cohort structures
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Frictionless curriculum builder
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition duration-300">
+                    <h3 class="text-2xl font-bold text-nuage-dark mb-3 border-b-2 border-nuage-primary pb-3 inline-block">For Organizations</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Scale your training infrastructure without scaling your IT headaches. Nu-Age provides the robust backend needed for enterprise demands.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Granular analytics and progress tracking
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Bandwidth-efficient deployment options
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-nuage-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Dedicated tenant databases for data privacy
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 bg-nuage-white border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-7xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-nuage-dark mb-4">Enterprise Infrastructure Pricing</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto mb-16">Pay a flat rate for your curriculum library, and a flexible per-seat fee for your active learners. You only scale your costs when you scale your enrollments.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                
+                <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm flex flex-col h-full border-t-4 border-t-gray-300">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1 text-left">Sandbox</h3>
+                    <p class="text-sm text-gray-500 mb-6 text-left">Test the architecture risk-free.</p>
+                    
+                    <div class="text-left mb-6 pb-6 border-b border-gray-100">
+                        <div class="text-3xl font-black text-nuage-dark">₦0<span class="text-base text-gray-400 font-medium"> /mo Base</span></div>
+                        <div class="text-sm font-bold text-nuage-primary mt-2">+ First 20 Members Free</div>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600 text-left flex-grow">
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 5 Publishable Courses</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Standard Community Support</li>
+                    </ul>
+                    <a href="#waitlist" class="block w-full text-center border-2 border-gray-300 text-gray-600 font-bold py-3 rounded hover:border-gray-400 hover:text-gray-800 transition duration-300 mt-auto">Start Free</a>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-200 shadow-md flex flex-col h-full border-t-4 border-t-nuage-primary">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1 text-left">Creator Base</h3>
+                    <p class="text-sm text-gray-500 mb-6 text-left">For growing agencies and independent tutors.</p>
+                    
+                    <div class="text-left mb-6 pb-6 border-b border-gray-200">
+                        <div class="text-3xl font-black text-nuage-dark">₦15,000<span class="text-base text-gray-400 font-medium"> /mo Base</span></div>
+                        <div class="text-sm font-bold text-nuage-primary mt-2">+ ₦800 / Active Member</div>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600 text-left flex-grow">
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Up to 20 Publishable Courses</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 65GB Encrypted Vault Storage</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Custom Branding & Analytics</li>
+                    </ul>
+                    <a href="#waitlist" class="block w-full text-center border-2 border-nuage-dark text-nuage-dark font-bold py-3 rounded hover:bg-nuage-dark hover:text-nuage-white transition duration-300 mt-auto">Join Waitlist</a>
+                </div>
+
+                <div class="bg-nuage-dark p-8 rounded-lg border-2 border-nuage-primary shadow-2xl transform lg:-translate-y-4 relative flex flex-col h-full">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-nuage-primary text-nuage-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-lg">Volume Discount</div>
+                    <h3 class="text-xl font-bold text-nuage-white mb-1 text-left">Institution Base</h3>
+                    <p class="text-sm text-gray-300 mb-6 text-left">For universities and established academies.</p>
+                    
+                    <div class="text-left mb-6 pb-6 border-b border-gray-600">
+                        <div class="text-3xl font-black text-nuage-white">₦85,000<span class="text-base text-gray-400 font-medium"> /mo Base</span></div>
+                        <div class="text-sm font-bold text-nuage-primary mt-2">+ ₦400 / Active Member</div>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 text-sm text-gray-200 text-left flex-grow">
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Unlimited Courses & Storage</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Enterprise Offline-First Sync</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Bandwidth Savings (LAN Delivery)</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-nuage-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Custom Subdomain & Tenant</li>
+                    </ul>
+                    <a href="#waitlist" class="block w-full text-center bg-nuage-primary text-nuage-white font-bold py-3 rounded hover:bg-green-500 transition duration-300 mt-auto">Join Waitlist</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="https://nu-age-cdn.b-cdn.net/logos/Oluwatobiloba%20Passport.png" alt="Oluwatobiloba (Daniel) Davies" class="w-64 h-64 object-cover object-top rounded-full border-4 border-nuage-primary shadow-xl">
+                </div>
+                <div class="md:w-2/3">
+                    <span class="text-nuage-primary font-bold tracking-wider uppercase text-sm mb-2 block">The Architect</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-nuage-dark mb-4">Oluwatobiloba (Daniel) Davies</h2>
+                    <h3 class="text-lg text-gray-500 font-semibold mb-6">Founder & Lead Engineer</h3>
+                    <div class="text-gray-600 leading-relaxed space-y-4">
+                        <p>
+                            Oluwatobiloba is a Full Stack Developer, Data Engineer, and Second Year Mechatronics Engineering student at the Federal University of Technology, Minna (FUTMinna). 
+                        </p>
+                        <p>
+                            Driven by a passion for backend system design, he engineered Nu-Age from the ground up to ensure seamless education delivery regardless of network reliability.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://www.linkedin.com/in/oluwatobiloba-davies" class="bg-gray-200 hover:bg-nuage-primary hover:text-white text-nuage-dark px-4 py-2 rounded font-semibold text-sm transition duration-300">LinkedIn</a>
+                        <a href="https://github.com/demnzy" class="bg-gray-200 hover:bg-nuage-dark hover:text-white text-nuage-dark px-4 py-2 rounded font-semibold text-sm transition duration-300">GitHub</a>
+                        <a href="mailto:daviestobi3@gmail.com" class="bg-gray-200 hover:bg-gray-300 text-nuage-dark px-4 py-2 rounded font-semibold text-sm transition duration-300">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="waitlist" class="bg-nuage-primary py-24 text-center">
+        <div class="container mx-auto px-6 max-w-3xl text-nuage-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">The Bottom Line</h2>
+            <p class="text-lg md:text-xl font-medium leading-relaxed mb-10">
+                Education software shouldn't feel like a chore. Nu-Age brings the speed, beauty, and reliability of top-tier consumer apps to the world of e-learning.
+            </p>
+            
+            <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md mx-auto text-left relative overflow-hidden text-gray-900" id="waitlist-container">
+                
+                <div id="success-message" class="hidden absolute inset-0 bg-white flex flex-col items-center justify-center text-center p-8 z-10">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-nuage-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-nuage-dark mb-2">You're on the list!</h3>
+                    <p class="text-gray-500 text-sm">We'll notify you the moment Nu-Age opens for early access.</p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-nuage-dark mb-2 text-center">Join the Waitlist</h3>
+                <p class="text-gray-500 text-sm text-center mb-6">Be the first to know when Nu-Age officially launches.</p>
+                
+                <form id="waitlist-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="fullName" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-nuage-primary focus:border-nuage-primary outline-none bg-white text-gray-900" placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Organization / School (Optional)</label>
+                        <input type="text" id="organization" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-nuage-primary focus:border-nuage-primary outline-none bg-white text-gray-900" placeholder="University Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-nuage-primary focus:border-nuage-primary outline-none bg-white text-gray-900" placeholder="jane@example.com">
+                    </div>
+                    <button type="submit" id="submit-btn" class="w-full bg-nuage-dark text-nuage-white font-bold py-3 rounded hover:bg-gray-900 transition duration-300 flex justify-center items-center">
+                        <span>Secure My Spot</span>
+                    </button>
+                </form>
+            </div>
+
+            <script>
+                document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+                    e.preventDefault(); 
+                    
+                    const N8N_WEBHOOK_URL = "https://n8n.nu-age.name.ng/webhook/nu-age-waitlist";
+                    
+                    const btn = document.getElementById('submit-btn');
+                    const originalText = btn.innerHTML;
+                    
+                    btn.innerHTML = 'Sending...';
+                    btn.disabled = true;
+                    btn.classList.add('opacity-75');
+
+                    const payload = {
+                        fullName: document.getElementById('fullName').value,
+                        organization: document.getElementById('organization').value,
+                        email: document.getElementById('email').value,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    try {
+                        const response = await fetch(N8N_WEBHOOK_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if(response.ok) {
+                            document.getElementById('success-message').classList.remove('hidden');
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert("Something went wrong. Please try again.");
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        btn.classList.remove('opacity-75');
+                    }
+                });
+            </script>
+        </div>
+    </section>
+
+    <footer class="bg-nuage-dark text-gray-400 py-12 border-t-4 border-nuage-primary">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-full border border-nuage-primary p-0.5 flex items-center justify-center bg-white overflow-hidden">
+                        <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu-Age Logo" class="h-full w-full rounded-full object-cover">
+                    </div>
+                    <span class="text-xl font-bold text-nuage-white tracking-tighter">Nu Age<span class="text-nuage-primary">.</span></span>
+                </div>
+            </div>
+            <div class="text-sm text-center md:text-right">
+                <p>&copy; 2026 Nu-Age. All rights reserved.</p>
+                <p class="mt-2 text-xs">Architected for resilience.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
