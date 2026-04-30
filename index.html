@@ -89,27 +89,30 @@
     }
 
     /* ─── SCREENSHOT PLACEHOLDER ─── */
+    /* Container fits to whatever the image inside actually is */
     .screenshot-placeholder {
-      width: 100%; border-radius: var(--radius-lg);
-      background: var(--card);
+      width: 100%;
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 10px; color: var(--text-muted);
-      font-size: .82rem; font-weight: 500;
-      padding: 40px 20px;
-      position: relative; overflow: hidden;
+      overflow: hidden;
+      display: block;    /* normal flow — height driven by content */
+      background: var(--card);
+      /* centre lone images horizontally */
+      text-align: center;
+      line-height: 0;    /* kill inline gap under img */
     }
-    .screenshot-placeholder::before {
-      content: ''; position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent, transparent 18px,
-        rgba(55,191,20,.025) 18px, rgba(55,191,20,.025) 19px
-      );
+    /* The image fills the full width of its container, height is natural */
+    .screenshot-placeholder img {
+      display: block;
+      width: 100%;
+      height: auto;       /* always auto — image drives the box */
+      object-fit: unset;  /* not needed when width/height are natural */
+      border-radius: 0;
+      /* override any legacy inline position:absolute / top / left */
+      position: static !important;
+      top: auto !important; left: auto !important;
+      z-index: auto !important;
     }
-    .screenshot-placeholder svg { opacity: .4; }
-    .screenshot-placeholder span { opacity: .6; position: relative; }
 
     /* ─── NAV ─── */
     nav {
@@ -270,7 +273,6 @@
 
     /* Feature screenshot placeholder below each card group */
     .feature-screenshot { margin-top: 40px; }
-    .feature-screenshot .screenshot-placeholder { min-height: 280px; }
 
     @media(max-width:980px){ .features-grid{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:600px){ .features-grid{grid-template-columns:1fr;} }
@@ -289,7 +291,7 @@
       border-radius: 99px; padding: 6px 14px;
       font-size: .8rem; font-weight: 600; color: var(--green);
     }
-    .ai-visual .screenshot-placeholder { min-height: 340px; }
+    .ai-visual { }
     @media(max-width:860px){ .ai-inner{grid-template-columns:1fr;gap:40px;} }
 
     /* ─── COMMUNITY ─── */
@@ -301,7 +303,6 @@
     .community-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
     .community-card p { font-size: .88rem; line-height: 1.7; color: var(--text-muted); }
     .community-screenshot { margin-top: 40px; }
-    .community-screenshot .screenshot-placeholder { min-height: 280px; }
     @media(max-width:640px){ .community-grid{grid-template-columns:1fr;} }
 
     /* ─── CROSS PLATFORM ─── */
@@ -319,9 +320,6 @@
       text-transform: uppercase; letter-spacing: .09em;
       margin-bottom: 10px;
     }
-    .platform-screenshot-desktop .screenshot-placeholder { min-height: 320px; }
-    .platform-screenshot-mobile .screenshot-placeholder { min-height: 320px; }
-
     @media(max-width:640px){ .platform-screens{grid-template-columns:1fr;} }
 
     .download-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -347,7 +345,7 @@
     .gamif-stat { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
     .gamif-stat-num { font-family:'Bricolage Grotesque',sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--green); }
     .gamif-stat-lbl { font-size: .78rem; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
-    .gamif-visual .screenshot-placeholder { min-height: 300px; }
+    .gamif-visual { }
     @media(max-width:860px){ .gamif-grid{grid-template-columns:1fr;gap:40px;} }
 
     /* ─── CERTS ─── */
@@ -357,7 +355,7 @@
     .cert-feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
     .cert-check { width: 22px; height: 22px; border-radius: 50%; background: rgba(55,191,20,.15); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; color: var(--green); }
     .cert-feature p { margin-bottom: 0; font-size: .9rem; }
-    .certs-visual .screenshot-placeholder { min-height: 300px; }
+    .certs-visual { }
     @media(max-width:860px){ .certs-row{grid-template-columns:1fr;gap:40px;} }
 
     /* ─── AUDIENCES ─── */
@@ -479,6 +477,64 @@
     /* ─── ANIMATIONS ─── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── MOBILE-SPECIFIC OVERRIDES ─── */
+    @media (max-width: 640px) {
+
+      /* Tighter section padding on small screens */
+      .section { padding: 64px 0; }
+      .ai-section { padding: 64px 0; }
+      .platform-section { padding: 64px 0; }
+      .hero { padding: 64px 0 48px; }
+
+      /* Container horizontal padding */
+      .container { padding: 0 18px; }
+
+      /* Nav: hide the CTA button next to hamburger to avoid clutter */
+      .nav-cta { display: none; }
+
+      /* Hero */
+      .hero-grid { gap: 32px; }
+      .hero-body { font-size: 1rem; margin-bottom: 28px; }
+      .hero-actions { flex-direction: column; gap: 10px; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-ghost { width: 100%; justify-content: center; }
+
+      /* Platform screens: stack vertically */
+      .platform-screens { grid-template-columns: 1fr; gap: 32px; }
+
+      /* CTA banner: tighter on mobile */
+      .cta-banner { margin: 0 14px 60px; padding: 48px 24px; }
+      .cta-banner-actions { flex-direction: column; gap: 10px; align-items: center; }
+      .cta-banner-actions .btn-primary,
+      .cta-banner-actions .btn-ghost { width: 100%; justify-content: center; }
+
+      /* Download buttons: stack */
+      .download-buttons { flex-direction: column; align-items: center; gap: 12px; }
+      .dl-btn { width: 100%; max-width: 320px; justify-content: center; min-width: unset; }
+
+      /* Pricing cards on mobile */
+      .pricing-grid { gap: 16px; }
+
+      /* Trusted badges: wrap tighter */
+      .trusted-inner { gap: 16px; }
+      .trusted-badges { gap: 10px; }
+
+      /* Audience grid already goes 1-col at 760px — just tighten padding */
+      .audience-card { padding: 22px; }
+
+      /* Community cards */
+      .community-card { padding: 22px; }
+
+      /* Founder section */
+      .founder-img { width: 140px; height: 140px; }
+
+      /* Section headers */
+      .section-header { margin-bottom: 40px; }
+
+      /* Footer: centre everything */
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -535,9 +591,9 @@
       <div class="hero-visual">
         <div class="hero-img-wrap">
           <!-- HERO SCREENSHOT PLACEHOLDER -->
-          <div class="screenshot-placeholder" style="width: 650px; height: 350px;">
+          <div class="screenshot-placeholder">
             <!-- Image for: App Dashboard Screenshot -->
-            <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213559.png" alt="App Dashboard Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+            <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213559.png" alt="App Dashboard Screenshot" >
           </div>
         </div>
         <div class="hero-stat-pill pill-1">
@@ -580,16 +636,16 @@
       <div class="platform-screens">
         <div class="platform-screenshot-desktop">
           <div class="platform-screen-label">Desktop View</div>
-          <div class="screenshot-placeholder" style="min-height:320px;">
+          <div class="screenshot-placeholder">
             <!-- Image for: Desktop App Screenshot -->
-            <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214908.png" alt="Desktop App Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+            <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214908.png" alt="Desktop App Screenshot" >
           </div>
         </div>
         <div class="platform-screenshot-mobile">
           <div class="platform-screen-label">Mobile View</div>
-          <div class="screenshot-placeholder" style="width: 200px; height: 390px;">
+          <div class="screenshot-placeholder">
             <!-- Image for: Mobile App Screenshot -->
-            <img src="https://nu-age-cdn.b-cdn.net/logos/WhatsApp%20Image%202026-04-30%20at%209.50.40%20PM.jpeg" alt="Mobile App Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+            <img src="https://nu-age-cdn.b-cdn.net/logos/WhatsApp%20Image%202026-04-30%20at%209.50.40%20PM.jpeg" alt="Mobile App Screenshot" >
           </div>
         </div>
       </div>
@@ -704,9 +760,9 @@
 
     <!-- Feature screenshot placeholder -->
     <div class="feature-screenshot reveal">
-      <div class="screenshot-placeholder" style="width: 600px;height: 300px">
+      <div class="screenshot-placeholder">
         <!-- Image for: Course Dashboard & Progress View Screenshot -->
-        <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214501.png" alt="Course Dashboard &amp; Progress View Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+        <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214501.png" alt="Course Dashboard &amp; Progress View Screenshot" >
       </div>
     </div>
   </div>
@@ -734,9 +790,9 @@
         </div>
       </div>
       <div class="ai-visual">
-        <div class="screenshot-placeholder" style="min-height:290px;">
+        <div class="screenshot-placeholder">
           <!-- Image for: AI Tutor / Quiz Interface Screenshot -->
-          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213804.png" alt="AI Tutor / Quiz Interface Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213804.png" alt="AI Tutor / Quiz Interface Screenshot" >
         </div>
       </div>
     </div>
@@ -770,9 +826,9 @@
       </div>
     </div>
     <div class="community-screenshot reveal">
-      <div class="screenshot-placeholder" style="width: 650px;height: 300px">
+      <div class="screenshot-placeholder">
         <!-- Image for: Community Chat & Profiles Screenshot -->
-        <img src="https://nu-age-cdn.b-cdn.net/logos/nu%20chat%20desktop.png" alt="Community Chat &amp; Profiles Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+        <img src="https://nu-age-cdn.b-cdn.net/logos/nu%20chat%20desktop.png" alt="Community Chat &amp; Profiles Screenshot" >
       </div>
     </div>
   </div>
@@ -803,9 +859,9 @@
         </div>
       </div>
       <div class="gamif-visual">
-        <div class="screenshot-placeholder" style="min-height:300px;">
+        <div class="screenshot-placeholder">
           <!-- Image for: Leaderboard & Streak View Screenshot -->
-          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20025303.png" alt="Leaderboard &amp; Streak View Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20025303.png" alt="Leaderboard &amp; Streak View Screenshot" >
         </div>
       </div>
     </div>
@@ -817,9 +873,9 @@
   <div class="container">
     <div class="certs-row reveal">
       <div class="certs-visual">
-        <div class="screenshot-placeholder" style="min-height:280px;">
+        <div class="screenshot-placeholder">
           <!-- Image for: Certificate Generation Screenshot -->
-          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214322.png" alt="Certificate Generation Screenshot" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: fill; z-index:1;">
+          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214322.png" alt="Certificate Generation Screenshot" >
         </div>
       </div>
       <div class="certs-content">
