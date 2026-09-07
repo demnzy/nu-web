@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accept Invitation — Nu Age</title>
+  <meta name="description" content="Accept your organization invitation to join Nu Age AI Learning Platform." />
+  <link rel="icon" href="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" />
+  <link rel="apple-touch-icon" href="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #37BF14;
+      --green-glow: rgba(55, 191, 20, 0.25);
+      --green-dark: #237A0C;
+      --green-100: #E8F8E1;
+      --green-50: #F4FBF1;
+      --amber: #D97706;
+      --amber-100: #FEF3C7;
+      --red: #DC2626;
+      --red-100: #FEE2E2;
+      --ink: #101A13;
+      --ink-soft: #4B5A51;
+      --ink-muted: #7C8D82;
+      --line: #E3ECE4;
+      --surface: #FFFFFF;
+      --radius: 16px;
+      --radius-lg: 24px;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F6FAF6;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Glow */
+    .bg-mesh {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(55, 191, 20, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(55, 191, 20, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #ffffff 0%, #F4F8F4 100%);
+      z-index: -1;
+    }
+
+    /* Main Container */
+    .invite-card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px 36px;
+      box-shadow:
+        0 1px 3px rgba(16, 26, 19, 0.04),
+        0 12px 32px rgba(16, 26, 19, 0.06),
+        0 24px 60px rgba(55, 191, 20, 0.05);
+      text-align: center;
+      position: relative;
+      animation: cardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Brand Header */
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(55, 191, 20, 0.18);
+    }
+
+    .brand-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name span {
+      color: var(--green);
+    }
+
+    /* State Icon Styles */
+    .status-icon-wrap {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Spinner for Loading */
+    .spinner-ring {
+      width: 54px;
+      height: 54px;
+      border: 4px solid var(--green-100);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.9s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Success Icon */
+    .icon-success {
+      background: var(--green-100);
+      color: var(--green-dark);
+      box-shadow: 0 0 0 10px var(--green-50), 0 8px 24px var(--green-glow);
+      animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Warning / Signup Icon */
+    .icon-warning {
+      background: var(--amber-100);
+      color: var(--amber);
+      box-shadow: 0 0 0 10px #FFFBEB;
+      animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Error Icon */
+    .icon-error {
+      background: var(--red-100);
+      color: var(--red);
+      box-shadow: 0 0 0 10px #FEF2F2;
+      animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Typography */
+    .status-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.4px;
+    }
+
+    .status-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+    }
+
+    .status-desc strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* Pill Badges */
+    .org-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-50);
+      border: 1px solid rgba(55, 191, 20, 0.2);
+      color: var(--green-dark);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* Actions & Buttons */
+    .action-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--green-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(35, 122, 12, 0.3);
+    }
+
+    .btn-secondary {
+      background: #F4F7F4;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: #EAEFEA;
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .btn svg {
+      flex-shrink: 0;
+    }
+
+    /* Footer Links */
+    .card-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .card-footer a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .card-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hidden Utility */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-mesh"></div>
+
+  <main class="invite-card">
+    <!-- Brand -->
+    <a href="https://nu-age.name.ng" class="brand-bar" title="Nu Age Homepage">
+      <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu Age Logo" class="brand-logo" />
+      <span class="brand-name">Nu <span>Age</span></span>
+    </a>
+
+    <!-- Stage 1: Loading -->
+    <div id="stateLoading">
+      <div class="status-icon-wrap">
+        <div class="spinner-ring"></div>
+      </div>
+      <h1 class="status-title">Verifying Invitation</h1>
+      <p class="status-desc">Connecting to Nu Age security services to process your organization access token...</p>
+    </div>
+
+    <!-- Stage 2: Success / Already Member -->
+    <div id="stateSuccess" class="hidden">
+      <div class="status-icon-wrap icon-success">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div id="successOrgBadge" class="org-pill hidden">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span id="successOrgName">Organization</span>
+      </div>
+      <h1 class="status-title" id="successTitle">You're All Set!</h1>
+      <p class="status-desc" id="successDesc">Your account has been connected to the organization. Download or launch
+        the Nu Age app on your device to start learning.</p>
+
+      <div class="action-group">
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download" class="btn btn-primary"
+          id="btnAndroidDl">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4128 13.8533 8.082 12 8.082s-3.5902.3308-5.1368.8677L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396" />
+          </svg>
+          <span>Download for Android (APK)</span>
+        </a>
+
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download" class="btn btn-secondary"
+          id="btnWindowsDl">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+          </svg>
+          <span>Download for Windows</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Stage 3: Needs Signup -->
+    <div id="stateNeedsSignup" class="hidden">
+      <div class="status-icon-wrap icon-warning">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+      </div>
+      <div id="signupOrgBadge" class="org-pill hidden">
+        <span id="signupOrgName">Organization</span>
+      </div>
+      <h1 class="status-title">Account Required</h1>
+      <p class="status-desc" id="signupDesc">You've been invited! Download the Nu Age app and create your account using
+        your invited email address to join automatically.</p>
+
+      <div class="action-group">
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4128 13.8533 8.082 12 8.082s-3.5902.3308-5.1368.8677L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396" />
+          </svg>
+          <span>Download Android App</span>
+        </a>
+
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+          </svg>
+          <span>Download for Windows</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Stage 4: Error / Expired -->
+    <div id="stateError" class="hidden">
+      <div class="status-icon-wrap icon-error">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <h1 class="status-title" id="errorTitle">Invitation Invalid</h1>
+      <p class="status-desc" id="errorDesc">The security token in this link is broken, expired, or has already been
+        used. Please ask your administrator to send a new invitation.</p>
+
+      <div class="action-group">
+        <a href="https://nu-age.name.ng" class="btn btn-secondary">
+          <span>Return to Homepage</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span>Protected by Nu Age Platform Security &bull; <a href="https://nu-age.name.ng/#download">All
+          Downloads</a></span>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const API_URL = "https://api.nu-age.name.ng/organisations/process-invite";
+      let isProcessing = false;
+
+      // Extract token from Path (/accept-invite/<token>) or Query (?token=... or ?invite_token=...)
+      function extractToken() {
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        if (pathSegments.length > 0) {
+          const last = pathSegments[pathSegments.length - 1];
+          // Check if last segment is not the page name itself
+          if (last !== 'accept-invite' && last !== 'accept-invite.html') {
+            return last.trim();
+          }
+        }
+        const params = new URLSearchParams(window.location.search);
+        return (params.get('token') || params.get('invite_token') || '').trim();
+      }
+
+      function showState(stateId) {
+        ['stateLoading', 'stateSuccess', 'stateNeedsSignup', 'stateError'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle('hidden', id !== stateId);
+        });
+      }
+
+      async function processInvitation() {
+        if (isProcessing) return;
+        isProcessing = true;
+
+        const token = extractToken();
+
+        if (!token) {
+          showState('stateError');
+          document.getElementById('errorTitle').textContent = "No Token Found";
+          document.getElementById('errorDesc').textContent = "This invite link is missing a valid token parameter. Please tap the link directly from your email.";
+          return;
+        }
+
+        try {
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ token: token })
+          });
+
+          const data = await response.json().catch(() => ({}));
+
+          if (response.ok) {
+            const status = data.status;
+            const orgName = data.org_name || "the organisation";
+
+            if (status === "success" || status === "already_member") {
+              showState('stateSuccess');
+
+              if (data.org_name) {
+                const badge = document.getElementById('successOrgBadge');
+                document.getElementById('successOrgName').textContent = data.org_name;
+                badge.classList.remove('hidden');
+              }
+
+              if (status === "already_member") {
+                document.getElementById('successTitle').textContent = "You're Already a Member!";
+                document.getElementById('successDesc').innerHTML = `Your account is already a member of <strong>${orgName}</strong>. Open the app to continue your courses.`;
+              } else {
+                document.getElementById('successTitle').textContent = `Welcome to ${orgName}!`;
+                document.getElementById('successDesc').innerHTML = `Your account was successfully linked to <strong>${orgName}</strong>. Open or download the Nu Age app to get started.`;
+              }
+
+            } else if (status === "needs_signup") {
+              showState('stateNeedsSignup');
+
+              if (data.org_name) {
+                const badge = document.getElementById('signupOrgBadge');
+                document.getElementById('signupOrgName').textContent = data.org_name;
+                badge.classList.remove('hidden');
+              }
+
+              const emailText = data.email ? ` with <strong>${data.email}</strong>` : "";
+              document.getElementById('signupDesc').innerHTML = `You've been invited to join <strong>${orgName}</strong>! Download the app below and create an account${emailText} to join automatically.`;
+
+            } else {
+              showState('stateError');
+              document.getElementById('errorTitle').textContent = "Invitation Inactive";
+              document.getElementById('errorDesc').textContent = data.message || "This invitation could not be processed.";
+            }
+
+          } else {
+            // Error response from backend (e.g. 400 Expired / 404 Not Found)
+            showState('stateError');
+            const errorMsg = data.detail || (data.message || "The invitation token is invalid or has expired.");
+            document.getElementById('errorTitle').textContent = "Invitation Notice";
+            document.getElementById('errorDesc').textContent = errorMsg;
+          }
+
+        } catch (err) {
+          showState('stateError');
+          document.getElementById('errorTitle').textContent = "Connection Error";
+          document.getElementById('errorDesc').textContent = "Unable to reach the server. Please check your internet connection and reload this page.";
+        }
+      }
+
+      // Execute on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', processInvitation);
+      } else {
+        processInvitation();
+      }
+    })();
+  </script>
+</body>
+
+</html>
