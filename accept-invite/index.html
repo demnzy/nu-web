@@ -304,6 +304,43 @@
       text-decoration: underline;
     }
 
+    /* Help / Guidance Box */
+    .help-box {
+      background: #F8FAF8;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .help-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .help-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .help-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    .help-text strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
     /* Hidden Utility */
     .hidden {
       display: none !important;
@@ -420,11 +457,46 @@
           <line x1="12" y1="16" x2="12.01" y2="16"></line>
         </svg>
       </div>
-      <h1 class="status-title" id="errorTitle">Invitation Invalid</h1>
-      <p class="status-desc" id="errorDesc">The security token in this link is broken, expired, or has already been
-        used. Please ask your administrator to send a new invitation.</p>
+      <h1 class="status-title" id="errorTitle">Invitation Notice</h1>
+      <p class="status-desc" id="errorDesc">The security token in this link is broken, expired, or has already been used.</p>
+
+      <div class="help-box">
+        <div class="help-item">
+          <div class="help-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#237A0C" stroke-width="2.5">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="help-text">
+            <strong>Already accepted earlier?</strong>
+            <span>If you've already joined this organization, you're all set! Download or launch the Nu Age app and log in.</span>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="help-text">
+            <strong>Need a new invitation?</strong>
+            <span>Contact your organization administrator to re-send a fresh invitation to your email.</span>
+          </div>
+        </div>
+      </div>
 
       <div class="action-group">
+        <a href="https://nu-age.name.ng/#download" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download Nu Age App</span>
+        </a>
         <a href="https://nu-age.name.ng" class="btn btn-secondary">
           <span>Return to Homepage</span>
         </a>
@@ -480,6 +552,15 @@
           return;
         }
 
+        // Validate UUID structure (8-4-4-4-12 hex format)
+        const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!uuidRegex.test(token)) {
+          showState('stateError');
+          document.getElementById('errorTitle').textContent = "Invalid Invitation Link";
+          document.getElementById('errorDesc').textContent = "The security token in this link is incomplete or malformed. Please verify you clicked or copied the entire link from your invitation email.";
+          return;
+        }
+
         try {
           const response = await fetch(API_URL, {
             method: "POST",
@@ -531,10 +612,32 @@
             }
 
           } else {
-            // Error response from backend (e.g. 400 Expired / 404 Not Found)
+            // Robust error message extraction (handles strings, Pydantic 422 lists, and objects)
             showState('stateError');
-            const errorMsg = data.detail || (data.message || "The invitation token is invalid or has expired.");
-            document.getElementById('errorTitle').textContent = "Invitation Notice";
+            let errorTitle = "Invitation Notice";
+            let errorMsg = "The invitation token is invalid or has expired.";
+
+            if (typeof data.detail === 'string') {
+              errorMsg = data.detail;
+              if (errorMsg.toLowerCase().includes("expired")) {
+                errorTitle = "Invitation Expired";
+              } else if (errorMsg.toLowerCase().includes("invalid") || errorMsg.toLowerCase().includes("not found")) {
+                errorTitle = "Invitation Not Found";
+              }
+            } else if (Array.isArray(data.detail) && data.detail.length > 0) {
+              errorTitle = "Invalid Invitation Link";
+              errorMsg = "The security token in this link is incomplete or malformed. Please check the link from your email.";
+            } else if (data.message && typeof data.message === 'string') {
+              errorMsg = data.message;
+            } else if (response.status === 404) {
+              errorTitle = "Invitation Not Found";
+              errorMsg = "This invitation was not found. It may have been revoked by your administrator.";
+            } else if (response.status === 400) {
+              errorTitle = "Invitation Expired";
+              errorMsg = "This invitation has already been used or has expired.";
+            }
+
+            document.getElementById('errorTitle').textContent = errorTitle;
             document.getElementById('errorDesc').textContent = errorMsg;
           }
 
