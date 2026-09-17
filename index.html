@@ -3,1064 +3,2431 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nu Age — AI Learning Platform for Nigerian Students, Tutors & Institutions</title>
-  <meta name="description" content="Nu Age is a unified LMS built for Nigerian students, tutors, and institutions — AI tutoring, live course chat, leaderboards, offline access, and instant certificates. Free to start." />
+  <title>Nu Age — Learning Management System &amp; AI Study Platform</title>
+  <meta name="description" content="Nu Age is an offline-ready Learning Management System built for Nigerian students, tutors, and higher education institutions — featuring AI tutoring, live course discussions, peer leaderboards, and instant verifiable certificates." />
   <link rel="canonical" href="https://nu-age.name.ng/" />
 
+  <!-- OpenGraph & Twitter Cards -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nu Age" />
-  <meta property="og:title" content="Nu Age — AI Learning Platform for Nigerian Students, Tutors & Institutions" />
-  <meta property="og:description" content="AI tutoring, live chat, leaderboards, and offline access — one unified learning platform for Nigerian students, tutors, and institutions." />
+  <meta property="og:title" content="Nu Age — Learning Management System &amp; AI Study Platform" />
+  <meta property="og:description" content="Offline-first learning platform with AI tutoring, live cohort chat, leaderboards, and instant certificates for African students, tutors, and institutions." />
   <meta property="og:url" content="https://nu-age.name.ng/" />
   <meta property="og:image" content="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213559.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nu Age — AI Learning Platform for Nigerian Students, Tutors & Institutions" />
-  <meta name="twitter:description" content="AI tutoring, live chat, leaderboards, and offline access — one unified learning platform for Nigerian students, tutors, and institutions." />
+  <meta name="twitter:title" content="Nu Age — Learning Management System &amp; AI Study Platform" />
+  <meta name="twitter:description" content="Offline-first learning platform with AI tutoring, live cohort chat, leaderboards, and instant certificates for African students, tutors, and institutions." />
   <meta name="twitter:image" content="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213559.png" />
 
+  <!-- Schema.org SoftwareApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Nu Age",
     "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Windows, macOS, Linux, Android",
+    "operatingSystem": "Windows 10, Windows 11, Android, Web",
     "url": "https://nu-age.name.ng/",
     "sameAs": ["https://learn.nu-age.name.ng"],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NGN" },
     "description": "Unified learning platform with AI tutoring, live chat, leaderboards, and offline access for students, tutors, and institutions in Nigeria."
   }
   </script>
+
+  <!-- Favicons -->
   <link rel="icon" href="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" />
   <link rel="apple-touch-icon" href="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" />
+
+  <!-- Google Fonts: Plus Jakarta Sans (Standard WordPress / Modern CMS Typography) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green:      #37BF14;
-      --green-lt:   #4fd926;
-      --green-dk:   #237a0c;
-      --green-100:  #e8f8e1;
-      --green-50:   #f4fbf1;
-      --ink:        #101a13;
-      --ink-soft:   #57685e;
-      --ink-faint:  #8a988f;
-      --line:       #e3ece4;
-      --line-soft:  #eef4ef;
-      --surface:    #ffffff;
-      --surface-2:  #f6faf6;
-      --white:      #ffffff;
-      --radius:     12px;
-      --radius-lg:  18px;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      /* WordPress / Institutional Standard Color Palette */
+      --color-primary: #156637;         /* Scholastic Forest Green */
+      --color-primary-dark: #0e4825;    /* Deep Emerald */
+      --color-primary-light: #23864c;   /* Leaf Green Accent */
+      --color-primary-tint: #edf7f0;    /* Soft Green Wash */
+      --color-primary-subtle: #f4fbf6;  /* Pale Mint Background */
+
+      --color-accent: #d97706;         /* Institutional Gold / Amber */
+      --color-accent-light: #fef3c7;   /* Amber Tint */
+
+      --color-heading: #0f172a;        /* Slate 900 */
+      --color-body: #334155;           /* Slate 700 */
+      --color-muted: #64748b;          /* Slate 500 */
+      --color-faint: #94a3b8;          /* Slate 400 */
+
+      --color-surface: #ffffff;
+      --color-surface-subtle: #f8fafc; /* Classic Neutral 50 */
+      --color-surface-warm: #fbfbf9;   /* WordPress Classic Cream Tint */
+      --color-border: #e2e8f0;         /* Clean Crisp Border */
+      --color-border-dark: #cbd5e1;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --shadow-xl: 0 20px 30px -10px rgba(15, 23, 42, 0.12);
+
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --container-max: 1200px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--surface);
-      color: var(--ink-soft);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--color-surface);
+      color: var(--color-body);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    h1,h2,h3,h4,h5 { font-family: 'Bricolage Grotesque', sans-serif; color: var(--ink); font-weight: 600; letter-spacing: -.02em; }
-
-    ::selection { background: var(--green); color: #fff; }
-
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--surface-2); }
-    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 99px; }
-
-    a { color: inherit; }
-    img { max-width: 100%; }
-
-    /* ─── UTILITY ─── */
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: var(--green-100); border: 1px solid rgba(55,191,20,.28);
-      color: var(--green-dk); font-size: .72rem; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: 5px 13px; border-radius: 99px;
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-heading);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
     }
-    .badge::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--color-primary-dark);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ─── UTILITY & CONTAINER ─── */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-wrap {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-wrap-subtle {
+      background-color: var(--color-surface-subtle);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-wrap-mint {
+      background-color: var(--color-primary-subtle);
+      border-top: 1px solid #dceede;
+      border-bottom: 1px solid #dceede;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 52px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--color-primary);
+      background-color: var(--color-primary-tint);
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 14px;
+      border: 1px solid #c9e8d3;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+      margin-bottom: 14px;
+    }
+
+    .section-description {
+      font-size: 1.05rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+    }
+
+    /* ─── BUTTON STYLES (Clean WordPress Elementor / Gutenberg Standards) ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
 
     .btn-primary {
-      display: inline-flex; align-items: center; justify-content:center; gap: 8px;
-      background: var(--green); color: #fff;
-      font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: .9rem;
-      padding: 13px 26px; border-radius: var(--radius);
-      border: none; cursor: pointer; text-decoration: none;
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-    .btn-primary:hover { background: var(--green-dk); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(55,191,20,.28); }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; justify-content:center; gap: 8px;
-      background: transparent; color: var(--ink);
-      font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: .9rem;
-      padding: 12px 24px; border-radius: var(--radius);
-      border: 1.5px solid var(--line); cursor: pointer; text-decoration: none;
-      transition: border-color .2s, background .2s;
-    }
-    .btn-ghost:hover { border-color: var(--green); background: var(--green-50); }
-
-    .section-label {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: .72rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--green-dk);
-      margin-bottom: 14px; display: block;
+      background-color: var(--color-primary);
+      color: #ffffff !important;
+      box-shadow: 0 2px 4px rgba(21, 102, 55, 0.15);
     }
 
-    .mobile-cue {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: .78rem; font-weight: 600; color: var(--ink-soft);
-      background: var(--surface-2); border: 1px solid var(--line);
-      padding: 6px 13px; border-radius: 99px;
+    .btn-primary:hover {
+      background-color: var(--color-primary-dark);
+      box-shadow: 0 4px 10px rgba(21, 102, 55, 0.22);
+      transform: translateY(-1px);
     }
-    .mobile-cue svg { color: var(--green); flex-shrink: 0; }
 
-    .screenshot-placeholder {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      overflow: hidden;
+    .btn-secondary {
+      background-color: var(--color-surface);
+      color: var(--color-heading) !important;
+      border-color: var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-surface-subtle);
+      border-color: var(--color-border-dark);
+      color: var(--color-primary) !important;
+    }
+
+    .btn-outline-white {
+      background-color: transparent;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-outline-white:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+    }
+
+    .btn-white {
+      background-color: #ffffff;
+      color: var(--color-primary-dark) !important;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-white:hover {
+      background-color: #f8fafc;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ─── TOP NOTIFICATION / UTILITY BAR (Standard WordPress Site Header) ─── */
+    .wp-topbar {
+      background-color: #0b1f13;
+      color: #cbd5e1;
+      font-size: 0.78rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 7px 0;
+    }
+
+    .wp-topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wp-topbar-notice {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wp-topbar-tag {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+    }
+
+    .wp-topbar-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .wp-topbar-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s ease;
+    }
+
+    .wp-topbar-links a:hover {
+      color: #ffffff;
+    }
+
+    /* ─── MAIN NAVIGATION BAR (Astra / Kadence Style) ─── */
+    .wp-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .wp-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .wp-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .wp-brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--color-border);
+    }
+
+    .wp-brand-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wp-brand-name {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--color-heading);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .wp-brand-name span {
+      color: var(--color-primary);
+    }
+
+    .wp-brand-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .wp-nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .wp-nav-menu a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-body);
+      transition: color 0.15s ease;
+    }
+
+    .wp-nav-menu a:hover {
+      color: var(--color-primary);
+    }
+
+    .wp-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .wp-login-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-heading);
+      padding: 8px 12px;
+    }
+
+    .wp-login-link:hover {
+      color: var(--color-primary);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-border);
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--color-heading);
+    }
+
+    /* ─── MOBILE DRAWER ─── */
+    .mobile-drawer {
+      display: none;
+      background: #ffffff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 24px 24px;
+    }
+
+    .mobile-drawer.is-open {
       display: block;
-      background: var(--surface-2);
-      text-align: center;
+    }
+
+    .mobile-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mobile-drawer-links a {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--color-heading);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-surface-subtle);
+    }
+
+    /* ─── HERO SECTION (Authoritative Educational Banner) ─── */
+    .hero-section {
+      padding: 72px 0 68px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--color-surface-subtle) 100%);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-primary-tint);
+      color: var(--color-primary-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+      border: 1px solid #c9e8d3;
+    }
+
+    .hero-eyebrow svg {
+      color: var(--color-primary);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.15rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-decoration-color: #a7dfb8;
+      text-underline-offset: 6px;
+    }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    .hero-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-highlight-item svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    /* ─── DESKTOP APP WINDOW FRAME (WordPress Realistic Mockup Frame) ─── */
+    .app-window-frame {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-dark);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    .app-window-header {
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--color-border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .app-window-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .app-window-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .app-window-dot.close { background-color: #ef4444; }
+    .app-window-dot.minimize { background-color: #f59e0b; }
+    .app-window-dot.maximize { background-color: #10b981; }
+
+    .app-window-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .app-window-status {
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .app-window-body {
+      background-color: #0f172a;
       line-height: 0;
-      box-shadow: 0 20px 50px rgba(16,26,19,.06);
-    }
-    .screenshot-placeholder img {
-      display: block; width: 100%; height: auto;
-      position: static !important; top: auto !important; left: auto !important; z-index: auto !important;
     }
 
-    /* ─── UTILITY TOPBAR (Moodle-style) ─── */
-    .topbar { background: var(--ink); border-bottom: 1px solid rgba(255,255,255,.08); }
-    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; }
-    .topbar-links { display: flex; align-items: center; gap: 22px; }
-    .topbar-links a { font-size: .76rem; color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s; }
-    .topbar-links a:hover { color: #fff; }
-    .topbar-right { display: flex; align-items: center; gap: 16px; }
-    .topbar-right a { font-size: .76rem; color: rgba(255,255,255,.65); text-decoration: none; }
-    .topbar-right a:hover { color: #fff; }
-    .topbar-search { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,.55); }
-
-    /* ─── NAV ─── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+    .app-window-body img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 0;
+
+    /* ─── INSTITUTION TRUST STRIP ─── */
+    .trust-strip {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 28px 0;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-img { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--green); object-fit: cover; }
-    .nav-logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
-    .nav-logo-text span { color: var(--green); }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { font-size: .86rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: var(--green-dk); }
-    .nav-cta { display: flex; align-items: center; gap: 14px; }
-    .nav-login { font-size: .86rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; }
-    .nav-login:hover { color: var(--green-dk); }
 
-    .nav-hamburger {
-      display: none; background: none; border: 1.5px solid var(--line); border-radius: 8px;
-      cursor: pointer; padding: 8px; width: 42px; height: 42px;
-      align-items: center; justify-content: center;
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); position: relative; transition: .2s; }
-    .nav-hamburger span::before, .nav-hamburger span::after {
-      content: ''; position: absolute; left: 0; width: 18px; height: 2px; background: var(--ink); transition: .2s;
+
+    .trust-heading {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-muted);
     }
-    .nav-hamburger span::before { top: -6px; }
-    .nav-hamburger span::after { top: 6px; }
-    .nav-hamburger.open span { background: transparent; }
-    .nav-hamburger.open span::before { transform: rotate(45deg); top: 0; }
-    .nav-hamburger.open span::after { transform: rotate(-45deg); top: 0; }
 
-    .mobile-menu {
-      display: none; max-height: 0; overflow: hidden;
-      background: var(--surface); border-bottom: 1px solid var(--line);
-      transition: max-height .3s ease;
+    .trust-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .mobile-menu.open { max-height: 480px; }
-    .mobile-menu-inner { padding: 10px 24px 20px; display: flex; flex-direction: column; gap: 4px; }
-    .mobile-menu a {
-      padding: 12px 4px; font-size: .95rem; font-weight: 600; color: var(--ink);
-      text-decoration: none; border-bottom: 1px solid var(--line-soft);
+
+    .trust-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-heading);
+      background-color: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
     }
-    .mobile-menu .btn-primary { margin-top: 14px; }
 
-    /* ─── HERO ─── */
-    .hero { padding: 72px 0 60px; position: relative; overflow: hidden; background: var(--surface-2); border-bottom: 1px solid var(--line); }
-    .hero-glow {
-      position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 500px;
-      background: radial-gradient(ellipse, rgba(55,191,20,.14) 0%, transparent 70%);
-      pointer-events: none;
+    .trust-badge-item svg {
+      color: var(--color-primary);
     }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; position: relative; }
-    .hero-eyebrow { margin-bottom: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .hero-title { font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 600; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 20px; }
-    .hero-title em { color: var(--green-dk); font-style: normal; }
-    .hero-body { font-size: 1.04rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 28px; max-width: 460px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .hero-visual { position: relative; }
-    .hero-img-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(16,26,19,.12); position: relative; background:#fff; }
-    .hero-img-wrap img { width: 100%; display: block; }
-
-    .hero-stat-pill {
-      position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 50px; padding: 10px 16px;
-      display: flex; align-items: center; gap: 9px; font-size: .8rem; font-weight: 600; color: var(--ink);
-      box-shadow: 0 10px 26px rgba(16,26,19,.14);
+    /* ─── STATS COUNTER STRIP ─── */
+    .stats-ribbon {
+      background-color: var(--color-surface-subtle);
+      border-bottom: 1px solid var(--color-border);
+      padding: 44px 0;
     }
-    .hero-stat-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
-    .pill-1 { bottom: 20px; left: -18px; }
-    .pill-2 { top: 20px; right: -16px; }
 
-    /* ─── TRUSTED ─── */
-    .trusted { border-bottom: 1px solid var(--line); padding: 26px 0; }
-    .trusted-inner { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; }
-    .trusted-label { font-size: .78rem; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
-    .trusted-badges { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: center; }
-    .trusted-chip { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 15px; font-size: .8rem; font-weight: 600; color: var(--ink-soft); }
-
-    /* ─── STATS BAND (Moodle registry-style) ─── */
-    .stats-band { background: linear-gradient(120deg, var(--green-dk), var(--green)); padding: 40px 0; }
-    .stats-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; text-align: center; }
-    .stat-item { flex: 1; min-width: 140px; }
-    .stat-num { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; color: #fff; }
-    .stat-lbl { font-size: .82rem; color: rgba(255,255,255,.85); font-weight: 600; margin-top: 4px; }
-
-    /* ─── PROBLEM ─── */
-    .section { padding: 84px 0; }
-    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .problem-img-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(16,26,19,.08); }
-    .problem-img-wrap img { width: 100%; display: block; filter: grayscale(30%); transition: filter .4s; }
-    .problem-img-wrap:hover img { filter: grayscale(0%); }
-    .problem-content h2 { font-size: clamp(1.6rem,2.4vw,2.1rem); font-weight: 600; letter-spacing: -.025em; margin-bottom: 18px; line-height: 1.2; }
-    .problem-content p { line-height: 1.75; margin-bottom: 16px; }
-    .problem-callout { background: var(--green-50); border-left: 3px solid var(--green); padding: 16px 20px; border-radius: 0 var(--radius) var(--radius) 0; font-weight: 500; color: var(--ink); line-height: 1.6; margin-top: 20px; }
-
-    /* ─── SECTION HEADER ─── */
-    .section-header { text-align: center; max-width: 600px; margin: 0 auto 52px; }
-    .section-header h2 { font-size: clamp(1.7rem,2.8vw,2.3rem); font-weight: 600; letter-spacing: -.025em; margin-bottom: 14px; }
-    .section-header p { font-size: 1.02rem; line-height: 1.7; }
-
-    /* ─── FEATURE / BLOCK CARDS ─── */
-    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .feature-card {
-      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px 24px;
-      transition: border-color .25s, transform .25s, box-shadow .25s;
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
-    .feature-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(16,26,19,.08); }
-    .feature-icon {
-      width: 44px; height: 44px; border-radius: 11px; background: var(--green-100); border: 1px solid rgba(55,191,20,.25);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--green-dk);
+
+    .stat-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
     }
-    .feature-card h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 8px; }
-    .feature-card p { font-size: .87rem; line-height: 1.65; }
-    .feature-screenshot { margin-top: 36px; }
 
-    /* ─── AI SECTION ─── */
-    .ai-section { padding: 84px 0; background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .ai-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .ai-content h2 { font-size: clamp(1.6rem,2.4vw,2.1rem); font-weight: 600; letter-spacing: -.025em; margin-bottom: 18px; }
-    .ai-content p { line-height: 1.75; margin-bottom: 14px; }
-    .ai-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-    .ai-pill { background: var(--green-100); border: 1px solid rgba(55,191,20,.25); border-radius: 99px; padding: 6px 14px; font-size: .8rem; font-weight: 600; color: var(--green-dk); }
+    .stat-number {
+      font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
 
-    /* ─── COMMUNITY ─── */
-    .community-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
-    .community-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; }
-    .community-card h3 { font-size: 1.06rem; font-weight: 700; margin-bottom: 8px; }
-    .community-card p { font-size: .87rem; line-height: 1.65; }
-    .community-screenshot { margin-top: 36px; }
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-muted);
+    }
 
-    /* ─── GAMIFICATION ─── */
-    .gamif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .gamif-content h2 { font-size: clamp(1.6rem,2.4vw,2.1rem); font-weight: 600; letter-spacing: -.025em; margin-bottom: 18px; }
-    .gamif-content p { line-height: 1.75; margin-bottom: 14px; }
-    .gamif-stats { display: flex; gap: 36px; margin-top: 24px; flex-wrap: wrap; }
-    .gamif-stat-num { font-family: 'Bricolage Grotesque', sans-serif; font-size: 2.1rem; font-weight: 800; color: var(--green-dk); }
-    .gamif-stat-lbl { font-size: .82rem; color: var(--ink-faint); margin-top: 2px; }
+    /* ─── EDITORIAL PROBLEM BLOCK (Academic Context) ─── */
+    .problem-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+    }
 
-    /* ─── CERTS ─── */
-    .certs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .certs-content h2 { font-size: clamp(1.6rem,2.4vw,2.1rem); font-weight: 600; letter-spacing: -.025em; margin-bottom: 18px; }
-    .certs-content p { line-height: 1.75; margin-bottom: 14px; }
-    .cert-feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-    .cert-check { width: 21px; height: 21px; border-radius: 50%; background: var(--green-100); border: 1px solid rgba(55,191,20,.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; color: var(--green-dk); }
-    .cert-feature p { margin-bottom: 0; font-size: .9rem; }
+    .problem-box-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
 
-    /* ─── AUDIENCES ─── */
-    .audiences-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .audience-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px; transition: border-color .25s, transform .2s; }
-    .audience-card:hover { border-color: var(--green); transform: translateY(-3px); }
-    .audience-icon { font-size: 1.9rem; margin-bottom: 12px; }
-    .audience-card h3 { font-size: 1.06rem; font-weight: 700; margin-bottom: 8px; }
-    .audience-card p { font-size: .87rem; line-height: 1.65; }
+    .problem-box-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #991b1b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    /* ─── DOWNLOAD ─── */
-    .download-section { padding: 84px 0; text-align: center; background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .platform-screens { display: grid; grid-template-columns: 1fr; gap: 28px; margin: 40px 0 40px; max-width: 720px; margin-left: auto; margin-right: auto; }
-    .platform-screen-label { font-size: .76rem; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; text-align: left; }
-    .download-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 880px; margin: 0 auto; }
-    .dl-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px 24px; text-align: left; text-decoration: none; transition: .25s; display: flex; flex-direction: column; gap: 14px; }
-    .dl-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(16,26,19,.08); }
-    .dl-card-icon { width: 48px; height: 48px; border-radius: 11px; background: var(--green-100); border: 1px solid rgba(55,191,20,.25); display: flex; align-items: center; justify-content: center; color: var(--green-dk); }
-    .dl-card h3 { font-size: 1.06rem; font-weight: 700; margin-bottom: 4px; }
-    .dl-card p { font-size: .84rem; line-height: 1.6; }
-    .dl-card-cta { margin-top: auto; font-family: 'Bricolage Grotesque',sans-serif; font-weight: 700; font-size: .84rem; color: var(--green-dk); display: flex; align-items: center; gap: 6px; }
-    .download-footnote { margin-top: 26px; display: flex; justify-content: center; }
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-    /* ─── PRICING ─── */
-    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; align-items: start; }
-    .price-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 30px; position: relative; transition: border-color .25s, box-shadow .25s; }
-    .price-card.featured { background: #fff; border-color: var(--green); box-shadow: 0 20px 50px rgba(55,191,20,.12); }
-    .price-card:hover { border-color: var(--green); }
-    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-family: 'Bricolage Grotesque',sans-serif; font-size: .72rem; font-weight: 700; padding: 4px 14px; border-radius: 99px; white-space: nowrap; }
-    .price-tier { font-size: .74rem; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .09em; margin-bottom: 8px; }
-    .price-name { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; }
-    .price-desc { font-size: .84rem; color: var(--ink-faint); margin-bottom: 22px; }
-    .price-amount { font-family: 'Bricolage Grotesque',sans-serif; font-size: 2.1rem; font-weight: 800; color: var(--ink); }
-    .price-amount span { font-size: 1rem; color: var(--ink-faint); font-weight: 400; }
-    .price-per { font-size: .82rem; font-weight: 600; color: var(--green-dk); margin-top: 4px; margin-bottom: 22px; }
-    .price-divider { height: 1px; background: var(--line); margin: 18px 0; }
-    .price-features { list-style: none; margin-bottom: 26px; display: flex; flex-direction: column; gap: 11px; }
-    .price-features li { display: flex; align-items: flex-start; gap: 9px; font-size: .87rem; color: var(--ink-soft); }
-    .price-features li svg { flex-shrink: 0; color: var(--green-dk); margin-top: 1px; }
-    .price-cta { display: block; width: 100%; text-align: center; padding: 12px; border-radius: var(--radius); font-family: 'Bricolage Grotesque',sans-serif; font-weight: 700; font-size: .9rem; text-decoration: none; transition: .2s; }
-    .price-cta-outline { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
-    .price-cta-outline:hover { border-color: var(--green); color: var(--green-dk); }
-    .price-cta-solid { background: var(--green); border: 1.5px solid var(--green); color: #fff; }
-    .price-cta-solid:hover { background: var(--green-dk); }
-    .price-cta-dark { background: var(--surface-2); border: 1.5px solid var(--line); color: var(--ink); }
-    .price-cta-dark:hover { border-color: var(--green); }
+    .problem-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+    }
 
-    /* ─── FOUNDER ─── */
-    .founder-row { display: flex; gap: 56px; align-items: center; }
-    .founder-img { width: 190px; height: 190px; border-radius: 50%; object-fit: cover; object-position: top; border: 2.5px solid var(--green); flex-shrink: 0; box-shadow: 0 0 0 8px var(--green-50); }
-    .founder-content h2 { font-size: clamp(1.4rem,2vw,1.9rem); font-weight: 600; letter-spacing: -.02em; margin-bottom: 4px; }
-    .founder-role { font-size: .88rem; color: var(--ink-faint); font-weight: 500; margin-bottom: 18px; }
-    .founder-content p { line-height: 1.75; margin-bottom: 12px; font-size: .94rem; }
-    .founder-links { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-    .founder-link { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 16px; font-size: .82rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; transition: .2s; }
-    .founder-link:hover { border-color: var(--green); color: var(--green-dk); }
+    .problem-list-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #fee2e2;
+      color: #dc2626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
 
-    /* ─── FINAL CTA BANNER ─── */
-    .cta-banner { margin: 0 24px 72px; background: linear-gradient(135deg, var(--green-dk) 0%, var(--green) 60%, var(--green-lt) 100%); border-radius: var(--radius-lg); padding: 64px 40px; text-align: center; position: relative; overflow: hidden; }
-    .cta-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,.08); }
-    .cta-banner::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(0,0,0,.06); }
-    .cta-banner h2 { font-size: clamp(1.6rem,3.2vw,2.2rem); font-weight: 600; letter-spacing: -.025em; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
-    .cta-banner p { color: rgba(255,255,255,.88); font-size: 1.02rem; margin-bottom: 32px; position: relative; z-index: 1; }
-    .cta-banner-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    .solution-quote {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background-color: var(--color-primary-tint);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--color-primary-dark);
+      line-height: 1.6;
+    }
 
-    /* ─── FOOTER (Moodle-style dense multi-column) ─── */
-    footer { background: var(--ink); color: rgba(255,255,255,.62); padding: 56px 0 0; }
-    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); }
-    .footer-brand-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; margin-bottom: 12px; }
-    .footer-brand-logo img { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--green); }
-    .footer-brand-logo-text { font-family: 'Bricolage Grotesque',sans-serif; font-weight: 800; color: #fff; font-size: 1.02rem; }
-    .footer-brand-logo-text span { color: var(--green-lt); }
-    .footer-tagline { font-size: .84rem; line-height: 1.65; max-width: 260px; }
-    .footer-social { display: flex; gap: 10px; margin-top: 18px; }
-    .footer-social a { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); text-decoration: none; transition: .2s; }
-    .footer-social a:hover { background: var(--green); color: #fff; }
-    .footer-cols { display: flex; gap: 44px; flex-wrap: wrap; }
-    .footer-col-title { font-family: 'Bricolage Grotesque',sans-serif; font-size: .75rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
-    .footer-col a { display: block; font-size: .85rem; color: rgba(255,255,255,.6); text-decoration: none; margin-bottom: 11px; transition: color .2s; }
-    .footer-col a:hover { color: var(--green-lt); }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; padding: 22px 0; font-size: .78rem; }
-    .footer-bottom-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    .footer-bottom-links a { color: rgba(255,255,255,.55); text-decoration: none; }
-    .footer-bottom-links a:hover { color: var(--green-lt); }
+    /* ─── GUTENBERG ALTERNATING MEDIA & TEXT BLOCKS ─── */
+    .pillar-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
 
-    /* ─── ANIMATIONS ─── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .pillar-row:last-child {
+      margin-bottom: 0;
+    }
 
-    /* ─── DOWNLOAD-APP MODAL ─── */
-    .app-modal-overlay {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(16,26,19,.55);
+    .pillar-row.reversed {
+      direction: rtl;
+    }
+
+    .pillar-row.reversed > * {
+      direction: ltr;
+    }
+
+    .pillar-content h3 {
+      font-size: clamp(1.45rem, 2.3vw, 1.85rem);
+      margin-bottom: 14px;
+    }
+
+    .pillar-content p {
+      font-size: 0.98rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .pillar-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 24px;
+    }
+
+    .pillar-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--color-body);
+    }
+
+    .pillar-checklist li svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .pillar-media {
+      position: relative;
+    }
+
+    .pillar-media .app-window-frame {
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ─── AUDIENCE MATRIX / SOLUTIONS (WordPress Classic 3-Col Cards) ─── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .audience-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .audience-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary-light);
+    }
+
+    .audience-icon-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary-tint);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .audience-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .audience-card p {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .audience-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .audience-perks li {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--color-heading);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audience-perks li svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    /* ─── DOWNLOAD CENTER (Clean Software Repository Cards) ─── */
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .dl-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .dl-card.highlighted {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .dl-card-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .badge-available {
+      background-color: var(--color-primary-tint);
+      color: var(--color-primary-dark);
+    }
+
+    .badge-dev {
+      background-color: #f1f5f9;
+      color: var(--color-muted);
+    }
+
+    .dl-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--color-heading);
+    }
+
+    .dl-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .dl-card-meta {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      margin-bottom: 14px;
+    }
+
+    .dl-card-desc {
+      font-size: 0.88rem;
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .dl-card-cta {
+      margin-top: auto;
+    }
+
+    /* ─── PRICING TABLE (WordPress LMS Standard Pricing) ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .price-box {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .price-box.featured {
+      border: 2px solid var(--color-primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .price-flag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-primary);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 16px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .price-audience {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+
+    .price-plan-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .price-plan-desc {
+      font-size: 0.86rem;
+      color: var(--color-muted);
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+
+    .price-figure {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--color-heading);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .price-figure span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-muted);
+    }
+
+    .price-extra {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      background-color: var(--color-primary-tint);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .price-divider {
+      height: 1px;
+      background-color: var(--color-border);
+      margin-bottom: 24px;
+    }
+
+    .price-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .price-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--color-body);
+    }
+
+    .price-features-list li svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .price-action {
+      margin-top: auto;
+    }
+
+    /* ─── FAQ ACCORDION (WordPress Standard Pattern) ─── */
+    .faq-container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--color-heading);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: inherit;
+    }
+
+    .faq-question:hover {
+      color: var(--color-primary);
+    }
+
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      color: var(--color-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.is-active .faq-icon {
+      transform: rotate(180deg);
+      color: var(--color-primary);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 22px;
+      font-size: 0.94rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+      border-top: 1px solid transparent;
+    }
+
+    .faq-item.is-active .faq-answer {
+      display: block;
+      border-top-color: var(--color-surface-subtle);
+    }
+
+    /* ─── FACULTY & BUILDER SPOTLIGHT ─── */
+    .founder-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .founder-avatar {
+      width: 170px;
+      height: 170px;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      object-position: top;
+      border: 3px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .founder-meta h3 {
+      font-size: 1.55rem;
+      margin-bottom: 4px;
+    }
+
+    .founder-tagline {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .founder-bio {
+      font-size: 0.94rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .founder-links-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .founder-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-heading);
+      background-color: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .founder-social-btn:hover {
+      background-color: #ffffff;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    /* ─── PRE-FOOTER INSTITUTIONAL CTA BANNER ─── */
+    .cta-strip {
+      background: linear-gradient(135deg, #0f4825 0%, #156637 100%);
+      color: #ffffff;
+      padding: 72px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cta-strip h2 {
+      color: #ffffff;
+      font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+      margin-bottom: 14px;
+    }
+
+    .cta-strip p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.08rem;
+      max-width: 620px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── WORDPRESS MULTI-COLUMN FOOTER ─── */
+    .wp-footer {
+      background-color: #0b1710;
+      color: #94a3b8;
+      font-size: 0.88rem;
+      padding: 68px 0 0;
+    }
+
+    .wp-footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .wp-footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .wp-footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .wp-footer-logo-row img {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+    }
+
+    .wp-footer-logo-row span {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .wp-footer-desc {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: #94a3b8;
+      max-width: 300px;
+    }
+
+    .wp-footer-col h4 {
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .wp-footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .wp-footer-col a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.15s ease;
+    }
+
+    .wp-footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .wp-footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+    }
+
+    .wp-footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .wp-footer-bottom-links a {
+      color: #64748b;
+      text-decoration: none;
+    }
+
+    .wp-footer-bottom-links a:hover {
+      color: #cbd5e1;
+    }
+
+    /* ─── DOWNLOAD MODAL (User-Initiated, Clean Backdrop) ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(4px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none; transition: opacity .3s ease;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
     }
-    .app-modal-overlay.open { opacity: 1; pointer-events: auto; }
-    .app-modal {
-      width: 100%; max-width: 460px; background: #fff; border: 1px solid var(--line);
-      border-radius: var(--radius-lg); padding: 36px 32px 28px; position: relative;
-      box-shadow: 0 40px 100px rgba(16,26,19,.3);
-      transform: translateY(16px) scale(.98); transition: transform .35s cubic-bezier(.2,.9,.25,1);
+
+    .modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
     }
-    .app-modal-overlay.open .app-modal { transform: translateY(0) scale(1); }
-    .app-modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink-faint); transition: .2s; }
-    .app-modal-close:hover { color: var(--ink); border-color: var(--green); }
-    .app-modal-icon { width: 52px; height: 52px; border-radius: 13px; background: var(--green-100); border: 1px solid rgba(55,191,20,.3); display: flex; align-items: center; justify-content: center; color: var(--green-dk); margin-bottom: 20px; }
-    .app-modal h3 { font-size: 1.32rem; font-weight: 700; line-height: 1.25; margin-bottom: 10px; letter-spacing: -.02em; }
-    .app-modal p { font-size: .9rem; line-height: 1.6; margin-bottom: 24px; }
-    .app-modal-actions { display: flex; flex-direction: column; gap: 10px; }
-    .app-modal-btn { display: flex; align-items: center; gap: 12px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 13px 16px; text-decoration: none; color: var(--ink); transition: .2s; }
-    .app-modal-btn:hover { border-color: var(--green); background: var(--green-50); transform: translateY(-1px); }
-    .app-modal-btn svg { color: var(--green-dk); flex-shrink: 0; }
-    .app-modal-btn-text { display: flex; flex-direction: column; gap: 1px; }
-    .app-modal-btn-name { font-family: 'Bricolage Grotesque',sans-serif; font-weight: 700; font-size: .87rem; }
-    .app-modal-btn-sub { font-size: .74rem; color: var(--ink-faint); }
-    .app-modal-dismiss { display: block; text-align: center; margin-top: 16px; font-size: .82rem; color: var(--ink-faint); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; background: none; border: none; font-family: inherit; width: 100%; }
-    .app-modal-dismiss:hover { color: var(--ink); }
 
-    /* ══════════════════════════════ MOBILE OPTIMISATION ══════════════════════════════ */
-    @media (max-width: 980px) {
-      .topbar-links { display: none; }
-      .nav-links { display: none; }
-      .nav-login { display: none; }
-      .nav-hamburger { display: flex; }
-      .mobile-menu { display: block; }
-      .nav-cta .btn-primary { padding: 9px 16px; font-size: .8rem; }
-      .mobile-menu-login { font-weight: 600; color: var(--green-dk); }
+    .modal-card {
+      background-color: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 480px;
+      padding: 32px;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+      transform: translateY(10px);
+      transition: transform 0.25s ease;
+    }
 
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-title { font-size: 2.1rem; }
-      .pill-1, .pill-2 { display: none; }
+    .modal-overlay.is-active .modal-card {
+      transform: translateY(0);
+    }
 
-      .problem-grid, .ai-inner, .gamif-grid, .certs-row { grid-template-columns: 1fr; gap: 32px; }
-      .features-grid, .audiences-grid { grid-template-columns: repeat(2,1fr); }
-      .download-cards { grid-template-columns: repeat(2,1fr); }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .price-card.featured { transform: none; }
-      .founder-row { flex-direction: column; text-align: center; gap: 28px; }
-      .founder-links { justify-content: center; }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-muted);
+      padding: 4px;
+      border-radius: 4px;
+    }
 
-      .footer-top { flex-direction: column; }
-      .footer-cols { gap: 32px; width: 100%; justify-content: space-between; }
+    .modal-close:hover {
+      color: var(--color-heading);
+      background-color: var(--color-surface-subtle);
+    }
+
+    .modal-heading {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-sub {
+      font-size: 0.88rem;
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .modal-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface-subtle);
+      text-decoration: none;
+      color: var(--color-heading);
+      transition: all 0.15s ease;
+    }
+
+    .modal-option-btn:hover {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-tint);
+    }
+
+    .modal-option-btn svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .modal-option-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .modal-option-desc {
+      font-size: 0.76rem;
+      color: var(--color-muted);
+      display: block;
+    }
+
+    .modal-dismiss-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* ─── RESPONSIVENESS & BREAKPOINTS ─── */
+    @media (max-width: 1024px) {
+      .wp-nav-menu {
+        display: none;
+      }
+      .mobile-nav-toggle {
+        display: block;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pillar-row, .pillar-row.reversed {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 36px;
+      }
+      .audience-grid, .download-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+      .founder-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .founder-avatar {
+        margin: 0 auto;
+      }
+      .founder-links-row {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 640px) {
-      .container { padding: 0 18px; }
-      .hero { padding: 40px 0 40px; }
-      .section { padding: 56px 0; }
-      .ai-section, .download-section { padding: 56px 0; }
-
-      .hero-body { font-size: .98rem; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn-primary, .hero-actions .btn-ghost { width: 100%; }
-
-      .stats-inner { justify-content: center; gap: 28px 20px; }
-      .stat-item { min-width: 40%; }
-
-      .features-grid, .community-grid, .audiences-grid, .download-cards { grid-template-columns: 1fr; }
-
-      .trusted-inner { flex-direction: column; gap: 14px; }
-
-      .cta-banner { margin: 0 14px 56px; padding: 44px 22px; }
-      .cta-banner-actions { flex-direction: column; }
-      .cta-banner-actions .btn-primary, .cta-banner-actions .btn-ghost { width: 100%; }
-
-      .section-header { margin-bottom: 36px; }
-
-      .founder-img { width: 130px; height: 130px; }
-
-      .footer-cols { flex-direction: column; gap: 30px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-
-      .app-modal { padding: 30px 22px 24px; }
-      .app-modal h3 { font-size: 1.15rem; }
+      .section-wrap {
+        padding: 56px 0;
+      }
+      .wp-topbar-links {
+        display: none;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-cta-group .btn {
+        width: 100%;
+      }
+      .problem-editorial {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .wp-footer-top {
+        grid-template-columns: 1fr;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
+      .cta-buttons .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════ DOWNLOAD-APP MODAL (mandatory) ════════════════════════════════ -->
-<div class="app-modal-overlay" id="appModalOverlay">
-  <div class="app-modal">
-    <button class="app-modal-close" id="appModalClose" aria-label="Close">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <h3>Too much to read? Jump right into learning.</h3>
-    <p>Get the Nu Age app and start your first course in under two minutes — AI tutoring, live chat, and progress tracking, all offline-ready.</p>
-    <div class="app-modal-actions">
-      <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download" class="app-modal-btn" id="modalDlWindows">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-        <div class="app-modal-btn-text">
-          <span class="app-modal-btn-name">Download for Windows</span>
-          <span class="app-modal-btn-sub">Free · Windows 10 & 11</span>
-        </div>
-      </a>
-      <a href="#download" class="app-modal-btn" id="modalDlDesktop">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        <div class="app-modal-btn-text">
-          <span class="app-modal-btn-name">Download macOS & Linux</span>
-          <span class="app-modal-btn-sub">Coming Soon!</span>
-        </div>
-      </a>
-      <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download" class="app-modal-btn" id="modalDlMobile">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
-        <div class="app-modal-btn-text">
-          <span class="app-modal-btn-name">Get it on mobile</span>
-          <span class="app-modal-btn-sub">Free · Android now, iOS coming soon</span>
-        </div>
-      </a>
-    </div>
-    <button class="app-modal-dismiss" id="appModalDismiss">Continue on the web instead</button>
-  </div>
-</div>
-<!-- ════════════════════════════════ UTILITY TOPBAR ════════════════════════════════ -->
-<div class="topbar">
-  <div class="container topbar-inner">
-    <div class="topbar-links">
-      <a href="#problem">Community</a>
-      <a href="#features">Documentation</a>
-      <a href="#audiences">Marketplace</a>
-      <a href="#download">Downloads</a>
-    </div>
-    <div class="topbar-right">
-      <span class="topbar-search">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      </span>
-      <a href="https://learn.nu-age.name.ng" title="Go to the Nu Age learners portal">Log in</a>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════ NAV ════════════════════════════════ -->
-<nav>
-  <div class="container nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu Age Logo" class="nav-logo-img" />
-      <span class="nav-logo-text">Nu Age<span>.</span></span>
-    </a>
-
-    <div class="nav-links">
-      <a href="#problem">The Problem</a>
-      <a href="#features">Features</a>
-      <a href="#audiences">Who It's For</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#download">Download</a>
-      <a href="#founder">Builder</a>
-    </div>
-
-    <div class="nav-cta">
-      <a href="https://learn.nu-age.name.ng" class="nav-login" title="learn.nu-age.name.ng — student &amp; tutor login">Log in</a>
-      <a href="#download" class="btn-primary">Download the App</a>
-    </div>
-
-    <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span></button>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <a href="#problem">The Problem</a>
-      <a href="#features">Features</a>
-      <a href="#audiences">Who It's For</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#download">Download</a>
-      <a href="#founder">Builder</a>
-      <a href="https://learn.nu-age.name.ng" class="mobile-menu-login" title="learn.nu-age.name.ng — student &amp; tutor login">Log in</a>
-      <a href="#" class="btn-primary">Download the App</a>
-    </div>
-  </div>
-</nav>
-
-<!-- ════════════════════════════════ HERO ════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-eyebrow">
-          <span class="badge">Now Available</span>
-          <span class="mobile-cue">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
-            Also on mobile
-          </span>
-        </div>
-        <h1 class="hero-title">
-          One platform.<br>
-          Every tool to <em>actually learn.</em>
-        </h1>
-        <p class="hero-body">
-          Nu Age is a unified learning environment built for modern students and educators — combining AI tutoring, social learning, live chat, and offline access into a single, beautifully designed LMS.
-        </p>
-        <div class="hero-actions">
-          <a href="#download" class="btn-primary">Download the App <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="#features" class="btn-ghost">Explore Features</a>
-        </div>
+  <!-- ════════════════════════════════ TOP UTILITY BAR (Moodle / WordPress Standard) ════════════════════════════════ -->
+  <header class="wp-topbar" role="banner">
+    <div class="container wp-topbar-inner">
+      <div class="wp-topbar-notice">
+        <span class="wp-topbar-tag">LMS Update</span>
+        <span>Offline-first learning platform for Nigerian universities, tutors &amp; academies</span>
       </div>
+      <div class="wp-topbar-links">
+        <a href="mailto:daviestobi3@gmail.com">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Institutional Inquiries
+        </a>
+        <a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Learner Web Portal
+        </a>
+      </div>
+    </div>
+  </header>
 
-      <div class="hero-visual">
-        <div class="hero-img-wrap">
-          <div class="screenshot-placeholder">
-            <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213559.png" alt="Nu Age learning dashboard showing course progress and weekly activity" >
+  <!-- ════════════════════════════════ MAIN STICKY NAVIGATION ════════════════════════════════ -->
+  <nav class="wp-header" aria-label="Main Navigation">
+    <div class="container wp-header-inner">
+      <a href="#" class="wp-brand">
+        <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu Age LMS Logo" class="wp-brand-logo" />
+        <div class="wp-brand-title">
+          <span class="wp-brand-name">Nu Age<span>.</span></span>
+          <span class="wp-brand-sub">Learning Systems</span>
+        </div>
+      </a>
+
+      <ul class="wp-nav-menu">
+        <li><a href="#features">Platform Overview</a></li>
+        <li><a href="#pillars">Core Pillars</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#download">Downloads</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#leadership">About</a></li>
+      </ul>
+
+      <div class="wp-header-actions">
+        <a href="https://learn.nu-age.name.ng" class="wp-login-link" target="_blank" rel="noopener">Sign In</a>
+        <button type="button" class="btn btn-primary" onclick="openDownloadModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Get Nu Age
+        </button>
+        <button class="mobile-nav-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="#features" onclick="closeMobileNav()">Platform Overview</a>
+        <a href="#pillars" onclick="closeMobileNav()">Core Pillars</a>
+        <a href="#solutions" onclick="closeMobileNav()">Solutions</a>
+        <a href="#download" onclick="closeMobileNav()">Downloads</a>
+        <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
+        <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+        <a href="#leadership" onclick="closeMobileNav()">About</a>
+        <a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener">Student &amp; Tutor Web Login &rarr;</a>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="closeMobileNav(); openDownloadModal();">
+        Download Application
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════ EDITORIAL HERO SECTION ════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Next-Generation Educational LMS
+          </div>
+          <h1 class="hero-title">
+            The Complete Learning Platform Built for <em>African Education.</em>
+          </h1>
+          <p class="hero-lead">
+            Nu Age unifies AI syllabus tutoring, live course discussions, peer leaderboards, and offline-first access into a single, high-reliability learning management system designed for students, tutors, and institutions.
+          </p>
+
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-primary" onclick="openDownloadModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download for Windows &amp; Android
+            </button>
+            <a href="#pillars" class="btn btn-secondary">
+              Explore Platform Features
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="hero-highlight-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>100% Free for Learners</span>
+            </div>
+            <div class="hero-highlight-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero-Data Offline Mode</span>
+            </div>
+            <div class="hero-highlight-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Verifiable Certificates</span>
+            </div>
           </div>
         </div>
-        <div class="hero-stat-pill pill-1"><span class="dot"></span><span>Weekly Activity tracker</span></div>
-        <div class="hero-stat-pill pill-2"><span class="dot"></span><span>Quick actions so you never miss a beat</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ─── TRUSTED ─── -->
-<div class="trusted">
-  <div class="container">
-    <div class="trusted-inner">
-      <span class="trusted-label">Built for students at</span>
-      <div class="trusted-badges">
-        <span class="trusted-chip">Universities</span>
-        <span class="trusted-chip">Polytechnics</span>
-        <span class="trusted-chip">Private Academies</span>
-        <span class="trusted-chip">Online Tutorials</span>
-        <span class="trusted-chip">Secondary Schools</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ─── STATS BAND ─── -->
-<div class="stats-band">
-  <div class="container stats-inner">
-    <div class="stat-item"><div class="stat-num">100+</div><div class="stat-lbl">Learners onboard</div></div>
-    <div class="stat-item"><div class="stat-num">20+</div><div class="stat-lbl">Courses created</div></div>
-    <div class="stat-item"><div class="stat-num">30+</div><div class="stat-lbl">Institutions & tutors</div></div>
-    <div class="stat-item"><div class="stat-num">2</div><div class="stat-lbl">Platforms — Windows & Android</div></div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════ PROBLEM ════════════════════════════════ -->
-<section id="problem" class="section">
-  <div class="container">
-    <div class="problem-grid reveal">
-      <div class="problem-img-wrap">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/051/591/882/small/poor-internet-speed-frustrates-students-using-laptops-and-waiting-for-educational-apps-to-load-slow-internet-speed-reduces-team-productivity-idle-due-to-software-or-website-freezes-png.png" alt="Student frustrated by slow, fragmented learning tools and unreliable internet" loading="lazy" />
-      </div>
-      <div class="problem-content">
-        <span class="section-label">The Problem</span>
-        <h2>Education is still fragmented and frustrating.</h2>
-        <p>A student downloads a PDF from email, watches a video on YouTube, asks a question in a noisy WhatsApp group, then jumps to a clunky university portal to submit work. The tools don't talk to each other. The experience fights against learning.</p>
-        <p>Most LMS platforms are digital filing cabinets — static, slow, and designed for administrators, not students. They were built in 2005 and got a coat of paint.</p>
-        <div class="problem-callout">"Most learning platforms today just get in the way of actual learning."</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ FEATURES ════════════════════════════════ -->
-<section id="features" class="section" style="background: var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">The Solution</span>
-      <h2>Everything a learner needs — in one place.</h2>
-      <p>Nu Age removes the fragmentation. Every tool, every resource, every conversation lives under one roof, on one beautiful platform.</p>
-    </div>
-
-    <div class="features-grid reveal">
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <h3>Dynamic Course Engine</h3>
-        <p>Courses broken into clean modules — text, diagrams, video — with real-time progress bars turning overwhelming syllabi into achievable steps.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg></div>
-        <h3>AI-Powered Self-Study</h3>
-        <p>Upload a syllabus and watch AI generate targeted quizzes, concept breakdowns, and 6+ lesson types — acting as an on-demand personal tutor.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <h3>Real-Time In-App Chat</h3>
-        <p>Direct messages and course-specific chat rooms — so students can discuss calculus Module 3 without ever leaving the platform.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Student Community</h3>
-        <p>Friend systems, dynamic profiles showing streak and interests, and the ability to find peers in the exact same courses — your academic network built-in.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h3>Live Leaderboards</h3>
-        <p>Every course features a real-time leaderboard ranked by quiz scores and progression. Healthy competition drives completion rates.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <h3>Instant Certificates</h3>
-        <p>Hit 100% completion and pass assessments — Nu Age instantly generates a verifiable, high-quality certificate ready to share on LinkedIn.</p>
-      </div>
-    </div>
-
-    <div class="feature-screenshot reveal">
-      <div class="screenshot-placeholder">
-        <img src="https://nu-age-cdn.b-cdn.net/logos/courses%20dark%20mode.png" alt="Nu Age course dashboard with modules and real-time progress tracking" loading="lazy" >
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ AI SECTION ════════════════════════════════ -->
-<section class="ai-section">
-  <div class="container">
-    <div class="ai-inner reveal">
-      <div class="ai-content">
-        <span class="section-label">AI Self-Study Hub</span>
-        <h2>Your AI tutor never sleeps — and it knows your material.</h2>
-        <p>When a tutor uploads a dense syllabus or long lecture document, Nu Age's AI reads it and generates highly contextual questions — not generic ones. It understands the <em style="color:var(--ink);font-style:normal;">specific content</em> your course covers.</p>
-        <p>Fail a practice question? You don't just see a red X. You get an immediate, AI-generated explanation referencing the exact section of the material you need to revisit.</p>
-        <div class="ai-pills">
-          <span class="ai-pill">Auto Question Generation</span>
-          <span class="ai-pill">6+ Lesson Types</span>
-          <span class="ai-pill">Concept Breakdown</span>
-          <span class="ai-pill">Targeted Practice</span>
-          <span class="ai-pill">Markdown Support</span>
-        </div>
-      </div>
-      <div class="ai-visual">
-        <div class="screenshot-placeholder">
-          <img src="https://nu-age-cdn.b-cdn.net/logos/exam%20sim.png" alt="Nu Age AI tutor generating a quiz from an uploaded syllabus" loading="lazy" >
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ COMMUNITY & CHAT ════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Community & Communication</span>
-      <h2>Learning is better together.</h2>
-      <p>Nu Age replaces the WhatsApp groups and scattered DMs with purpose-built, education-first social tools.</p>
-    </div>
-    <div class="community-grid reveal">
-      <div class="community-card"><h3>🧑‍🤝‍🧑 Friend System & Profiles</h3><p>Search for and add peers to your network. Profiles show school, academic interests, and learning streaks — find people in the same hardware or programming course instantly.</p></div>
-      <div class="community-card"><h3>💬 Course-Specific Channels</h3><p>Every course gets its own live chat room. Stuck on calculus Module 3? Drop a message — anyone enrolled and online can jump in to help within seconds.</p></div>
-      <div class="community-card"><h3>📩 Direct Messaging</h3><p>Message friends or tutors privately for quick clarifications — no need to switch apps or wait for a group to see your question.</p></div>
-      <div class="community-card"><h3>📊 Educator Command Center</h3><p>Tutors can spin up courses, invite cohorts, assign co-tutors, and view real-time analytics showing which modules trip students up most.</p></div>
-    </div>
-    <div class="community-screenshot reveal">
-      <div class="screenshot-placeholder">
-        <img src="https://nu-age-cdn.b-cdn.net/logos/nu%20chat%203.png" alt="Nu Age course chat room and student profile with learning streak" loading="lazy" >
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ GAMIFICATION ════════════════════════════════ -->
-<section class="section" style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-  <div class="container">
-    <div class="gamif-grid reveal">
-      <div class="gamif-content">
-        <span class="section-label">Gamification</span>
-        <h2>Competition drives completion.</h2>
-        <p>Nu Age leverages healthy competition through live leaderboards on every course. Students see their rank among peers in real-time — based on quiz scores and progression speed — tapping into natural drive to reach the top.</p>
-        <p>Streaks, milestones, and progression markers keep learners hyper-aware of how close they are to their next achievement.</p>
-        <div class="gamif-stats">
-          <div class="gamif-stat"><div class="gamif-stat-num">3×</div><div class="gamif-stat-lbl">Avg. completion rate boost</div></div>
-          <div class="gamif-stat"><div class="gamif-stat-num">Live</div><div class="gamif-stat-lbl">Leaderboard updates</div></div>
-        </div>
-      </div>
-      <div class="gamif-visual">
-        <div class="screenshot-placeholder">
-          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20025303.png" alt="Nu Age live course leaderboard ranked by quiz score and progress" loading="lazy" >
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ CERTIFICATES ════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="certs-row reveal">
-      <div class="certs-visual">
-        <div class="screenshot-placeholder">
-          <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214322.png" alt="Nu Age instant verifiable course completion certificate" loading="lazy" >
-        </div>
-      </div>
-      <div class="certs-content">
-        <span class="section-label">Automated Certificates</span>
-        <h2>Proof of learning — instantly, beautifully.</h2>
-        <p>When a student completes a course and passes required assessments, Nu Age generates a high-quality, personalised certificate in seconds. No emailing tutors. No waiting a week.</p>
-        <div style="margin-top:22px;display:flex;flex-direction:column;gap:14px;">
-          <div class="cert-feature"><div class="cert-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Tied to the student's profile and specific curriculum — fully verifiable credentials.</p></div>
-          <div class="cert-feature"><div class="cert-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Instant download in one click.</p></div>
-          <div class="cert-feature"><div class="cert-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><p>Zero administrative overhead — rewards are automated end-to-end.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ WHO IT'S FOR ════════════════════════════════ -->
-<section id="audiences" class="section" style="background:var(--surface-2);border-top:1px solid var(--line);">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Who It's For</span>
-      <h2>Built for every side of the classroom.</h2>
-      <p>Nu Age serves the full educational ecosystem — from the student grinding for finals to the institution managing thousands.</p>
-    </div>
-    <div class="audiences-grid reveal">
-      <div class="audience-card"><div class="audience-icon">🎓</div><h3>University Students</h3><p>Access course materials, join study groups, chat with classmates, and track your progression — all without leaving the app. Built for the hustle of Nigerian campus life.</p></div>
-      <div class="audience-card"><div class="audience-icon">👨‍🏫</div><h3>Independent Tutors</h3><p>Upload your syllabus, invite your cohort, let AI generate your quizzes, and watch your students' progress on a live analytics dashboard. Run a professional academy from day one.</p></div>
-      <div class="audience-card"><div class="audience-icon">🏛️</div><h3>Institutions & Academies</h3><p>Unlimited courses, enterprise LAN delivery for offline campuses, custom subdomains, cohort management tools, and a command centre built for scale.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ DOWNLOAD ════════════════════════════════ -->
-<section id="download" class="download-section">
-  <div class="container">
-    <div class="download-inner reveal">
-      <span class="section-label">Download</span>
-      <h2>Get Nu Age on every device.</h2>
-      <p style="max-width:560px;margin:0 auto;">Install the app for the full experience — faster load times, offline access to your courses, and native notifications the moment someone replies.</p>
-
-      <div class="platform-screens">
-        <div>
-          <div class="screenshot-placeholder">
-            <img src="https://nu-age-cdn.b-cdn.net/logos/courses%203.png" alt="Nu Age desktop app for Windows, macOS, and Linux" loading="lazy" >
+        <div class="hero-visual">
+          <div class="app-window-frame">
+            <div class="app-window-header">
+              <div class="app-window-controls">
+                <span class="app-window-dot close"></span>
+                <span class="app-window-dot minimize"></span>
+                <span class="app-window-dot maximize"></span>
+              </div>
+              <span class="app-window-title">Nu Age Desktop — Course Progression &amp; Activity</span>
+              <span class="app-window-status">Live Sync</span>
+            </div>
+            <div class="app-window-body">
+              <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20213559.png" alt="Nu Age Learning Management System Dashboard" width="900" height="560" />
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="download-cards">
-        <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download" class="dl-card" id="dl-windows">
-          <div class="dl-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg></div>
-          <h3>Windows</h3>
-          <p>Native app for Windows 10 & 11. Installs in seconds, updates itself.</p>
-          <span class="dl-card-cta">Download for Windows <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </a>
-        <a href="#" class="dl-card" id="dl-desktop">
-          <div class="dl-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h3>macOS & Linux</h3>
-          <p>One installer, every desktop workflow — built for study sessions that run all day.</p>
-          <span class="dl-card-cta">Coming Soon!<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </a>
-        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download" class="dl-card" id="dl-mobile">
-          <div class="dl-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-          <h3>Mobile</h3>
-          <p>Available now on Android, with iOS on the way — carry your courses in your pocket.</p>
-          <span class="dl-card-cta">Get it on Android <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </a>
-      </div>
-
-      <div class="download-footnote">
-        <span class="mobile-cue">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>
-          Your progress syncs automatically across every device
+  <!-- ════════════════════════════════ CAMPUS & INSTITUTION TRUST ════════════════════════════════ -->
+  <section class="trust-strip">
+    <div class="container trust-inner">
+      <span class="trust-heading">Engineered for Academic Communities</span>
+      <div class="trust-badges-row">
+        <span class="trust-badge-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Federal &amp; State Universities
+        </span>
+        <span class="trust-badge-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22.01"/><line x1="15" y1="22" x2="15" y2="22.01"/></svg>
+          Polytechnics &amp; Colleges
+        </span>
+        <span class="trust-badge-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          Independent Tutors &amp; Prep Hubs
+        </span>
+        <span class="trust-badge-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Professional Training Academies
         </span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════ PRICING ════════════════════════════════ -->
-<section id="pricing" class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Pricing</span>
-      <h2>Pay for what you use. Scale as you grow.</h2>
-      <p>Transparent, per-member pricing that works whether you're a solo tutor or a full institution.</p>
-    </div>
-    <div class="pricing-grid reveal">
-
-      <div class="price-card">
-        <div class="price-tier">For Students</div>
-        <div class="price-name">Starter</div>
-        <div class="price-desc">Everything a student needs, at no cost.</div>
-        <div class="price-amount">Free<span> / forever</span></div>
-        <div class="price-per">Full access to the student platform</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Enrol in unlimited courses</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AI Self-Study Hub</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Community & Direct Messaging</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Leaderboards & Certificates</li>
-        </ul>
-        <a href="#download" class="price-cta price-cta-outline">Download Free</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-tier">For Tutors</div>
-        <div class="price-name">Creator Base</div>
-        <div class="price-desc">For growing agencies and independent tutors.</div>
-        <div class="price-amount">₦15,000<span> /mo</span></div>
-        <div class="price-per">+ ₦800 per Active Member</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Up to 20 Publishable Courses</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 65GB Encrypted Vault Storage</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom Branding & Analytics</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full AI Course Creation Engine</li>
-        </ul>
-        <a href="https://wa.me/+2348021493607?text=I am interested in Nu Age for Tutors, can you tell me more?" class="price-cta price-cta-solid">Reach Out!</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-tier">For Institutions</div>
-        <div class="price-name">Institution Base</div>
-        <div class="price-desc">For universities and established academies.</div>
-        <div class="price-amount">₦85,000<span> /mo</span></div>
-        <div class="price-per">+ ₦400 per Active Member</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Courses & Storage</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Enterprise Offline-First Sync</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bandwidth Savings via LAN Delivery</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom Subdomain & Tenant</li>
-        </ul>
-        <a href="https://wa.me/+2348021493607?text=I am interested in Nu Age for Tutors, can you tell me more?" class="price-cta price-cta-dark">Get a Quotation</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ FOUNDER ════════════════════════════════ -->
-<section id="founder" class="section" style="background:var(--surface-2);border-top:1px solid var(--line);">
-  <div class="container">
-    <div class="founder-row reveal">
-      <img src="https://nu-age-cdn.b-cdn.net/logos/Oluwatobiloba%20Passport.png" alt="Oluwatobiloba (Daniel) Davies" class="founder-img" />
-      <div class="founder-content">
-        <span class="section-label">The Architect</span>
-        <h2>Oluwatobiloba (Daniel) Davies</h2>
-        <div class="founder-role">Founder & Lead Engineer · FUTMinna, Mechatronics Engineering (Year 2)</div>
-        <p>Oluwatobiloba is a Full Stack Developer and Data Engineer who built Nu Age from the ground up — driven by the daily frustration of broken, fragmented learning tools on a Nigerian campus.</p>
-        <p>With a focus on backend system design and resilient architecture, he engineered Nu Age to guarantee seamless education delivery regardless of network reliability — because unreliable internet shouldn't mean unreliable learning.</p>
-        <div class="founder-links">
-          <a href="https://www.linkedin.com/in/oluwatobiloba-davies" class="founder-link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
-          <a href="https://github.com/demnzy" class="founder-link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
-          <a href="mailto:daviestobi3@gmail.com" class="founder-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+  <!-- ════════════════════════════════ STATS COUNTER STRIP ════════════════════════════════ -->
+  <section class="stats-ribbon">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Active Learners Onboard</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Structured Courses Published</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Partner Tutors &amp; Hubs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Offline Local Sync Guarantee</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════ FINAL CTA ════════════════════════════════ -->
-<div class="cta-banner reveal">
-  <h2>The future of learning starts now.</h2>
-  <p>Download Nu Age today and get AI tutoring, live chat, and gamified progress in one unified app.</p>
-  <div class="cta-banner-actions">
-    <a href="#download" class="btn-primary" style="background:#fff;color:var(--green-dk);">Download the App <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    <a href="#features" class="btn-ghost" style="border-color:rgba(255,255,255,.5);color:#fff;">Explore Features</a>
-  </div>
-</div>
+  <!-- ════════════════════════════════ THE PROBLEM & NEED ════════════════════════════════ -->
+  <section id="features" class="section-wrap">
+    <div class="container">
+      <div class="problem-editorial">
+        <div>
+          <span class="section-kicker">Educational Infrastructure</span>
+          <h2 class="section-title">Solving the Fragmentation of Digital Learning</h2>
+          <p style="color: var(--color-muted); font-size: 1.02rem; line-height: 1.75; margin-bottom: 16px;">
+            In traditional tertiary setups, students struggle across disconnected touchpoints: downloading PDF lecture notes from slow email threads, watching unvetted YouTube clips, arguing in noisy WhatsApp groups, and wrestling with legacy university portals that freeze during exam week.
+          </p>
+          <p style="color: var(--color-muted); font-size: 1.02rem; line-height: 1.75;">
+            Nu Age replaces this chaos by centralizing syllabus material, AI study assistance, module discussions, assessment tracking, and verifiable credentialing into one fast, offline-capable environment.
+          </p>
+          <div class="solution-quote">
+            "Education shouldn't halt when campus Wi-Fi drops. Nu Age was engineered so that students study, chat, and test without uninterrupted internet dependency."
+          </div>
+        </div>
 
-<!-- ════════════════════════════════ FOOTER ════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <a href="#" class="footer-brand-logo">
-          <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu Age" />
-          <span class="footer-brand-logo-text">Nu Age<span>.</span></span>
+        <div class="problem-box-wrapper">
+          <div class="problem-box-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Current Structural Challenges on Campus
+          </div>
+          <ul class="problem-list">
+            <li class="problem-list-item">
+              <span class="problem-list-icon">&times;</span>
+              <div>
+                <strong style="display:block; color: var(--color-heading);">Unreliable Campus Bandwidth</strong>
+                <span style="color: var(--color-muted); font-size: 0.88rem;">Cloud-only LMS portals lock students out when campus network cables fail or mobile data runs dry.</span>
+              </div>
+            </li>
+            <li class="problem-list-item">
+              <span class="problem-list-icon">&times;</span>
+              <div>
+                <strong style="display:block; color: var(--color-heading);">Fragmented Cohort Communication</strong>
+                <span style="color: var(--color-muted); font-size: 0.88rem;">WhatsApp groups bury key academic announcements under hundreds of non-academic messages.</span>
+              </div>
+            </li>
+            <li class="problem-list-item">
+              <span class="problem-list-icon">&times;</span>
+              <div>
+                <strong style="display:block; color: var(--color-heading);">Generic AI Without Curriculum Context</strong>
+                <span style="color: var(--color-muted); font-size: 0.88rem;">Standard chatbot tools hallucinate general facts instead of referencing the actual syllabus taught by Nigerian lecturers.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ CORE PLATFORM PILLARS (Media + Text) ════════════════════════════════ -->
+  <section id="pillars" class="section-wrap section-wrap-subtle">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Platform Architecture</span>
+        <h2 class="section-title">Engineered to Support How Students Actually Learn</h2>
+        <p class="section-description">
+          Each component of Nu Age is designed to remove academic friction, reinforce retention, and provide transparent accountability for educators.
+        </p>
+      </div>
+
+      <!-- Pillar 1: Dynamic Course Engine -->
+      <div class="pillar-row">
+        <div class="pillar-content">
+          <span class="section-kicker" style="background-color: #ffffff; margin-bottom: 10px;">Pillar 01</span>
+          <h3>Modular Course Delivery with Real-Time Progress Tracking</h3>
+          <p>
+            Lectures and curriculums are organized into digestible modules featuring rich markdown, diagrams, and video lectures. Visual progression bars show students exactly how much of their semester work remains.
+          </p>
+          <ul class="pillar-checklist">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Downloadable modules for full offline access without burning active mobile data</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Seamless dark mode designed for long late-night study sessions in hostels</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Integrated note-taking and lesson bookmarks sync across your devices</span>
+            </li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">Download Course Engine</a>
+        </div>
+        <div class="pillar-media">
+          <div class="app-window-frame">
+            <div class="app-window-header">
+              <div class="app-window-controls">
+                <span class="app-window-dot close"></span>
+                <span class="app-window-dot minimize"></span>
+                <span class="app-window-dot maximize"></span>
+              </div>
+              <span class="app-window-title">Course Overview &amp; Module Progression</span>
+            </div>
+            <div class="app-window-body">
+              <img src="https://nu-age-cdn.b-cdn.net/logos/courses%20dark%20mode.png" alt="Nu Age Course Management Interface in Dark Mode" width="800" height="480" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 2: AI Syllabus & Exam Prep -->
+      <div class="pillar-row reversed">
+        <div class="pillar-content">
+          <span class="section-kicker" style="background-color: #ffffff; margin-bottom: 10px;">Pillar 02</span>
+          <h3>Curriculum-Aware AI Self-Study &amp; Exam Simulator</h3>
+          <p>
+            Unlike generic LLMs, Nu Age's AI analyzes the actual course syllabus and lecture materials uploaded by the educator. It produces high-relevance practice questions, flashcards, and conceptual breakdowns directly aligned with exam objectives.
+          </p>
+          <ul class="pillar-checklist">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Automated question generation across 6+ question and assessment formats</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Contextual explanations referencing exact paragraphs in uploaded lecture notes</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Targeted remediation for weak modules identified through continuous test scores</span>
+            </li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">Try Exam Simulator</a>
+        </div>
+        <div class="pillar-media">
+          <div class="app-window-frame">
+            <div class="app-window-header">
+              <div class="app-window-controls">
+                <span class="app-window-dot close"></span>
+                <span class="app-window-dot minimize"></span>
+                <span class="app-window-dot maximize"></span>
+              </div>
+              <span class="app-window-title">AI Examination Simulator &amp; Assessment Engine</span>
+            </div>
+            <div class="app-window-body">
+              <img src="https://nu-age-cdn.b-cdn.net/logos/exam%20sim.png" alt="Nu Age AI Assessment and Practice Exam Simulator" width="800" height="480" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 3: Real-Time Cohort Communication -->
+      <div class="pillar-row">
+        <div class="pillar-content">
+          <span class="section-kicker" style="background-color: #ffffff; margin-bottom: 10px;">Pillar 03</span>
+          <h3>Contextual Cohort Channels &amp; Direct Messaging</h3>
+          <p>
+            Eliminate noisy WhatsApp groups. Every course on Nu Age contains dedicated module channels where students ask questions, share answers, and collaborate right where the learning happens.
+          </p>
+          <ul class="pillar-checklist">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Course-specific channels keep conversations organized by lecture topic</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Private messaging between students and approved teaching assistants</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Verified academic profiles with university and study streak indicators</span>
+            </li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">Connect with Peers</a>
+        </div>
+        <div class="pillar-media">
+          <div class="app-window-frame">
+            <div class="app-window-header">
+              <div class="app-window-controls">
+                <span class="app-window-dot close"></span>
+                <span class="app-window-dot minimize"></span>
+                <span class="app-window-dot maximize"></span>
+              </div>
+              <span class="app-window-title">In-App Cohort Chat &amp; Community Channels</span>
+            </div>
+            <div class="app-window-body">
+              <img src="https://nu-age-cdn.b-cdn.net/logos/nu%20chat%203.png" alt="Nu Age In-App Student Cohort Chat" width="800" height="480" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 4: Leaderboards & Instant Verifiable Credentials -->
+      <div class="pillar-row reversed">
+        <div class="pillar-content">
+          <span class="section-kicker" style="background-color: #ffffff; margin-bottom: 10px;">Pillar 04</span>
+          <h3>Gamified Progression &amp; Verifiable Certificates</h3>
+          <p>
+            Healthy academic competition spurs consistency. Courses feature live ranking tables reflecting quiz accuracy and progression pace. Upon completing requirements, learners receive verifiable digital certificates.
+          </p>
+          <ul class="pillar-checklist">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Automated certificate issuance upon 100% completion of course assessments</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Tamper-proof verification links for employer and LinkedIn sharing</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero administrative overhead for tutors and departments issuing credentials</span>
+            </li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">View Sample Credential</a>
+        </div>
+        <div class="pillar-media">
+          <div class="app-window-frame">
+            <div class="app-window-header">
+              <div class="app-window-controls">
+                <span class="app-window-dot close"></span>
+                <span class="app-window-dot minimize"></span>
+                <span class="app-window-dot maximize"></span>
+              </div>
+              <span class="app-window-title">Nu Age Verifiable Completion Certificate</span>
+            </div>
+            <div class="app-window-body">
+              <img src="https://nu-age-cdn.b-cdn.net/logos/Screenshot%202026-04-30%20214322.png" alt="Nu Age Automated Verifiable Course Certificate" width="800" height="480" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ SOLUTIONS FOR ACADEMIC STAKEHOLDERS ════════════════════════════════ -->
+  <section id="solutions" class="section-wrap">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Stakeholder Solutions</span>
+        <h2 class="section-title">Built for Every Side of the Academic Ecosystem</h2>
+        <p class="section-description">
+          Whether you are an undergraduate tackling semester exams, a private tutor scaling a tutorial academy, or an institution seeking local network reliability.
+        </p>
+      </div>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>University Students</h3>
+          <p>
+            Access courses completely offline, practice with AI tutors tailored to your school's actual syllabus, discuss complex modules with classmates, and build verified academic credentials.
+          </p>
+          <ul class="audience-perks">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 100% Free Forever for Enrolled Students</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Windows Desktop &amp; Android Mobile Apps</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Seamless Offline Study Capability</li>
+          </ul>
+        </div>
+
+        <div class="audience-card">
+          <div class="audience-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Independent Tutors &amp; Prep Hubs</h3>
+          <p>
+            Upload your syllabus or lecture recordings, auto-generate assessments, monitor cohort drop-off rates with clear analytics, and run a modern academy from one dashboard.
+          </p>
+          <ul class="audience-perks">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Publish up to 20 Courses with 65GB Storage</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automated Quiz &amp; Flashcard Generation</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Cohort Management &amp; Activity Tracking</li>
+          </ul>
+        </div>
+
+        <div class="audience-card">
+          <div class="audience-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h3>Universities &amp; Institutions</h3>
+          <p>
+            Deliver digital coursework across large campuses with enterprise offline LAN caching. Save massive bandwidth costs while guaranteeing resilient, uninterrupted exam delivery.
+          </p>
+          <ul class="audience-perks">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Local LAN Sync (Zero Public Internet Cost)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom Institutional Subdomain &amp; Branding</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multi-Department Admin Command Center</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ DOWNLOAD CENTER (Software Distribution) ════════════════════════════════ -->
+  <section id="download" class="section-wrap section-wrap-subtle">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Multi-Platform Clients</span>
+        <h2 class="section-title">Download the Nu Age Application</h2>
+        <p class="section-description">
+          Install the native client on your desktop or mobile device for lightning-fast performance, instant notifications, and complete offline access.
+        </p>
+      </div>
+
+      <div class="download-grid">
+        <!-- Windows -->
+        <div class="dl-card highlighted">
+          <span class="dl-card-badge badge-available">Available Now</span>
+          <div class="dl-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+          </div>
+          <h3>Windows Desktop</h3>
+          <div class="dl-card-meta">Windows 10 &amp; 11 · x64 Native Installer</div>
+          <p class="dl-card-desc">
+            Full desktop environment with multi-window study support, offline module caching, and automated background updates.
+          </p>
+          <div class="dl-card-cta">
+            <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download" class="btn btn-primary" style="width: 100%;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download for Windows
+            </a>
+          </div>
+        </div>
+
+        <!-- Android -->
+        <div class="dl-card highlighted">
+          <span class="dl-card-badge badge-available">Available Now</span>
+          <div class="dl-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          </div>
+          <h3>Android Mobile</h3>
+          <div class="dl-card-meta">Android 8.0+ · Direct APK Package</div>
+          <p class="dl-card-desc">
+            Carry your entire syllabus, AI practice quizzes, and cohort chat in your pocket with background sync on low-speed connections.
+          </p>
+          <div class="dl-card-cta">
+            <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download" class="btn btn-primary" style="width: 100%;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Android APK
+            </a>
+          </div>
+        </div>
+
+        <!-- macOS & Linux / Web -->
+        <div class="dl-card">
+          <span class="dl-card-badge badge-dev">In Development</span>
+          <div class="dl-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>macOS &amp; Linux</h3>
+          <div class="dl-card-meta">Universal Binary · Apple Silicon &amp; x86</div>
+          <p class="dl-card-desc">
+            Native clients for macOS and Linux are currently in closed testing. In the meantime, use the official Nu Age web portal.
+          </p>
+          <div class="dl-card-cta">
+            <a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%;">
+              Launch Web Portal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ TRANSPARENT PRICING ════════════════════════════════ -->
+  <section id="pricing" class="section-wrap">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Transparent Pricing</span>
+        <h2 class="section-title">Predictable Pricing for Solo Tutors to Full Campuses</h2>
+        <p class="section-description">
+          Free access for students. Affordable, capacity-based subscriptions for educators and institutions.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Student Free Tier -->
+        <div class="price-box">
+          <div class="price-audience">For Students</div>
+          <div class="price-plan-name">Student Starter</div>
+          <div class="price-plan-desc">Comprehensive learning tools for undergraduates and exam candidates at zero cost.</div>
+          <div class="price-figure">Free <span>/ forever</span></div>
+          <div class="price-extra">Full access to all enrolled courses</div>
+          <div class="price-divider"></div>
+          <ul class="price-features-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Enrol in unlimited published courses</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AI syllabus question generator &amp; flashcards</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Real-time cohort discussion channels</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Verifiable course completion certificates</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full offline cache capability on desktop &amp; mobile</li>
+          </ul>
+          <div class="price-action">
+            <button type="button" class="btn btn-secondary" style="width: 100%;" onclick="openDownloadModal()">
+              Download Free Client
+            </button>
+          </div>
+        </div>
+
+        <!-- Tutors / Creator Base Tier -->
+        <div class="price-box featured">
+          <div class="price-flag">Most Popular</div>
+          <div class="price-audience">For Independent Educators</div>
+          <div class="price-plan-name">Creator Base</div>
+          <div class="price-plan-desc">Designed for private tutorial centers, exam prep academies, and content creators.</div>
+          <div class="price-figure">₦15,000 <span>/ month</span></div>
+          <div class="price-extra">+ ₦800 per active enrolled learner</div>
+          <div class="price-divider"></div>
+          <ul class="price-features-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Publish up to 20 structured courses</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 65GB encrypted cloud media storage</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> AI exam and assessment creation engine</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Tutor branding and student drop-off analytics</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Cohort-wide direct announcement broadcasting</li>
+          </ul>
+          <div class="price-action">
+            <a href="https://wa.me/+2348021493607?text=I%20am%20interested%20in%20Nu%20Age%20Creator%20Base%20for%20Tutors,%20please%20share%20onboarding%20details." target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">
+              Inquire on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Institution Base Tier -->
+        <div class="price-box">
+          <div class="price-audience">For Universities &amp; Colleges</div>
+          <div class="price-plan-name">Institution Base</div>
+          <div class="price-plan-desc">Enterprise deployment for faculties, departments, and large multi-campus schools.</div>
+          <div class="price-figure">₦85,000 <span>/ month</span></div>
+          <div class="price-extra">+ ₦400 per active enrolled learner</div>
+          <div class="price-divider"></div>
+          <ul class="price-features-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Unlimited published courses and departmental tiers</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Enterprise Local LAN delivery (zero public data cost)</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom university subdomain and institutional portal</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Co-lecturer permissions &amp; cohort grading rosters</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Dedicated institutional SLA &amp; deployment engineer</li>
+          </ul>
+          <div class="price-action">
+            <a href="https://wa.me/+2348021493607?text=I%20am%20interested%20in%20deploying%20Nu%20Age%20Institution%20Base%20for%20our%20campus." target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%;">
+              Request Campus Quotation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ INTERACTIVE FAQ ACCORDION (WordPress Standard) ════════════════════════════════ -->
+  <section id="faq" class="section-wrap section-wrap-subtle">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Frequently Asked Questions</span>
+        <h2 class="section-title">Everything You Need to Know About Nu Age</h2>
+        <p class="section-description">
+          Detailed answers on system requirements, offline operations, syllabus processing, and institutional installation.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item is-active">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How does Nu Age function without active internet connectivity?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Nu Age incorporates an offline-first local SQLite caching layer. Once you sync your registered courses or modules over campus Wi-Fi or mobile data, all lecture notes, diagrams, and AI practice sets are stored locally on your device. When your connection drops, you can continue reading, taking practice quizzes, and drafting discussion responses. Everything automatically synchronizes the moment your device reconnects.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>Is the platform completely free for university students?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Yes. Students do not pay any subscription or enrollment fee to access courses, generate AI study materials, participate in discussions, or receive completion certificates. Nu Age is monetized through institutional licensing and creator tiers for professional tutors.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the AI tutor adapt to Nigerian university curriculums?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Rather than relying on generic internet models, Nu Age ingests the precise course outlines, lecture slides, and past question packets provided by your tutor or department. When you request practice assessments or conceptual clarifications, the AI synthesizes questions directly from your school's prescribed curriculum.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>Can a university or academy host Nu Age on a local campus server?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Yes. Through our Institution Base tier, Nu Age supports on-premise local area network (LAN) edge nodes. This allows lecture halls, libraries, and hostels to broadcast all course media over local intranet without consuming expensive external internet bandwidth.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)">
+            <span>How are certificates authenticated by third parties?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Each issued certificate includes a unique verification token and a permanent validation URL hosted on Nu Age's verification registry. Employers and academic boards can open the link to inspect the student's passing score, completion timestamp, and syllabus outline.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ FACULTY & FOUNDER SPOTLIGHT ════════════════════════════════ -->
+  <section id="leadership" class="section-wrap">
+    <div class="container">
+      <div class="founder-card">
+        <img src="https://nu-age-cdn.b-cdn.net/logos/Oluwatobiloba%20Passport.png" alt="Oluwatobiloba Davies — Founder &amp; Lead Systems Engineer" class="founder-avatar" />
+        <div class="founder-meta">
+          <span class="section-kicker" style="margin-bottom: 8px;">Engineering Leadership</span>
+          <h3>Oluwatobiloba (Daniel) Davies</h3>
+          <div class="founder-tagline">Founder &amp; Lead Systems Architect · FUTMinna, Mechatronics Engineering</div>
+          <p class="founder-bio">
+            Nu Age was founded from firsthand experience navigating the realities of Nigerian tertiary campuses: sudden network outages, scattered study materials, and outmoded academic administration. 
+            Combining distributed systems design with educational ergonomics, Oluwatobiloba engineered Nu Age as a resilient, offline-first LMS ensuring uninterrupted academic growth across Africa.
+          </p>
+          <div class="founder-links-row">
+            <a href="https://www.linkedin.com/in/oluwatobiloba-davies" target="_blank" rel="noopener" class="founder-social-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn Profile
+            </a>
+            <a href="https://github.com/demnzy" target="_blank" rel="noopener" class="founder-social-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub Repository
+            </a>
+            <a href="mailto:daviestobi3@gmail.com" class="founder-social-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              daviestobi3@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ INSTITUTIONAL PRE-FOOTER CTA ════════════════════════════════ -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Modernize Your Academic Journey with Nu Age</h2>
+      <p>
+        Join hundreds of Nigerian students, tutors, and institutions experiencing resilient offline-first learning, AI syllabus tutoring, and collaborative cohort tools.
+      </p>
+      <div class="cta-buttons">
+        <button type="button" class="btn btn-white" onclick="openDownloadModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Nu Age Client
+        </button>
+        <a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener" class="btn btn-outline-white">
+          Sign In to Learner Web Portal
         </a>
-        <p class="footer-tagline">A unified learning environment for students, tutors, and institutions. Architected for resilience — built for how people actually learn.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" aria-label="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
-          <a href="#" aria-label="Twitter"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ WORDPRESS MULTI-COLUMN FOOTER ════════════════════════════════ -->
+  <footer class="wp-footer" role="contentinfo">
+    <div class="container">
+      <div class="wp-footer-top">
+        <div class="wp-footer-brand">
+          <a href="#" class="wp-footer-logo-row">
+            <img src="https://nu-age-cdn.b-cdn.net/logos/Nu%20logo%20only.jpeg" alt="Nu Age" />
+            <span>Nu Age<span>.</span></span>
+          </a>
+          <p class="wp-footer-desc">
+            A unified, offline-first learning management system designed for African universities, independent tutors, and self-directed learners.
+          </p>
+        </div>
+
+        <div class="wp-footer-col">
+          <h4>Platform Solutions</h4>
+          <ul>
+            <li><a href="#features">Platform Overview</a></li>
+            <li><a href="#pillars">Modular Course Engine</a></li>
+            <li><a href="#pillars">AI Syllabus Exam Sim</a></li>
+            <li><a href="#pillars">Cohort Channels</a></li>
+            <li><a href="#pillars">Verifiable Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="wp-footer-col">
+          <h4>Stakeholders</h4>
+          <ul>
+            <li><a href="#solutions">For Undergraduates</a></li>
+            <li><a href="#solutions">For Tutorial Centers</a></li>
+            <li><a href="#solutions">For Higher Institutions</a></li>
+            <li><a href="#pricing">Subscription Tiers</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="wp-footer-col">
+          <h4>Downloads &amp; Access</h4>
+          <ul>
+            <li><a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download">Windows 10/11 (.EXE)</a></li>
+            <li><a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download">Android App (.APK)</a></li>
+            <li><a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener">Learner Web Portal</a></li>
+            <li><a href="mailto:daviestobi3@gmail.com">Contact Systems Team</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <div class="footer-col-title">Product</div>
-          <a href="#features">Features</a>
-          <a href="#audiences">Who It's For</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#download">Download</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Support</div>
-          <a href="#">Documentation</a>
-          <a href="#">Forums</a>
-          <a href="mailto:daviestobi3@gmail.com">Contact</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Company</div>
-          <a href="#problem">Our Story</a>
-          <a href="#founder">The Builder</a>
-          <a href="#">Careers</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Downloads</div>
-          <a href="#download">Windows</a>
-          <a href="#download">macOS & Linux</a>
-          <a href="#download">Android</a>
+
+      <div class="wp-footer-bottom">
+        <p>&copy; 2026 Nu Age Learning Systems. Engineered by Oluwatobiloba Davies. All rights reserved.</p>
+        <div class="wp-footer-bottom-links">
+          <a href="#">Academic Integrity</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="https://learn.nu-age.name.ng">Portal Login</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Nu Age. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Notice</a>
-        <a href="#">Terms</a>
-        <a href="#">Cookie Settings</a>
-        <a href="#">Accessibility</a>
+  </footer>
+
+  <!-- ════════════════════════════════ POLISHED DOWNLOAD MODAL ════════════════════════════════ -->
+  <div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeDownloadModal()" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <h3 class="modal-heading" id="modalTitle">Download Nu Age Client</h3>
+      <p class="modal-sub">
+        Choose your platform to install the native Nu Age application for offline coursework, AI study sessions, and live notifications.
+      </p>
+
+      <div class="modal-options">
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup.exe?download" class="modal-option-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+          <div>
+            <span class="modal-option-title">Download for Windows</span>
+            <span class="modal-option-desc">Compatible with Windows 10 &amp; 11 · Free</span>
+          </div>
+        </a>
+
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk?download" class="modal-option-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          <div>
+            <span class="modal-option-title">Download for Android</span>
+            <span class="modal-option-desc">Direct APK Installer · Android 8.0+</span>
+          </div>
+        </a>
+
+        <a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener" class="modal-option-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div>
+            <span class="modal-option-title">Launch in Web Browser</span>
+            <span class="modal-option-desc">No install required · Sign in immediately</span>
+          </div>
+        </a>
       </div>
+
+      <button type="button" class="modal-dismiss-btn" onclick="closeDownloadModal()">
+        Return to webpage
+      </button>
     </div>
   </div>
-</footer>
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => io.observe(el));
+  <!-- ════════════════════════════════ LIGHTWEIGHT SCRIPTS ════════════════════════════════ -->
+  <script>
+    // Mobile Drawer Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
 
-  document.querySelectorAll('.features-grid, .audiences-grid, .community-grid, .download-cards').forEach(grid => {
-    Array.from(grid.children).forEach((child, i) => { child.style.transitionDelay = `${i * 60}ms`; });
-  });
+    if (mobileBtn && mobileDrawer) {
+      mobileBtn.addEventListener('click', () => {
+        mobileDrawer.classList.toggle('is-open');
+      });
+    }
 
-  // Mobile menu toggle
-  const hamburger = document.getElementById('navHamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }));
+    function closeMobileNav() {
+      if (mobileDrawer) {
+        mobileDrawer.classList.remove('is-open');
+      }
+    }
 
-  // Download-app modal (mandatory): show once per session, shortly after load
-  const modalOverlay = document.getElementById('appModalOverlay');
-  const modalClose = document.getElementById('appModalClose');
-  const modalDismiss = document.getElementById('appModalDismiss');
+    // Interactive FAQ Accordion
+    function toggleFaq(button) {
+      const item = button.closest('.faq-item');
+      if (!item) return;
+      const wasActive = item.classList.contains('is-active');
 
-  function openAppModal() { modalOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeAppModal() {
-    modalOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-    try { sessionStorage.setItem('nuage_modal_seen', '1'); } catch (e) {}
-  }
-  modalClose.addEventListener('click', closeAppModal);
-  modalDismiss.addEventListener('click', closeAppModal);
-  modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeAppModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeAppModal(); });
-  modalOverlay.querySelectorAll('.app-modal-btn').forEach(btn => btn.addEventListener('click', closeAppModal));
+      // Close all other items for clean accordion behavior
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('is-active'));
 
-  let alreadySeen = false;
-  try { alreadySeen = sessionStorage.getItem('nuage_modal_seen') === '1'; } catch (e) {}
-  if (!alreadySeen) { setTimeout(openAppModal, 1200); }
-</script>
+      if (!wasActive) {
+        item.classList.add('is-active');
+      }
+    }
+
+    // User-Initiated Download Modal
+    const downloadModal = document.getElementById('downloadModal');
+
+    function openDownloadModal() {
+      if (downloadModal) {
+        downloadModal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDownloadModal() {
+      if (downloadModal) {
+        downloadModal.classList.remove('is-active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Modal background click & escape listener
+    if (downloadModal) {
+      downloadModal.addEventListener('click', (e) => {
+        if (e.target === downloadModal) {
+          closeDownloadModal();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && downloadModal && downloadModal.classList.contains('is-active')) {
+        closeDownloadModal();
+      }
+    });
+  </script>
 </body>
 </html>
