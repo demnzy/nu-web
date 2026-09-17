@@ -403,12 +403,21 @@
       color: var(--color-heading);
     }
 
-    /* ─── MOBILE DRAWER ─── */
+    /* ─── MOBILE DRAWER & LABELS ─── */
+    .btn-label-mobile {
+      display: none;
+    }
+
+    .btn-label-desktop {
+      display: inline;
+    }
+
     .mobile-drawer {
       display: none;
       background: #ffffff;
       border-bottom: 1px solid var(--color-border);
-      padding: 16px 24px 24px;
+      padding: 16px 20px 24px;
+      box-shadow: var(--shadow-md);
     }
 
     .mobile-drawer.is-open {
@@ -418,16 +427,29 @@
     .mobile-drawer-links {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 6px;
       margin-bottom: 18px;
     }
 
     .mobile-drawer-links a {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--color-heading);
-      padding: 8px 0;
+      padding: 10px 4px;
       border-bottom: 1px solid var(--color-surface-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-drawer-login-link {
+      color: var(--color-primary) !important;
+      font-weight: 700 !important;
+      background-color: var(--color-primary-tint);
+      padding: 10px 14px !important;
+      border-radius: var(--radius-sm);
+      border-bottom: none !important;
+      margin-bottom: 6px;
     }
 
     /* ─── HERO SECTION (Authoritative Educational Banner) ─── */
@@ -1450,11 +1472,13 @@
         display: none;
       }
       .mobile-nav-toggle {
-        display: block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 36px;
       }
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1462,7 +1486,7 @@
       .pillar-row, .pillar-row.reversed {
         grid-template-columns: 1fr;
         direction: ltr;
-        gap: 36px;
+        gap: 32px;
       }
       .audience-grid, .download-grid, .pricing-grid {
         grid-template-columns: 1fr;
@@ -1483,34 +1507,250 @@
       }
     }
 
-    @media (max-width: 640px) {
-      .section-wrap {
-        padding: 56px 0;
-      }
+    @media (max-width: 768px) {
       .wp-topbar-links {
+        display: none !important;
+      }
+      .wp-topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+      .wp-topbar-notice {
+        font-size: 0.72rem;
+        justify-content: center;
+        text-align: center;
+      }
+      .wp-header-inner {
+        height: 62px;
+      }
+      .wp-login-link {
+        display: none !important;
+      }
+      .wp-brand {
+        gap: 8px;
+      }
+      .wp-brand-logo {
+        width: 34px;
+        height: 34px;
+      }
+      .wp-brand-name {
+        font-size: 1.15rem;
+      }
+      .wp-brand-sub {
         display: none;
+      }
+      .wp-header-actions {
+        gap: 8px;
+      }
+      .header-cta-btn {
+        padding: 8px 14px;
+        font-size: 0.82rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      html, body {
+        overflow-x: hidden;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .section-wrap {
+        padding: 48px 0;
+      }
+      .wp-topbar {
+        padding: 6px 0;
+      }
+      .wp-topbar-notice {
+        font-size: 0.68rem;
+        width: 100%;
+        overflow: hidden;
+        gap: 6px;
+      }
+      .wp-topbar-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 250px;
+        display: inline-block;
+      }
+      .btn-label-desktop {
+        display: none;
+      }
+      .btn-label-mobile {
+        display: inline;
+      }
+      .header-cta-btn {
+        padding: 7px 11px;
+        font-size: 0.78rem;
+        gap: 4px;
+      }
+      .mobile-nav-toggle {
+        padding: 6px;
+      }
+      .mobile-drawer {
+        padding: 14px 16px 20px;
+      }
+      .hero-section {
+        padding: 36px 0 36px;
+      }
+      .hero-title {
+        font-size: clamp(1.75rem, 6.8vw, 2.25rem);
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+      .hero-lead {
+        font-size: 0.94rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
       }
       .hero-cta-group {
         flex-direction: column;
         align-items: stretch;
+        gap: 10px;
+        margin-bottom: 22px;
       }
       .hero-cta-group .btn {
         width: 100%;
       }
-      .problem-editorial {
-        grid-template-columns: 1fr;
+      .hero-highlights {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-top: 14px;
+      }
+      .app-window-title {
+        max-width: 180px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .app-window-status {
+        display: none;
+      }
+      .trust-strip {
+        padding: 20px 0;
+      }
+      .trust-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .trust-badges-row {
+        gap: 6px;
+      }
+      .trust-badge-item {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+      .stats-ribbon {
+        padding: 24px 0;
       }
       .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
-      .wp-footer-top {
+      .stat-card {
+        padding: 14px 8px;
+      }
+      .stat-number {
+        font-size: 1.55rem;
+      }
+      .stat-label {
+        font-size: 0.74rem;
+        line-height: 1.35;
+      }
+      .problem-editorial {
         grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .problem-box-wrapper {
+        padding: 20px 16px;
+      }
+      .pillar-row {
+        gap: 22px;
+        margin-bottom: 40px;
+      }
+      .pillar-content h3 {
+        font-size: 1.3rem;
+      }
+      .pillar-content p {
+        font-size: 0.9rem;
+      }
+      .pillar-checklist {
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .pillar-checklist li {
+        font-size: 0.86rem;
+      }
+      .pillar-content .btn {
+        width: 100%;
+      }
+      .audience-card, .dl-card, .price-box {
+        padding: 22px 18px;
+      }
+      .price-figure {
+        font-size: 2rem;
+      }
+      .faq-question {
+        padding: 16px 14px;
+        font-size: 0.92rem;
+      }
+      .faq-answer {
+        padding: 0 14px 16px;
+        font-size: 0.86rem;
+      }
+      .founder-card {
+        padding: 24px 16px;
+        gap: 18px;
+      }
+      .founder-avatar {
+        width: 110px;
+        height: 110px;
+      }
+      .founder-social-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .cta-strip {
+        padding: 44px 0;
+      }
+      .cta-strip h2 {
+        font-size: 1.5rem;
+      }
+      .cta-strip p {
+        font-size: 0.92rem;
+        margin-bottom: 24px;
       }
       .cta-buttons {
         flex-direction: column;
       }
       .cta-buttons .btn {
         width: 100%;
+      }
+      .wp-footer {
+        padding: 44px 0 0;
+      }
+      .wp-footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-bottom: 28px;
+      }
+      .wp-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .wp-footer-bottom-links {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .modal-card {
+        padding: 24px 18px;
+      }
+      .modal-heading {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -1522,7 +1762,7 @@
     <div class="container wp-topbar-inner">
       <div class="wp-topbar-notice">
         <span class="wp-topbar-tag">LMS Update</span>
-        <span>Offline-first learning platform for Nigerian universities, tutors &amp; academies</span>
+        <span class="wp-topbar-text">Offline-first learning platform for Nigerian universities, tutors &amp; academies</span>
       </div>
       <div class="wp-topbar-links">
         <a href="mailto:daviestobi3@gmail.com">
@@ -1560,9 +1800,10 @@
 
       <div class="wp-header-actions">
         <a href="https://learn.nu-age.name.ng" class="wp-login-link" target="_blank" rel="noopener">Sign In</a>
-        <button type="button" class="btn btn-primary" onclick="openDownloadModal()">
+        <button type="button" class="btn btn-primary header-cta-btn" onclick="openDownloadModal()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Get Nu Age
+          <span class="btn-label-desktop">Get Nu Age</span>
+          <span class="btn-label-mobile">Get App</span>
         </button>
         <button class="mobile-nav-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -1573,6 +1814,10 @@
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
       <div class="mobile-drawer-links">
+        <a href="https://learn.nu-age.name.ng" class="mobile-drawer-login-link" target="_blank" rel="noopener">
+          <span>Student &amp; Tutor Web Login</span>
+          <span>&rarr;</span>
+        </a>
         <a href="#features" onclick="closeMobileNav()">Platform Overview</a>
         <a href="#pillars" onclick="closeMobileNav()">Core Pillars</a>
         <a href="#solutions" onclick="closeMobileNav()">Solutions</a>
@@ -1580,9 +1825,9 @@
         <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
         <a href="#faq" onclick="closeMobileNav()">FAQ</a>
         <a href="#leadership" onclick="closeMobileNav()">About</a>
-        <a href="https://learn.nu-age.name.ng" target="_blank" rel="noopener">Student &amp; Tutor Web Login &rarr;</a>
       </div>
       <button class="btn btn-primary" style="width: 100%;" onclick="closeMobileNav(); openDownloadModal();">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Application
       </button>
     </div>
