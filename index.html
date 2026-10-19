@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nu Age — The All-In-One Learning Platform for Students</title>
-  <meta name="description" content="Take interactive courses, study personal handouts with smart flashcards, practice with real timed mock exams, test knowledge with quick quizzes, and chat with coursemates. 100% free for students and offline-ready." />
+  <title>Nu Age — Offline EdTech LMS &amp; Study App for African Students</title>
+  <meta name="description" content="Take interactive courses, revise lecture handouts with smart flashcards, practice timed CBT past questions offline, and chat with coursemates with zero mobile data spent. The complete offline EdTech LMS for African university students." />
   <link rel="canonical" href="https://nu-age.name.ng/" />
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nu Age" />
-  <meta property="og:title" content="Nu Age — The All-In-One Learning Platform for Students" />
-  <meta property="og:description" content="Take interactive courses, study personal handouts with smart flashcards, practice with real timed mock exams, test knowledge with quick quizzes, and chat with coursemates. 100% free for students and offline-ready." />
+  <meta property="og:title" content="Nu Age — Offline EdTech LMS &amp; Study App for African Students" />
+  <meta property="og:description" content="Take interactive courses, revise lecture handouts with smart flashcards, practice timed CBT past questions offline, and chat with coursemates with zero mobile data spent. The complete offline EdTech LMS for African university students." />
   <meta property="og:url" content="https://nu-age.name.ng/" />
   <meta property="og:image" content="https://nu-age-cdn.b-cdn.net/logos/Nu%20dash.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nu Age — The All-In-One Learning Platform for Students" />
-  <meta name="twitter:description" content="Take interactive courses, study personal handouts with smart flashcards, practice with real timed mock exams, test knowledge with quick quizzes, and chat with coursemates. 100% free for students and offline-ready." />
+  <meta name="twitter:title" content="Nu Age — Offline EdTech LMS &amp; Study App for African Students" />
+  <meta name="twitter:description" content="Take interactive courses, revise lecture handouts with smart flashcards, practice timed CBT past questions offline, and chat with coursemates with zero mobile data spent." />
   <meta name="twitter:image" content="https://nu-age-cdn.b-cdn.net/logos/Nu%20dash.png" />
 
   <!-- Favicons (Real Nu Age Logo) -->
@@ -25,6 +25,86 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://nu-age.name.ng/#organization",
+        "name": "Nu Age",
+        "alternateName": ["Nu Age LMS", "Nu-Age Learning Technologies"],
+        "url": "https://nu-age.name.ng",
+        "logo": "https://nu-age-cdn.b-cdn.net/logos/icon.png",
+        "description": "African EdTech and offline-ready Learning Management System (LMS) engineered for Nigerian tertiary students, tutors, and universities.",
+        "sameAs": [
+          "https://www.linkedin.com/in/oluwatobiloba-davies",
+          "https://github.com/demnzy"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nu-age.name.ng/#website",
+        "url": "https://nu-age.name.ng",
+        "name": "Nu Age",
+        "publisher": { "@id": "https://nu-age.name.ng/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://nu-age.name.ng/#software",
+        "name": "Nu Age",
+        "operatingSystem": "Android 8.0+, Windows 10, Windows 11",
+        "applicationCategory": "EducationalApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "NGN"
+        },
+        "description": "Offline-ready African learning platform featuring interactive university courses, smart handout flashcards, timed CBT past question simulator, and in-app coursemate networking."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://nu-age.name.ng/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Nu Age really 100% free for students?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Every student gets full access to public courses, their personal study hub, smart flashcards, practice exams, in-app chat, and campus networking for free. There is no subscription paywall on student learning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if my internet connection cuts out while studying?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nothing breaks! Nu Age is offline-first. Your flashcards, course slides, and mock exams run locally on your phone or laptop. Your progress is saved and automatically uploaded once you get connection again."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use my personal university lecture handouts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can upload PDF handouts, snap photos of lecture notes, or paste textbook excerpts into the Self-Study Hub. Nu Age will instantly format them into flashcards and mock exams."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which devices can I install Nu Age on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nu Age is available as a lightweight Android app (.apk) for smartphones and a 64-bit Windows desktop installer (.exe) for laptops."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- TOP ANNOUNCEMENT BAR -->
@@ -43,17 +123,18 @@
   <!-- MAIN NAVIGATION (Clean 4 Links: No Founder tab, Real Logo) -->
   <header class="site-nav">
     <div class="container site-nav-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img src="https://nu-age-cdn.b-cdn.net/logos/icon.png" alt="Nu Age Logo" class="brand-logo" />
         <span class="brand-name">Nu Age<span>.</span></span>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
-          <li><a href="index.html" style="color:var(--primary); font-weight:700;">For Students</a></li>
-          <li><a href="tutors.html" >For Tutors &amp; Hubs</a></li>
-          <li><a href="institutions.html" >For Institutions</a></li>
-          <li><a href="gallery.html" >Gallery</a></li>
+          <li><a href="/" style="color:var(--primary); font-weight:700;">For Students</a></li>
+          <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+          <li><a href="/institutions">For Institutions</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/ambassadors">Ambassadors</a></li>
         </ul>
       </nav>
 
@@ -70,10 +151,11 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Students</a>
-      <a href="tutors.html" onclick="toggleMobileNav()" >For Tutors &amp; Hubs</a>
-      <a href="institutions.html" onclick="toggleMobileNav()" >For Institutions</a>
-      <a href="gallery.html" onclick="toggleMobileNav()" >Gallery</a>
+      <a href="/" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Students</a>
+      <a href="/tutors" onclick="toggleMobileNav()">For Tutors &amp; Hubs</a>
+      <a href="/institutions" onclick="toggleMobileNav()">For Institutions</a>
+      <a href="/gallery" onclick="toggleMobileNav()">Gallery</a>
+      <a href="/ambassadors" onclick="toggleMobileNav()">Campus Ambassadors</a>
       <div style="margin-top:14px;">
         <button type="button" class="btn btn-primary" style="width:100%;" onclick="toggleMobileNav(); openDownloadModal();">Get Nu Age App</button>
       </div>
@@ -537,7 +619,7 @@
   </section>
 
   <!-- PRE-FOOTER CTA -->
-  <section class="cta-banner fade-up">
+  <section id="download" class="cta-banner fade-up">
     <div class="container">
       <h2>Modernize Your Learning Journey with Nu Age</h2>
       <p>
@@ -568,10 +650,11 @@
         <div class="footer-col">
           <h5>Platform</h5>
           <ul>
-            <li><a href="index.html">For Students</a></li>
-            <li><a href="tutors.html">For Tutors &amp; Hubs</a></li>
-            <li><a href="institutions.html">For Universities</a></li>
-            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="/">For Students</a></li>
+            <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+            <li><a href="/institutions">For Universities</a></li>
+            <li><a href="/gallery">Visual Gallery</a></li>
+            <li><a href="/ambassadors">Campus Ambassadors</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -626,8 +709,64 @@
     </div>
   </div>
 
+  <!-- GOOGLE AUTH CALLBACK RETURN MODAL -->
+  <div id="authCallbackModal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.7); backdrop-filter:blur(4px); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#fff; border-radius:16px; max-width:440px; width:100%; padding:32px 24px; text-align:center; box-shadow:0 20px 30px -10px rgba(15,23,42,0.18); position:relative;" onclick="event.stopPropagation()">
+      <div style="width:56px; height:56px; border-radius:50%; background:var(--primary-tint, #edf7f0); color:var(--primary, #156637); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </div>
+      <h3 style="font-size:1.35rem; font-weight:800; color:var(--text-heading, #0f172a); margin-bottom:8px;">Sign-In Successful!</h3>
+      <p id="authModalMsg" style="font-size:0.95rem; color:var(--text-muted, #64748b); margin-bottom:24px; line-height:1.5;">You have successfully signed in with Google.<br>Tap below to return to the Nu Age app.</p>
+      
+      <a id="authReturnBtn" href="#" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px; font-weight:700; border-radius:10px; font-size:1rem; text-decoration:none; margin-bottom:12px; background:var(--primary, #156637); color:#fff; box-shadow:0 4px 12px rgba(21,102,55,0.25);">
+        Open Nu Age App &rarr;
+      </a>
+      
+      <button onclick="document.getElementById('authCallbackModal').style.display='none'" style="background:none; border:none; color:var(--text-faint, #94a3b8); font-size:0.85rem; cursor:pointer; font-weight:600; padding:6px 12px;">
+        Close Window
+      </button>
+    </div>
+  </div>
+
   <!-- INTERACTIVE JS & FADE-UP INTERSECTION OBSERVER -->
   <script>
+    function checkAuthCallback() {
+      const hash = window.location.hash || '';
+      if (hash.includes('auth-callback')) {
+        const queryPart = hash.includes('?') ? hash.split('?')[1] : '';
+        const params = new URLSearchParams(queryPart);
+        const accessToken = params.get('access_token');
+        const error = params.get('error');
+        const modal = document.getElementById('authCallbackModal');
+        const btn = document.getElementById('authReturnBtn');
+        const msg = document.getElementById('authModalMsg');
+
+        if (modal) {
+          modal.style.display = 'flex';
+          if (error) {
+            msg.textContent = 'Google sign-in was not completed: ' + error;
+            if (btn) btn.style.display = 'none';
+          } else if (accessToken) {
+            const deepLink = 'nuage://auth-callback?' + queryPart;
+            if (btn) btn.href = deepLink;
+            setTimeout(() => {
+              try {
+                window.location.href = deepLink;
+              } catch(e) {}
+            }, 300);
+          }
+        }
+      }
+    }
+    window.addEventListener('hashchange', checkAuthCallback);
+    document.addEventListener('DOMContentLoaded', checkAuthCallback);
+
+    function checkDownloadHash() {
+      if (window.location.hash === '#download') openDownloadModal();
+    }
+    window.addEventListener('hashchange', checkDownloadHash);
+    document.addEventListener('DOMContentLoaded', checkDownloadHash);
+
     function toggleMobileNav() {
       const d = document.getElementById('mobileDrawer');
       if (d) d.classList.toggle('open');

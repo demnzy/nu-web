@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nu Age — For Tutors, Academies &amp; Learning Hubs</title>
-  <meta name="description" content="Build engaging courses with 10+ formats, schedule cohorts and timed mock exams, and monitor student performance digitally — with zero technical headaches." />
-  <link rel="canonical" href="https://nu-age.name.ng/tutors.html" />
+  <title>Nu Age for Tutors — Complete LMS Platform for Academies, Lecturers &amp; Hubs</title>
+  <meta name="description" content="Build engaging courses with 10+ lesson formats, schedule student cohorts, run timed CBT mock exams, and monitor student performance digitally with Nu Age EdTech LMS." />
+  <link rel="canonical" href="https://nu-age.name.ng/tutors" />
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nu Age" />
-  <meta property="og:title" content="Nu Age — For Tutors, Academies &amp; Learning Hubs" />
-  <meta property="og:description" content="Build engaging courses with 10+ formats, schedule cohorts and timed mock exams, and monitor student performance digitally — with zero technical headaches." />
-  <meta property="og:url" content="https://nu-age.name.ng/tutors.html" />
+  <meta property="og:title" content="Nu Age for Tutors — Complete LMS Platform for Academies, Lecturers &amp; Hubs" />
+  <meta property="og:description" content="Build engaging courses with 10+ formats, schedule cohorts, run timed CBT mock exams, and monitor student performance digitally with Nu Age EdTech LMS." />
+  <meta property="og:url" content="https://nu-age.name.ng/tutors" />
   <meta property="og:image" content="https://nu-age-cdn.b-cdn.net/logos/course%20builder.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nu Age — For Tutors, Academies &amp; Learning Hubs" />
-  <meta name="twitter:description" content="Build engaging courses with 10+ formats, schedule cohorts and timed mock exams, and monitor student performance digitally — with zero technical headaches." />
+  <meta name="twitter:title" content="Nu Age for Tutors — Complete LMS Platform for Academies &amp; Hubs" />
+  <meta name="twitter:description" content="Build engaging courses with 10+ lesson formats, schedule student cohorts, run timed CBT mock exams, and monitor student performance digitally with Nu Age EdTech LMS." />
   <meta name="twitter:image" content="https://nu-age-cdn.b-cdn.net/logos/course%20builder.png" />
 
   <!-- Favicons (Real Nu Age Logo) -->
@@ -25,6 +25,43 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Nu Age LMS for Tutors & Academies",
+    "serviceType": "Educational Software & Course Management",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Nu Age",
+      "url": "https://nu-age.name.ng",
+      "logo": "https://nu-age-cdn.b-cdn.net/logos/icon.png"
+    },
+    "description": "Enterprise course builder with 10+ lesson types, scheduled timed CBT exams, automated grading, drop-off detection, and student cohort management for independent tutors and learning academies in Africa.",
+    "areaServed": "Africa",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Tutor LMS Plans",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Creator Base",
+          "price": "15000",
+          "priceCurrency": "NGN",
+          "description": "For independent tutors, subject-matter experts & revision prep teachers"
+        },
+        {
+          "@type": "Offer",
+          "name": "Academy Pro",
+          "price": "Custom",
+          "description": "For multi-instructor centers, commercial tutorial hubs and multi-department academies"
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- TOP ANNOUNCEMENT BAR -->
@@ -43,17 +80,18 @@
   <!-- MAIN NAVIGATION (Clean 4 Links: No Founder tab, Real Logo) -->
   <header class="site-nav">
     <div class="container site-nav-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img src="https://nu-age-cdn.b-cdn.net/logos/icon.png" alt="Nu Age Logo" class="brand-logo" />
         <span class="brand-name">Nu Age<span>.</span></span>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
-          <li><a href="index.html" >For Students</a></li>
-          <li><a href="tutors.html" style="color:var(--primary); font-weight:700;">For Tutors &amp; Hubs</a></li>
-          <li><a href="institutions.html" >For Institutions</a></li>
-          <li><a href="gallery.html" >Gallery</a></li>
+          <li><a href="/">For Students</a></li>
+          <li><a href="/tutors" style="color:var(--primary); font-weight:700;">For Tutors &amp; Hubs</a></li>
+          <li><a href="/institutions">For Institutions</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/ambassadors">Ambassadors</a></li>
         </ul>
       </nav>
 
@@ -70,10 +108,11 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" onclick="toggleMobileNav()" >For Students</a>
-      <a href="tutors.html" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Tutors &amp; Hubs</a>
-      <a href="institutions.html" onclick="toggleMobileNav()" >For Institutions</a>
-      <a href="gallery.html" onclick="toggleMobileNav()" >Gallery</a>
+      <a href="/" onclick="toggleMobileNav()">For Students</a>
+      <a href="/tutors" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Tutors &amp; Hubs</a>
+      <a href="/institutions" onclick="toggleMobileNav()">For Institutions</a>
+      <a href="/gallery" onclick="toggleMobileNav()">Gallery</a>
+      <a href="/ambassadors" onclick="toggleMobileNav()">Campus Ambassadors</a>
       <div style="margin-top:14px;">
         <button type="button" class="btn btn-primary" style="width:100%;" onclick="toggleMobileNav(); openDownloadModal();">Get Nu Age App</button>
       </div>
@@ -428,10 +467,11 @@
         <div class="footer-col">
           <h5>Platform</h5>
           <ul>
-            <li><a href="index.html">For Students</a></li>
-            <li><a href="tutors.html">For Tutors &amp; Hubs</a></li>
-            <li><a href="institutions.html">For Universities</a></li>
-            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="/">For Students</a></li>
+            <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+            <li><a href="/institutions">For Universities</a></li>
+            <li><a href="/gallery">Visual Gallery</a></li>
+            <li><a href="/ambassadors">Campus Ambassadors</a></li>
           </ul>
         </div>
         <div class="footer-col">

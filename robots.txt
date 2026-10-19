@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /accept-invite
+Disallow: /accept-invite/
+Disallow: /ambassador/accept
+Disallow: /ambassador/accept/
+Disallow: /index.backup
+
+Sitemap: https://nu-age.name.ng/sitemap.xml

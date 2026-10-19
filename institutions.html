@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nu Age — For African Universities, Faculties &amp; Exam Centers</title>
-  <meta name="description" content="Campus-grade learning management and examination infrastructure engineered for African universities with offline resilience, anti-cheat proctoring, and department-wide analytics." />
-  <link rel="canonical" href="https://nu-age.name.ng/institutions.html" />
+  <title>Nu Age for Universities — Campus LMS &amp; Offline CBT Examination Infrastructure</title>
+  <meta name="description" content="Campus-grade Learning Management System (LMS) and CBT examination software engineered for African universities with offline resilience, anti-cheat proctoring, and department-wide analytics." />
+  <link rel="canonical" href="https://nu-age.name.ng/institutions" />
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nu Age" />
-  <meta property="og:title" content="Nu Age — For African Universities, Faculties &amp; Exam Centers" />
-  <meta property="og:description" content="Campus-grade learning management and examination infrastructure engineered for African universities with offline resilience, anti-cheat proctoring, and department-wide analytics." />
-  <meta property="og:url" content="https://nu-age.name.ng/institutions.html" />
+  <meta property="og:title" content="Nu Age for Universities — Campus LMS &amp; Offline CBT Examination Infrastructure" />
+  <meta property="og:description" content="Campus-grade Learning Management System (LMS) and CBT examination software engineered for African universities with offline resilience, anti-cheat proctoring, and department-wide analytics." />
+  <meta property="og:url" content="https://nu-age.name.ng/institutions" />
   <meta property="og:image" content="https://nu-age-cdn.b-cdn.net/logos/exam%20sim%20nu.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nu Age — For African Universities, Faculties &amp; Exam Centers" />
-  <meta name="twitter:description" content="Campus-grade learning management and examination infrastructure engineered for African universities with offline resilience, anti-cheat proctoring, and department-wide analytics." />
+  <meta name="twitter:title" content="Nu Age for Universities — Campus LMS &amp; Offline CBT Infrastructure" />
+  <meta name="twitter:description" content="Campus-grade Learning Management System (LMS) and CBT examination software engineered for African universities with offline resilience and anti-cheat proctoring." />
   <meta name="twitter:image" content="https://nu-age-cdn.b-cdn.net/logos/exam%20sim%20nu.png" />
 
   <!-- Favicons (Real Nu Age Logo) -->
@@ -25,6 +25,28 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Nu Age Campus LMS & CBT Infrastructure",
+    "serviceType": "University Learning Management & Examination System",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Nu Age",
+      "url": "https://nu-age.name.ng",
+      "logo": "https://nu-age-cdn.b-cdn.net/logos/icon.png"
+    },
+    "description": "Campus-grade offline-ready LMS, secure CBT past questions examination software, anti-cheat proctoring, and automated departmental analytics for African universities and faculties.",
+    "areaServed": "Africa",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Universities, Polytechnics, Faculties, Exam Officers & Academic Boards"
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- TOP ANNOUNCEMENT BAR -->
@@ -43,17 +65,18 @@
   <!-- MAIN NAVIGATION (Clean 4 Links: No Founder tab, Real Logo) -->
   <header class="site-nav">
     <div class="container site-nav-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img src="https://nu-age-cdn.b-cdn.net/logos/icon.png" alt="Nu Age Logo" class="brand-logo" />
         <span class="brand-name">Nu Age<span>.</span></span>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
-          <li><a href="index.html" >For Students</a></li>
-          <li><a href="tutors.html" >For Tutors &amp; Hubs</a></li>
-          <li><a href="institutions.html" style="color:var(--primary); font-weight:700;">For Institutions</a></li>
-          <li><a href="gallery.html" >Gallery</a></li>
+          <li><a href="/">For Students</a></li>
+          <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+          <li><a href="/institutions" style="color:var(--primary); font-weight:700;">For Institutions</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/ambassadors">Ambassadors</a></li>
         </ul>
       </nav>
 
@@ -70,10 +93,11 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" onclick="toggleMobileNav()" >For Students</a>
-      <a href="tutors.html" onclick="toggleMobileNav()" >For Tutors &amp; Hubs</a>
-      <a href="institutions.html" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Institutions</a>
-      <a href="gallery.html" onclick="toggleMobileNav()" >Gallery</a>
+      <a href="/" onclick="toggleMobileNav()">For Students</a>
+      <a href="/tutors" onclick="toggleMobileNav()">For Tutors &amp; Hubs</a>
+      <a href="/institutions" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Institutions</a>
+      <a href="/gallery" onclick="toggleMobileNav()">Gallery</a>
+      <a href="/ambassadors" onclick="toggleMobileNav()">Campus Ambassadors</a>
       <div style="margin-top:14px;">
         <button type="button" class="btn btn-primary" style="width:100%;" onclick="toggleMobileNav(); openDownloadModal();">Get Nu Age App</button>
       </div>
@@ -448,10 +472,11 @@
         <div class="footer-col">
           <h5>Platform</h5>
           <ul>
-            <li><a href="index.html">For Students</a></li>
-            <li><a href="tutors.html">For Tutors &amp; Hubs</a></li>
-            <li><a href="institutions.html">For Universities</a></li>
-            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="/">For Students</a></li>
+            <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+            <li><a href="/institutions">For Universities</a></li>
+            <li><a href="/gallery">Visual Gallery</a></li>
+            <li><a href="/ambassadors">Campus Ambassadors</a></li>
           </ul>
         </div>
         <div class="footer-col">

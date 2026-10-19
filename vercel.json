@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/accept-invite", "destination": "/accept-invite.html" },
-    { "source": "/accept-invite/:token*", "destination": "/accept-invite.html" }
+    { "source": "/accept-invite/:token*", "destination": "/accept-invite.html" },
+    { "source": "/ambassador/accept", "destination": "/ambassador-accept.html" },
+    { "source": "/ambassador/accept/:token*", "destination": "/ambassador-accept.html" },
+    { "source": "/ambassadors", "destination": "/ambassadors.html" },
+    { "source": "/ambassadors/apply", "destination": "/ambassadors.html" }
   ]
 }

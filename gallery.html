@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nu Age — Visual Feature Gallery &amp; Platform Tour</title>
-  <meta name="description" content="Explore real screenshots of the Nu Age interface: course player with AI tutor, study flashcards, timed exam simulator, Nu Chat, and campus network." />
-  <link rel="canonical" href="https://nu-age.name.ng/gallery.html" />
+  <title>Nu Age Interface Gallery — EdTech LMS Features, CBT Simulator &amp; App Screenshots</title>
+  <meta name="description" content="Explore real screenshots of the Nu Age EdTech LMS interface: course player with AI assistant, smart study flashcards, timed CBT exam simulator, in-app chat, and campus network." />
+  <link rel="canonical" href="https://nu-age.name.ng/gallery" />
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nu Age" />
-  <meta property="og:title" content="Nu Age — Visual Feature Gallery &amp; Platform Tour" />
-  <meta property="og:description" content="Explore real screenshots of the Nu Age interface: course player with AI tutor, study flashcards, timed exam simulator, Nu Chat, and campus network." />
-  <meta property="og:url" content="https://nu-age.name.ng/gallery.html" />
+  <meta property="og:title" content="Nu Age Interface Gallery — EdTech LMS Features &amp; App Screenshots" />
+  <meta property="og:description" content="Explore real screenshots of the Nu Age EdTech LMS interface: course player with AI assistant, smart study flashcards, timed CBT exam simulator, and in-app chat." />
+  <meta property="og:url" content="https://nu-age.name.ng/gallery" />
   <meta property="og:image" content="https://nu-age-cdn.b-cdn.net/logos/Nu%20dash.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nu Age — Visual Feature Gallery &amp; Platform Tour" />
-  <meta name="twitter:description" content="Explore real screenshots of the Nu Age interface: course player with AI tutor, study flashcards, timed exam simulator, Nu Chat, and campus network." />
+  <meta name="twitter:title" content="Nu Age Interface Gallery — EdTech LMS Features &amp; Screenshots" />
+  <meta name="twitter:description" content="Explore real screenshots of the Nu Age EdTech LMS interface: course player with AI tutor, study flashcards, and timed CBT exam simulator." />
   <meta name="twitter:image" content="https://nu-age-cdn.b-cdn.net/logos/Nu%20dash.png" />
 
   <!-- Favicons (Real Nu Age Logo) -->
@@ -25,6 +25,23 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Nu Age Visual Feature Gallery & Platform Tour",
+    "url": "https://nu-age.name.ng/gallery",
+    "description": "Visual tour and real interface screenshots of the Nu Age African learning platform and EdTech LMS.",
+    "publisher": {
+      "@type": "EducationalOrganization",
+      "name": "Nu Age",
+      "url": "https://nu-age.name.ng",
+      "logo": "https://nu-age-cdn.b-cdn.net/logos/icon.png"
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- TOP ANNOUNCEMENT BAR -->
@@ -43,17 +60,18 @@
   <!-- MAIN NAVIGATION (Clean 4 Links: No Founder tab, Real Logo) -->
   <header class="site-nav">
     <div class="container site-nav-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img src="https://nu-age-cdn.b-cdn.net/logos/icon.png" alt="Nu Age Logo" class="brand-logo" />
         <span class="brand-name">Nu Age<span>.</span></span>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
-          <li><a href="index.html" >For Students</a></li>
-          <li><a href="tutors.html" >For Tutors &amp; Hubs</a></li>
-          <li><a href="institutions.html" >For Institutions</a></li>
-          <li><a href="gallery.html" style="color:var(--primary); font-weight:700;">Gallery</a></li>
+          <li><a href="/">For Students</a></li>
+          <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+          <li><a href="/institutions">For Institutions</a></li>
+          <li><a href="/gallery" style="color:var(--primary); font-weight:700;">Gallery</a></li>
+          <li><a href="/ambassadors">Ambassadors</a></li>
         </ul>
       </nav>
 
@@ -70,10 +88,11 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <a href="index.html" onclick="toggleMobileNav()" >For Students</a>
-      <a href="tutors.html" onclick="toggleMobileNav()" >For Tutors &amp; Hubs</a>
-      <a href="institutions.html" onclick="toggleMobileNav()" >For Institutions</a>
-      <a href="gallery.html" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">Gallery</a>
+      <a href="/" onclick="toggleMobileNav()">For Students</a>
+      <a href="/tutors" onclick="toggleMobileNav()">For Tutors &amp; Hubs</a>
+      <a href="/institutions" onclick="toggleMobileNav()">For Institutions</a>
+      <a href="/gallery" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">Gallery</a>
+      <a href="/ambassadors" onclick="toggleMobileNav()">Campus Ambassadors</a>
       <div style="margin-top:14px;">
         <button type="button" class="btn btn-primary" style="width:100%;" onclick="toggleMobileNav(); openDownloadModal();">Get Nu Age App</button>
       </div>
@@ -356,10 +375,11 @@
         <div class="footer-col">
           <h5>Platform</h5>
           <ul>
-            <li><a href="index.html">For Students</a></li>
-            <li><a href="tutors.html">For Tutors &amp; Hubs</a></li>
-            <li><a href="institutions.html">For Universities</a></li>
-            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="/">For Students</a></li>
+            <li><a href="/tutors">For Tutors &amp; Hubs</a></li>
+            <li><a href="/institutions">For Universities</a></li>
+            <li><a href="/gallery">Visual Gallery</a></li>
+            <li><a href="/ambassadors">Campus Ambassadors</a></li>
           </ul>
         </div>
         <div class="footer-col">
