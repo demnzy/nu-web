@@ -2,11 +2,11 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/accept-invite", "destination": "/accept-invite/index.html" },
-    { "source": "/accept-invite/:token*", "destination": "/accept-invite/index.html" },
+    { "source": "/accept-invite/(.*)", "destination": "/accept-invite/index.html" },
     { "source": "/ambassador/accept", "destination": "/ambassador/accept/index.html" },
-    { "source": "/ambassador/accept/:token*", "destination": "/ambassador/accept/index.html" },
+    { "source": "/ambassador/accept/(.*)", "destination": "/ambassador/accept/index.html" },
     { "source": "/ambassadors/accept", "destination": "/ambassadors/accept/index.html" },
-    { "source": "/ambassadors/accept/:token*", "destination": "/ambassadors/accept/index.html" },
+    { "source": "/ambassadors/accept/(.*)", "destination": "/ambassadors/accept/index.html" },
     { "source": "/ambassadors", "destination": "/ambassadors/index.html" },
     { "source": "/ambassadors/apply", "destination": "/ambassadors/index.html" }
   ]
