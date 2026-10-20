@@ -634,7 +634,13 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="university" class="form-label">University / Institution <span class="required">*</span></label>
-                <input type="text" id="university" name="university" class="form-input" placeholder="e.g. FUTMinna, UNILAG, OAU" required />
+                <select id="university" name="university" class="form-select" required>
+                  <option value="" disabled selected>Loading Nigerian universities...</option>
+                </select>
+                <div id="otherUniversityWrapper" style="display:none; margin-top:8px;">
+                  <input type="text" id="otherUniversity" class="form-input" placeholder="Type your university / institution name..." />
+                  <span class="form-hint">Enter your institution name if not listed above.</span>
+                </div>
               </div>
 
               <div class="form-group">
@@ -838,8 +844,90 @@
       const formHeader = document.getElementById('formHeader');
       const successView = document.getElementById('successView');
       const isEnrolledCheckbox = document.getElementById('isEnrolled');
+      const uniSelect = document.getElementById('university');
+      const otherUniWrap = document.getElementById('otherUniversityWrapper');
+      const otherUniInput = document.getElementById('otherUniversity');
 
       const BACKEND_ENDPOINT = "https://api.nu-age.name.ng/promo/ambassadors/apply";
+
+      const FALLBACK_NIGERIAN_UNIS = [
+        "Abubakar Tafawa Balewa University",
+        "Ahmadu Bello University",
+        "Bayero University Kano",
+        "Bells University of Technology",
+        "Babcock University",
+        "Bowen University",
+        "Covenant University",
+        "Federal University of Agriculture, Abeokuta",
+        "Federal University of Petroleum Resources, Effurun",
+        "Federal University of Technology, Akure",
+        "Federal University of Technology, Minna",
+        "Federal University of Technology, Owerri",
+        "Lagos State University",
+        "Landmark University",
+        "Nile University of Nigeria",
+        "Nnamdi Azikiwe University",
+        "Obafemi Awolowo University",
+        "Olabisi Onabanjo University",
+        "Pan-Atlantic University",
+        "Rivers State University",
+        "University of Abuja",
+        "University of Benin",
+        "University of Calabar",
+        "University of Ibadan",
+        "University of Ilorin",
+        "University of Jos",
+        "University of Lagos",
+        "University of Maiduguri",
+        "University of Nigeria, Nsukka",
+        "University of Port Harcourt",
+        "University of Uyo"
+      ];
+
+      function populateUniOptions(names) {
+        uniSelect.innerHTML = '<option value="" disabled selected>Select your university / institution</option>';
+        names.forEach(name => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          uniSelect.appendChild(opt);
+        });
+        const otherOpt = document.createElement('option');
+        otherOpt.value = 'Other';
+        otherOpt.textContent = 'Other / Not Listed...';
+        uniSelect.appendChild(otherOpt);
+      }
+
+      async function initUniversities() {
+        try {
+          const res = await fetch("https://universities.hipolabs.com/search?country=Nigeria");
+          if (!res.ok) throw new Error("Hipolabs HTTP " + res.status);
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const names = Array.from(new Set(
+              data.map(u => (u.name || '').trim()).filter(Boolean)
+            )).sort((a, b) => a.localeCompare(b));
+            populateUniOptions(names);
+            return;
+          }
+          throw new Error("Empty list returned");
+        } catch (err) {
+          console.warn("Could not load universities from hipolabs, using fallback list:", err);
+          populateUniOptions(FALLBACK_NIGERIAN_UNIS);
+        }
+      }
+
+      initUniversities();
+
+      uniSelect.addEventListener('change', function () {
+        if (this.value === 'Other') {
+          otherUniWrap.style.display = 'block';
+          otherUniInput.focus();
+        } else {
+          otherUniWrap.style.display = 'none';
+          otherUniInput.value = '';
+        }
+      });
 
       function showAlert(msg) {
         alertMsg.textContent = msg;
@@ -857,7 +945,15 @@
 
         const fullName = (document.getElementById('fullName').value || '').trim();
         const email = (document.getElementById('email').value || '').trim().toLowerCase();
-        const university = (document.getElementById('university').value || '').trim();
+        let university = (uniSelect.value || '').trim();
+        if (university === 'Other') {
+          university = (otherUniInput.value || '').trim();
+          if (!university) {
+            showAlert("Please type the name of your university or institution.");
+            otherUniInput.focus();
+            return;
+          }
+        }
         const department = (document.getElementById('department').value || '').trim();
         const level = (document.getElementById('level').value || '').trim();
         const phone = (document.getElementById('phone').value || '').trim();
@@ -876,7 +972,8 @@
         }
 
         if (!university) {
-          showAlert("Please specify your university or institution.");
+          showAlert("Please select your university or institution.");
+          uniSelect.focus();
           return;
         }
 
@@ -922,7 +1019,14 @@
 
           if (!res.ok) {
             const errData = await res.json().catch(() => ({}));
-            const msg = errData.detail || errData.message || "Unable to submit application right now. Please check your information and try again.";
+            let msg = "Unable to submit application right now. Please check your information and try again.";
+            if (typeof errData.detail === 'string') {
+              msg = errData.detail;
+            } else if (Array.isArray(errData.detail) && errData.detail.length > 0) {
+              msg = errData.detail.map(d => (d.msg || d.message || JSON.stringify(d))).join("; ");
+            } else if (errData.message) {
+              msg = errData.message;
+            }
             showAlert(msg);
             submitBtn.disabled = false;
             submitText.textContent = "Submit Ambassador Application";
