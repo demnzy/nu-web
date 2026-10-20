@@ -463,14 +463,14 @@
         $("btnRetry").classList.toggle("hidden", !canRetry);
       }
 
-      // Token: ?token= / ?invite_token= first, then last path segment (/ambassador/accept/<token>)
+      // Token: ?token= / ?invite_token= first, then last path segment (/ambassadors/accept/<token>)
       function extractToken() {
         const params = new URLSearchParams(window.location.search);
         const q = (params.get("token") || params.get("invite_token") || "").trim();
         if (q) return q;
         const segs = window.location.pathname.split("/").filter(Boolean);
         const last = segs[segs.length - 1] || "";
-        if (last && !["accept", "ambassador", "ambassador-accept", "ambassador-accept.html"].includes(last)) {
+        if (last && !["accept", "ambassador", "ambassadors", "ambassador-accept", "ambassador-accept.html"].includes(last)) {
           return decodeURIComponent(last).trim();
         }
         return "";

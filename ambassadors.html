@@ -914,12 +914,20 @@
         };
 
         try {
-          // Attempt dispatch to the future backend endpoint
           const res = await fetch(BACKEND_ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
-          }).catch(() => null);
+          });
+
+          if (!res.ok) {
+            const errData = await res.json().catch(() => ({}));
+            const msg = errData.detail || errData.message || "Unable to submit application right now. Please check your information and try again.";
+            showAlert(msg);
+            submitBtn.disabled = false;
+            submitText.textContent = "Submit Ambassador Application";
+            return;
+          }
 
           // Store local backup so learner data is never lost
           try {
