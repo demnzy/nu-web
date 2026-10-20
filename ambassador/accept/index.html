@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accept Campus Ambassador Invitation — Nu Age</title>
+  <meta name="description" content="Confirm your Nu Age Campus Ambassador invitation and unlock your ambassador badge, promo code and Nu-Coin rewards." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="https://nu-age-cdn.b-cdn.net/logos/icon.png" />
+  <link rel="apple-touch-icon" href="https://nu-age-cdn.b-cdn.net/logos/icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #37BF14;
+      --green-glow: rgba(55, 191, 20, 0.25);
+      --green-dark: #237A0C;
+      --green-100: #E8F8E1;
+      --green-50: #F4FBF1;
+      --gold: #E0A100;
+      --gold-100: #FFF4D1;
+      --amber: #D97706;
+      --amber-100: #FEF3C7;
+      --red: #DC2626;
+      --red-100: #FEE2E2;
+      --ink: #101A13;
+      --ink-soft: #4B5A51;
+      --ink-muted: #7C8D82;
+      --line: #E3ECE4;
+      --surface: #FFFFFF;
+      --radius: 16px;
+      --radius-lg: 24px;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F6FAF6;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(55, 191, 20, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 88% 82%, rgba(224, 161, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #ffffff 0%, #F4F8F4 100%);
+      z-index: -2;
+    }
+
+    /* Confetti layer (success only) */
+    #confetti { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+    .confetti-piece {
+      position: absolute;
+      top: -16px;
+      width: 9px;
+      height: 14px;
+      border-radius: 2px;
+      opacity: 0.9;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); opacity: 0.2; }
+    }
+
+    .invite-card {
+      width: 100%;
+      max-width: 500px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px 32px;
+      box-shadow:
+        0 1px 3px rgba(16, 26, 19, 0.04),
+        0 12px 32px rgba(16, 26, 19, 0.06),
+        0 24px 60px rgba(55, 191, 20, 0.06);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: cardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Ambassador accent strip */
+    .invite-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--green) 0%, #8BDB3A 50%, var(--gold) 100%);
+    }
+
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      text-decoration: none;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 4px 12px rgba(55, 191, 20, 0.18);
+    }
+    .brand-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+    .brand-name span { color: var(--green); }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold-100);
+      color: #8A5A00;
+      border: 1px solid rgba(224, 161, 0, 0.3);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .status-icon-wrap {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .spinner-ring {
+      width: 54px;
+      height: 54px;
+      border: 4px solid var(--green-100);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.9s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .icon-success {
+      background: linear-gradient(135deg, var(--green-100) 0%, var(--gold-100) 100%);
+      color: var(--green-dark);
+      box-shadow: 0 0 0 10px var(--green-50), 0 10px 28px var(--green-glow);
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .icon-success::after {
+      content: "";
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      border: 2px dashed rgba(224, 161, 0, 0.45);
+      animation: spin 14s linear infinite;
+    }
+    .icon-warning {
+      background: var(--amber-100);
+      color: var(--amber);
+      box-shadow: 0 0 0 10px #FFFBEB;
+      animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .icon-error {
+      background: var(--red-100);
+      color: var(--red);
+      box-shadow: 0 0 0 10px #FEF2F2;
+      animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .status-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.4px;
+    }
+    .status-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+    .status-desc strong { color: var(--ink); font-weight: 600; }
+
+    .uni-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-50);
+      border: 1px solid rgba(55, 191, 20, 0.22);
+      color: var(--green-dark);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      max-width: 100%;
+    }
+    .uni-pill span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .perks {
+      list-style: none;
+      text-align: left;
+      background: #F8FAF8;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+    .perks li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      opacity: 0;
+      transform: translateY(6px);
+      animation: perkIn 0.4s ease forwards;
+    }
+    .perks li + li { border-top: 1px solid var(--line); }
+    .perks li:nth-child(1) { animation-delay: 0.15s; }
+    .perks li:nth-child(2) { animation-delay: 0.25s; }
+    .perks li:nth-child(3) { animation-delay: 0.35s; }
+    .perks li:nth-child(4) { animation-delay: 0.45s; }
+    @keyframes perkIn { to { opacity: 1; transform: translateY(0); } }
+    .perks strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 1px; }
+    .perk-icon {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-100);
+      color: var(--green-dark);
+    }
+    .perk-icon.gold { background: var(--gold-100); color: #8A5A00; }
+
+    .action-group { display: flex; flex-direction: column; gap: 12px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 4px 14px var(--green-glow); }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(35, 122, 12, 0.3); }
+    .btn-secondary { background: #F4F7F4; color: var(--ink); border: 1px solid var(--line); }
+    .btn-secondary:hover { background: #EAEFEA; transform: translateY(-1px); }
+    .btn svg { flex-shrink: 0; }
+
+    .card-footer {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .card-footer a { color: var(--green-dark); text-decoration: none; font-weight: 500; }
+    .card-footer a:hover { text-decoration: underline; }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 420px) {
+      .invite-card { padding: 38px 22px 26px; }
+      .status-title { font-size: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .perks li { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-mesh"></div>
+  <div id="confetti" aria-hidden="true"></div>
+
+  <main class="invite-card" aria-live="polite">
+    <a href="/" class="brand-bar" title="Nu Age Homepage">
+      <img src="https://nu-age-cdn.b-cdn.net/logos/icon.png" alt="Nu Age Logo" class="brand-logo" />
+      <span class="brand-name">Nu <span>Age</span></span>
+    </a>
+
+    <div class="kicker">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.6L2 9.6l7.1-.7z"/></svg>
+      Campus Ambassador Programme
+    </div>
+
+    <!-- Loading -->
+    <section id="stateLoading">
+      <div class="status-icon-wrap"><div class="spinner-ring"></div></div>
+      <h1 class="status-title">Confirming Your Invitation</h1>
+      <p class="status-desc">Hold on a moment while we activate your Campus Ambassador role...</p>
+    </section>
+
+    <!-- Success / Already active -->
+    <section id="stateSuccess" class="hidden">
+      <div class="status-icon-wrap icon-success">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="6"></circle>
+          <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+        </svg>
+      </div>
+      <div id="successUni" class="uni-pill hidden">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 10 12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+        <span id="successUniName"></span>
+      </div>
+      <h1 class="status-title" id="successTitle">Welcome, Ambassador!</h1>
+      <p class="status-desc" id="successDesc">Your Campus Ambassador role is now active.</p>
+
+      <ul class="perks">
+        <li>
+          <span class="perk-icon gold"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.6L2 9.6l7.1-.7z"/></svg></span>
+          <span><strong>Ambassador badge unlocked</strong>Shown on your profile, chat messages and leaderboards.</span>
+        </li>
+        <li>
+          <span class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
+          <span><strong>Your own promo code</strong>Share it with students on campus to unlock study perks.</span>
+        </li>
+        <li>
+          <span class="perk-icon gold"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5V8m0 8v1.5"></path></svg></span>
+          <span><strong>Nu-Coin commissions</strong>Earn Nu-Coins and AI credits for every student you onboard.</span>
+        </li>
+        <li>
+          <span class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+          <span><strong>Leadership network</strong>Direct mentorship and access to the Nu Age team.</span>
+        </li>
+      </ul>
+
+      <div class="action-group">
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk" class="btn btn-primary" id="btnSuccessAndroid">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
+          <span>Open / Download Android App</span>
+        </a>
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/NuAgeSetup.exe" class="btn btn-secondary" id="btnSuccessWindows">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" /></svg>
+          <span>Download for Windows</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Needs signup -->
+    <section id="stateNeedsSignup" class="hidden">
+      <div class="status-icon-wrap icon-warning">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+      </div>
+      <div id="signupUni" class="uni-pill hidden"><span id="signupUniName"></span></div>
+      <h1 class="status-title">Create Your Account First</h1>
+      <p class="status-desc" id="signupDesc">Campus Ambassadors need a Nu Age account. Download the app, sign up with your invited email, then tap your invitation link again.</p>
+      <div class="action-group">
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/Nu%20Age.apk" class="btn btn-primary" id="btnSignupAndroid">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
+          <span>Download Android App</span>
+        </a>
+        <a href="https://nu-age-cdn.b-cdn.net/app%20links%204/NuAgeSetup.exe" class="btn btn-secondary" id="btnSignupWindows">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" /></svg>
+          <span>Download for Windows</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Error -->
+    <section id="stateError" class="hidden">
+      <div class="status-icon-wrap icon-error">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <h1 class="status-title" id="errorTitle">Invitation Notice</h1>
+      <p class="status-desc" id="errorDesc">This invitation link is invalid or has expired.</p>
+      <div class="action-group">
+        <button type="button" class="btn btn-primary hidden" id="btnRetry">Try Again</button>
+        <a href="mailto:daviestobi3@gmail.com?subject=Campus%20Ambassador%20Invitation" class="btn btn-secondary" id="btnContact">Contact the Nu Age Team</a>
+      </div>
+    </section>
+
+    <div class="card-footer">
+      <span>Nu Age Campus Ambassador Programme &bull; <a href="/#download">All Downloads</a></span>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const API_URL = "https://api.nu-age.name.ng/promo/ambassador/process";
+      const STATES = ["stateLoading", "stateSuccess", "stateNeedsSignup", "stateError"];
+      let busy = false;
+
+      const $ = (id) => document.getElementById(id);
+
+      function showState(id) {
+        STATES.forEach((s) => $(s).classList.toggle("hidden", s !== id));
+      }
+
+      function setText(id, text) { $(id).textContent = text; }
+
+      function showUni(pillId, nameId, uni) {
+        if (!uni) return;
+        setText(nameId, uni);
+        $(pillId).classList.remove("hidden");
+      }
+
+      function showError(title, desc, canRetry) {
+        showState("stateError");
+        setText("errorTitle", title);
+        setText("errorDesc", desc);
+        $("btnRetry").classList.toggle("hidden", !canRetry);
+      }
+
+      // Token: ?token= / ?invite_token= first, then last path segment (/ambassadors/accept/<token>)
+      function extractToken() {
+        const params = new URLSearchParams(window.location.search);
+        const q = (params.get("token") || params.get("invite_token") || "").trim();
+        if (q) return q;
+        const segs = window.location.pathname.split("/").filter(Boolean);
+        const last = segs[segs.length - 1] || "";
+        if (last && !["accept", "ambassador", "ambassadors", "ambassador-accept", "ambassador-accept.html"].includes(last)) {
+          return decodeURIComponent(last).trim();
+        }
+        return "";
+      }
+
+      function celebrate() {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const layer = $("confetti");
+        const colors = ["#37BF14", "#8BDB3A", "#E0A100", "#FFD45C", "#237A0C"];
+        for (let i = 0; i < 70; i++) {
+          const p = document.createElement("span");
+          p.className = "confetti-piece";
+          p.style.left = Math.random() * 100 + "vw";
+          p.style.background = colors[i % colors.length];
+          p.style.animationDuration = 2.4 + Math.random() * 2.2 + "s";
+          p.style.animationDelay = Math.random() * 0.6 + "s";
+          p.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+          layer.appendChild(p);
+        }
+        setTimeout(() => { layer.innerHTML = ""; }, 5500);
+      }
+
+      function extractDetail(data) {
+        if (typeof data.detail === "string") return data.detail;
+        if (typeof data.message === "string") return data.message;
+        return "";
+      }
+
+      async function processInvitation() {
+        if (busy) return;
+        busy = true;
+        showState("stateLoading");
+
+        const token = extractToken();
+        if (!token) {
+          busy = false;
+          showError("No Token Found", "This link is missing its invitation token. Please tap the button directly from your invitation email.", false);
+          return;
+        }
+
+        try {
+          const res = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: token }),
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (res.ok) {
+            const uni = data.university || "";
+            if (data.status === "success" || data.status === "already_active") {
+              showState("stateSuccess");
+              showUni("successUni", "successUniName", uni);
+              if (data.status === "already_active") {
+                setText("successTitle", "You're Already an Ambassador!");
+                setText("successDesc", "Your Campus Ambassador role is active" + (uni ? " for " + uni : "") + ". Open the Nu Age app to share your promo code and track your rewards.");
+              } else {
+                setText("successTitle", data.name ? "Welcome aboard, " + data.name.split(" ")[0] + "!" : "Welcome, Ambassador!");
+                setText("successDesc", "You are now an official Nu Age Campus Ambassador" + (uni ? " for " + uni : "") + ". Your badge and rewards are live in the app.");
+                celebrate();
+              }
+            } else if (data.status === "needs_signup") {
+              showState("stateNeedsSignup");
+              showUni("signupUni", "signupUniName", uni);
+              setText("signupDesc", "Campus Ambassadors need a Nu Age account. Download the app, sign up" + (data.email ? " with " + data.email : " with your invited email") + ", then tap your invitation link again.");
+            } else {
+              showError("Invitation Inactive", extractDetail(data) || "This invitation could not be processed.", false);
+            }
+          } else {
+            const detail = extractDetail(data);
+            if (res.status === 404) {
+              showError("Invitation Not Found", detail || "This invitation link is invalid or has been replaced by a newer one. Check your inbox for the latest invite.", false);
+            } else if (res.status === 400) {
+              showError("Invitation Inactive", detail || "This invitation is no longer active.", false);
+            } else if (res.status === 422) {
+              showError("Invalid Invitation Link", "The link looks incomplete. Please make sure you opened the full link from your email.", false);
+            } else {
+              showError("Something Went Wrong", detail || "We couldn't confirm your invitation right now. Please try again.", true);
+            }
+          }
+        } catch (err) {
+          showError("Connection Error", "Unable to reach Nu Age servers. Check your internet connection and try again.", true);
+        } finally {
+          busy = false;
+        }
+      }
+
+      $("btnRetry").addEventListener("click", processInvitation);
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", processInvitation);
+      } else {
+        processInvitation();
+      }
+    })();
+  </script>
+</body>
+
+</html>
