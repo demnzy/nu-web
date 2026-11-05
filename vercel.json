@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/institutions", "destination": "/tutors", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/accept-invite", "destination": "/accept-invite/index.html" },
     { "source": "/accept-invite/(.*)", "destination": "/accept-invite/index.html" },
