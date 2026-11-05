@@ -1,4 +1,4 @@
-﻿/* Nu Age theme layer: refined light look + dark mode.
+/* Nu Age theme layer: refined light look + dark mode.
    Loaded after style.css; only overrides tokens and a few surfaces. */
 
 :root {
@@ -170,4 +170,30 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 [data-theme="dark"] [style*="background:#f8fafc"] { background: var(--bg-subtle) !important; }
 
 .spotlight-tag { display: inline-block; font-size: 0.8rem; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-sm); margin: 4px 2px; }
+
+
+/* Ambassadors page: its inline CSS loads after this file, so bump specificity with body */
+body .perk-card { background: var(--surface); border-radius: var(--radius-lg); box-shadow: none; }
+body .perk-card:hover { transform: none; box-shadow: none; border-color: var(--primary); }
+body .application-card { box-shadow: none; }
+[data-theme="dark"] {
+  --green-deep: #86d6a4;
+  --gold-light: #2a2112;
+  --gold-dark: #f4b95f;
+}
+[data-theme="dark"] body .perk-icon-wrap { background: #15261c; color: #86d6a4; }
+[data-theme="dark"] body .perk-icon-wrap.gold { background: #2a2112; color: #f4b95f; }
+[data-theme="dark"] body .form-input,
+[data-theme="dark"] body .form-select,
+[data-theme="dark"] body .form-textarea { background: var(--bg-page); color: var(--text-heading); border-color: var(--border-dark); }
+[data-theme="dark"] body .enrolled-box { background: #14231a; border-color: #2b5a3d; }
+[data-theme="dark"] body .enrolled-help { color: var(--text-muted); border-top-color: #2b5a3d; }
+[data-theme="dark"] body .enrolled-help a { color: var(--primary); }
+[data-theme="dark"] body .submit-btn { background: #1f7a44; color: #fff; }
+[data-theme="dark"] body .submit-btn:hover { background: #269052; }
+[data-theme="dark"] body .application-card,
+[data-theme="dark"] body .faq-row { background: var(--surface); }
+body .amb-title { font-family: var(--font-display); }
+body .amb-title span { background: none; -webkit-text-fill-color: currentColor; color: var(--primary); }
+body .application-card::before { background: var(--primary); height: 3px; }
 
