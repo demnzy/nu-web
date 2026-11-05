@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "redirects": [
+    { "source": "/students", "destination": "/", "permanent": true },
     { "source": "/institutions", "destination": "/tutors", "permanent": true }
   ],
   "rewrites": [

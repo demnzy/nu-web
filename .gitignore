@@ -1,0 +1,16 @@
+# Backup files
+*.backup.html
+*backup*
+
+# OS and IDE artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local agent artifacts
+.agents/
+.gemini/
