@@ -207,3 +207,22 @@ body .amb-title { font-family: var(--font-display); }
 body .amb-title span { background: none; -webkit-text-fill-color: currentColor; color: var(--primary); }
 body .application-card::before { background: var(--primary); height: 3px; }
 
+/* Dark mode styling for download started steps & chips */
+[data-theme="dark"] .modal-started-steps li {
+  background: #132219;
+  border-color: #203829;
+}
+[data-theme="dark"] .modal-started-steps code,
+[data-theme="dark"] .modal-started-steps .apk-chip {
+  background: #183a25;
+  color: #4ade80;
+  border-color: #2b5a3d;
+}
+[data-theme="dark"] .modal-started-steps strong {
+  color: #f0fdf4;
+}
+[data-theme="dark"] .modal-started-steps em {
+  color: #86efac;
+}
+
+

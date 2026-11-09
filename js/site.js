@@ -182,11 +182,92 @@
     });
 
     /* ── Download Modal with Clear Feedback and Guidance ── */
-    window.openDownloadModal = function () {
+    function triggerDownloadFlow(platform, href, autoDownload) {
+      var selectView = document.getElementById('modalSelectView');
+      var startedView = document.getElementById('modalStartedView');
+
+      if (selectView && startedView) {
+        selectView.style.display = 'none';
+        startedView.style.display = 'block';
+
+        var titleEl = document.getElementById('startedTitle');
+        var subEl = document.getElementById('startedSub');
+        var stepsEl = document.getElementById('startedSteps');
+        var retryBtn = document.getElementById('retryDownloadBtn');
+        var copyBtn = document.getElementById('copyDownloadBtn');
+
+        if (titleEl) titleEl.textContent = platform + ' Download Started!';
+        if (subEl) {
+          subEl.textContent = platform === 'Android'
+            ? 'Follow these quick steps to install Nu Age on your Android device:'
+            : 'Your file is downloading. Follow these quick steps to install Nu Age:';
+        }
+
+        if (stepsEl) {
+          if (platform === 'Android') {
+            stepsEl.innerHTML =
+              '<li><div class="step-body"><strong>Allow download:</strong> If Chrome/Android warns <em>"File might be harmful"</em>, tap <strong>Download anyway</strong> (Nu&nbsp;Age is 100% verified &amp; safe).</div></li>' +
+              '<li><div class="step-body"><strong>Check notification:</strong> Swipe down your notification bar to monitor <code class="apk-chip">Nu&nbsp;Age.apk</code> progress.</div></li>' +
+              '<li><div class="step-body"><strong>Tap to install:</strong> When download finishes, tap the notification to install and study completely offline.</div></li>';
+          } else {
+            stepsEl.innerHTML =
+              '<li><div class="step-body"><strong>Locate installer:</strong> Find <code class="apk-chip">NuAgeSetup-1.1.1.exe</code> in your Downloads folder.</div></li>' +
+              '<li><div class="step-body"><strong>Run setup:</strong> Double-click the installer and follow the prompt to finish installation.</div></li>' +
+              '<li><div class="step-body"><strong>Launch Nu Age:</strong> Open the desktop app to start studying with zero data needed.</div></li>';
+          }
+        }
+
+        if (autoDownload) {
+          var a = document.createElement('a');
+          a.href = href;
+          a.setAttribute('download', platform === 'Android' ? 'Nu Age.apk' : 'NuAgeSetup-1.1.1.exe');
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+
+        if (retryBtn) {
+          retryBtn.onclick = function () {
+            var a = document.createElement('a');
+            a.href = href;
+            a.setAttribute('download', platform === 'Android' ? 'Nu Age.apk' : 'NuAgeSetup-1.1.1.exe');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast('Re-triggering ' + platform + ' download...', 'success');
+          };
+        }
+
+        if (copyBtn) {
+          copyBtn.onclick = function () {
+            copyDownloadLink(href, platform + (platform === 'Android' ? ' APK' : ' Installer'));
+          };
+        }
+      }
+
+      showToast('Starting ' + platform + ' download...', 'success');
+    }
+
+    window.openDownloadModal = function (preferredPlatform) {
       var m = document.getElementById('downloadModal');
-      if (m) {
-        m.classList.add('open');
-        document.body.classList.add('modal-lock');
+      if (!m) return;
+
+      var isAndroid = /Android/i.test(navigator.userAgent || navigator.vendor || window.opera);
+      var targetPlatform = preferredPlatform || (isAndroid ? 'Android' : null);
+
+      m.classList.add('open');
+      document.body.classList.add('modal-lock');
+
+      var selectView = document.getElementById('modalSelectView');
+      var startedView = document.getElementById('modalStartedView');
+
+      if (targetPlatform === 'Android' && selectView && startedView) {
+        var androidBtn = document.querySelector('.modal-option-btn[data-platform="Android"]');
+        var apkUrl = (androidBtn && androidBtn.getAttribute('href')) || 'https://nu-age-cdn.b-cdn.net/app%20links%202/Nu%20Age.apk';
+        triggerDownloadFlow('Android', apkUrl, true);
+      } else {
+        if (selectView) selectView.style.display = 'block';
+        if (startedView) startedView.style.display = 'none';
       }
     };
 
@@ -196,6 +277,14 @@
         if (m) {
           m.classList.remove('open');
           document.body.classList.remove('modal-lock');
+          setTimeout(function () {
+            var selectView = document.getElementById('modalSelectView');
+            var startedView = document.getElementById('modalStartedView');
+            if (selectView && startedView) {
+              startedView.style.display = 'none';
+              selectView.style.display = 'block';
+            }
+          }, 250);
         }
       }
     };
@@ -205,57 +294,7 @@
       btn.addEventListener('click', function (e) {
         var platform = btn.getAttribute('data-platform') || (btn.textContent.indexOf('Android') !== -1 ? 'Android' : 'Windows');
         var href = btn.getAttribute('href');
-
-        var selectView = document.getElementById('modalSelectView');
-        var startedView = document.getElementById('modalStartedView');
-
-        if (selectView && startedView) {
-          selectView.style.display = 'none';
-          startedView.style.display = 'block';
-
-          var titleEl = document.getElementById('startedTitle');
-          var subEl = document.getElementById('startedSub');
-          var stepsEl = document.getElementById('startedSteps');
-          var retryBtn = document.getElementById('retryDownloadBtn');
-          var copyBtn = document.getElementById('copyDownloadBtn');
-
-          if (titleEl) titleEl.textContent = platform + ' Download Started!';
-          if (subEl) subEl.textContent = 'Your file is downloading. Follow these quick steps to install Nu Age:';
-
-          if (stepsEl) {
-            if (platform === 'Android') {
-              stepsEl.innerHTML =
-                '<li><strong>Check your notification bar:</strong> Swipe down to watch download progress for <code>Nu Age.apk</code>.</li>' +
-                '<li><strong>Allow installation:</strong> If Android warns <em>"File might be harmful"</em>, tap <strong>Download anyway</strong> (our APK is 100% verified and secure).</li>' +
-                '<li><strong>Open &amp; Study:</strong> Tap the finished download to install and study completely offline.</li>';
-            } else {
-              stepsEl.innerHTML =
-                '<li><strong>Locate installer:</strong> Find <code>NuAgeSetup-1.1.1.exe</code> in your Downloads folder.</li>' +
-                '<li><strong>Run setup:</strong> Double-click the installer and follow the prompt to finish installation.</li>' +
-                '<li><strong>Launch Nu Age:</strong> Open the desktop app to start studying with zero data needed.</li>';
-            }
-          }
-
-          if (retryBtn) {
-            retryBtn.onclick = function () {
-              var a = document.createElement('a');
-              a.href = href;
-              a.setAttribute('download', '');
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-              showToast('Re-triggering ' + platform + ' download...');
-            };
-          }
-
-          if (copyBtn) {
-            copyBtn.onclick = function () {
-              copyDownloadLink(href, platform + ' Installer');
-            };
-          }
-        }
-
-        showToast('Starting ' + platform + ' download...', 'success');
+        triggerDownloadFlow(platform, href, false);
       });
     });
 
@@ -271,6 +310,23 @@
         }
       });
     }
+
+    // Direct APK download links on page also surface the guidance modal
+    document.querySelectorAll('a[href*="Nu%20Age.apk"], a[href*="Nu Age.apk"]').forEach(function (link) {
+      if (!link.classList.contains('modal-option-btn') && (!link.id || !link.id.includes('retry'))) {
+        link.addEventListener('click', function () {
+          var m = document.getElementById('downloadModal');
+          if (m) {
+            setTimeout(function () {
+              m.classList.add('open');
+              document.body.classList.add('modal-lock');
+              var apkUrl = link.getAttribute('href');
+              triggerDownloadFlow('Android', apkUrl, false);
+            }, 120);
+          }
+        });
+      }
+    });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {

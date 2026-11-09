@@ -510,7 +510,7 @@
           </svg>
           <span>Download App</span>
         </button>
-        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation" onclick="toggleMobileNav()">
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="6" x2="21" y2="6" />
@@ -803,31 +803,89 @@
     </div>
   </footer>
 
-  <!-- DOWNLOAD MODAL -->
+  <!-- DOWNLOAD MODAL (Interactive, Loading States, Step Feedback) -->
   <div class="modal-backdrop" id="downloadModal" onclick="closeDownloadModal(event)">
     <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title">Get Nu Age on Your Device</div>
-        <button type="button" class="modal-close" onclick="closeDownloadModal()">&times;</button>
+      <!-- 1. Selection View -->
+      <div id="modalSelectView">
+        <div class="modal-header">
+          <div class="modal-title">Get Nu Age Free</div>
+          <button type="button" class="modal-close" onclick="closeDownloadModal()">&times;</button>
+        </div>
+        <p class="modal-sub">
+          Choose your device to install Nu Age. 100% free for students with full offline capability.
+        </p>
+
+        <div class="modal-options">
+          <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/Nu%20Age.apk" download="Nu Age.apk" class="modal-option-btn is-recommended" data-platform="Android">
+            <div class="modal-option-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            </div>
+            <div class="modal-option-text">
+              <span class="modal-rec-tag">Recommended</span>
+              <strong>Android Mobile (.apk)</strong>
+              <small>Android 8.0+ &middot; Direct APK download &middot; Fast install</small>
+            </div>
+            <svg class="modal-option-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup-1.1.1.exe" download="NuAgeSetup-1.1.1.exe" class="modal-option-btn" data-platform="Windows">
+            <div class="modal-option-icon dark">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            </div>
+            <div class="modal-option-text">
+              <strong>Windows Desktop (.exe)</strong>
+              <small>Windows 10 &amp; 11 &middot; 64-bit installer &middot; Complete PC client</small>
+            </div>
+            <svg class="modal-option-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="modal-foot">
+          Need assistance? <a href="mailto:daviestobi3@gmail.com">Contact support</a> &middot; Safe, verified downloads
+        </div>
       </div>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:18px;">
-        Choose your platform to install Nu Age for free:
-      </p>
-      <div class="modal-options">
-        <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/Nu%20Age.apk" download class="modal-option-btn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
-          <div>
-            <div style="font-weight:700;">Android Mobile (.apk)</div>
-            <div style="font-size:0.8rem; color:var(--text-muted);">Android 8.0+ &middot; Direct APK download</div>
+
+      <!-- 2. Download Started / Step Guidance View -->
+      <div id="modalStartedView" class="modal-started" style="display:none;">
+        <button type="button" class="modal-close" onclick="closeDownloadModal()">&times;</button>
+        <svg class="modal-check" viewBox="0 0 72 72">
+          <circle cx="36" cy="36" r="30"/>
+          <path d="M22 36l10 10 18-18"/>
+        </svg>
+        <div class="modal-title" id="startedTitle">Android Download Started!</div>
+        <p class="modal-sub" id="startedSub">Follow these quick steps to install Nu Age on your Android device:</p>
+
+        <ol class="modal-started-steps" id="startedSteps">
+          <li>
+            <div class="step-body">
+              <strong>Allow download:</strong> If Chrome/Android warns <em>"File might be harmful"</em>, tap <strong>Download anyway</strong> (Nu&nbsp;Age is 100% verified &amp; safe).
+            </div>
+          </li>
+          <li>
+            <div class="step-body">
+              <strong>Check notification:</strong> Swipe down your notification bar to monitor <code class="apk-chip">Nu&nbsp;Age.apk</code> progress.
+            </div>
+          </li>
+          <li>
+            <div class="step-body">
+              <strong>Tap to install:</strong> Once finished, tap the notification to install and study completely offline.
+            </div>
+          </li>
+        </ol>
+
+        <div class="modal-started-actions">
+          <button type="button" class="btn btn-primary" id="retryDownloadBtn" style="width:100%; justify-content:center;">
+            Download Again
+          </button>
+          <button type="button" class="btn btn-secondary" id="copyDownloadBtn" style="width:100%; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy Direct Link</span>
+          </button>
+          <div class="modal-retry">
+            <a href="#" id="modalBackBtn">&larr; Switch platform (Android / Windows)</a>
           </div>
-        </a>
-        <a href="https://nu-age-cdn.b-cdn.net/app%20links%202/NuAgeSetup-1.1.1.exe" class="modal-option-btn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-          <div>
-            <div style="font-weight:700;">Windows Desktop (.exe)</div>
-            <div style="font-size:0.8rem; color:var(--text-muted);">Windows 10 &amp; 11 &middot; 64-bit Installer</div>
-          </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
@@ -1061,16 +1119,6 @@
       const d = document.getElementById('mobileDrawer');
       if (d) d.classList.toggle('open');
     }
-    function openDownloadModal() {
-      const m = document.getElementById('downloadModal');
-      if (m) m.classList.add('open');
-    }
-    function closeDownloadModal(e) {
-      if (!e || e.target === document.getElementById('downloadModal') || e.target.classList.contains('modal-close')) {
-        const m = document.getElementById('downloadModal');
-        if (m) m.classList.remove('open');
-      }
-    }
     function toggleFaq(btn) {
       const content = btn.nextElementSibling;
       const isOpen = content.style.display === 'block';
@@ -1081,12 +1129,6 @@
         btn.querySelector('svg').style.transform = 'rotate(180deg)';
       }
     }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const m = document.getElementById('downloadModal');
-        if (m) m.classList.remove('open');
-      }
-    });
   </script>
 <script src="/js/site.js" defer></script>
 </body>
