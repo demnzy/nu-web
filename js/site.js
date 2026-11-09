@@ -230,7 +230,7 @@
                 '<li><strong>Open &amp; Study:</strong> Tap the finished download to install and study completely offline.</li>';
             } else {
               stepsEl.innerHTML =
-                '<li><strong>Locate installer:</strong> Find <code>NuAgeSetup.exe</code> in your Downloads folder.</li>' +
+                '<li><strong>Locate installer:</strong> Find <code>NuAgeSetup-1.1.1.exe</code> in your Downloads folder.</li>' +
                 '<li><strong>Run setup:</strong> Double-click the installer and follow the prompt to finish installation.</li>' +
                 '<li><strong>Launch Nu Age:</strong> Open the desktop app to start studying with zero data needed.</li>';
             }
