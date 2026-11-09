@@ -396,7 +396,17 @@ body.nav-open {
   visibility: hidden;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s;
   max-height: calc(100vh - 72px);
+  max-height: calc(100dvh - 72px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .mobile-drawer {
+    top: 62px;
+    max-height: calc(100vh - 62px);
+    max-height: calc(100dvh - 62px);
+  }
 }
 
 .mobile-drawer.open {
@@ -907,7 +917,8 @@ body.nav-open {
 }
 
 /* ─── FAQ ACCORDION ─── */
-.faq-box {
+.faq-box,
+.faq-list {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -915,14 +926,17 @@ body.nav-open {
   gap: 12px;
 }
 
-.faq-row {
-  background: #ffffff;
+.faq-row,
+.faq-item {
+  background: var(--surface, #ffffff);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.faq-row.active {
+.faq-row.active,
+.faq-item.active {
   border-color: var(--primary);
   box-shadow: var(--shadow-sm);
 }
@@ -932,7 +946,7 @@ body.nav-open {
   text-align: left;
   background: none;
   border: none;
-  padding: 20px 22px;
+  padding: 18px 22px;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-heading);
@@ -942,14 +956,17 @@ body.nav-open {
   justify-content: space-between;
   gap: 16px;
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .faq-btn svg {
-  transition: transform 0.2s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   flex-shrink: 0;
+  color: var(--text-muted);
 }
 
-.faq-row.active .faq-btn svg {
+.faq-row.active .faq-btn svg,
+.faq-item.active .faq-btn svg {
   transform: rotate(180deg);
   color: var(--primary);
 }
@@ -962,7 +979,8 @@ body.nav-open {
   line-height: 1.7;
 }
 
-.faq-row.active .faq-content {
+.faq-row.active .faq-content,
+.faq-item.active .faq-content {
   display: block;
 }
 

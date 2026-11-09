@@ -53,7 +53,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing:
 
 /* Cards: hairline borders, border-colour hover instead of floating lift */
 .stakeholder-feature-card, .spotlight-box, .offline-flow-card, .download-card, .pricing-card,
-.faq-row, .gallery-card, .spare-feature-card, .dl-card, .perk-card {
+.faq-row, .faq-item, .gallery-card, .spare-feature-card, .dl-card, .perk-card {
   background: var(--surface);
   box-shadow: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -202,7 +202,8 @@ body .application-card { box-shadow: none; }
 [data-theme="dark"] body .submit-btn { background: #1f7a44; color: #fff; }
 [data-theme="dark"] body .submit-btn:hover { background: #269052; }
 [data-theme="dark"] body .application-card,
-[data-theme="dark"] body .faq-row { background: var(--surface); }
+[data-theme="dark"] body .faq-row,
+[data-theme="dark"] body .faq-item { background: var(--surface); }
 body .amb-title { font-family: var(--font-display); }
 body .amb-title span { background: none; -webkit-text-fill-color: currentColor; color: var(--primary); }
 body .application-card::before { background: var(--primary); height: 3px; }

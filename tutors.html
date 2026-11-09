@@ -83,20 +83,41 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Download App</span>
         </button>
-        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation" onclick="toggleMobileNav()">
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-      <a href="/" onclick="toggleMobileNav()">For Students</a>
-      <a href="/tutors" onclick="toggleMobileNav()" style="color:var(--primary); font-weight:700;">For Tutors &amp; Hubs</a>
-      <a href="/gallery" onclick="toggleMobileNav()">Gallery</a>
-      <a href="/ambassadors" onclick="toggleMobileNav()">Campus Ambassadors</a>
-      <div style="margin-top:14px;">
-        <button type="button" class="btn btn-primary" style="width:100%;" onclick="toggleMobileNav(); openDownloadModal();">Get Nu Age App</button>
+    <!-- Mobile Drawer / Sidebar -->
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="mobile-drawer-nav">
+        <a href="/" class="mobile-drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>For Students</span>
+        </a>
+        <a href="/tutors" class="mobile-drawer-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>For Tutors &amp; Hubs</span>
+        </a>
+        <a href="/gallery" class="mobile-drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Visual Gallery</span>
+        </a>
+        <a href="/ambassadors" class="mobile-drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Campus Ambassadors</span>
+        </a>
+        <a href="/#faq" class="mobile-drawer-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>FAQs</span>
+        </a>
+      </div>
+      <div class="mobile-drawer-cta">
+        <button type="button" class="btn btn-primary" style="width:100%; justify-content:center;" onclick="openDownloadModal();">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download Free App</span>
+        </button>
       </div>
     </div>
   </header>
@@ -567,21 +588,6 @@
 
   <!-- INTERACTIVE JS & FADE-UP INTERSECTION OBSERVER -->
   <script>
-    function toggleMobileNav() {
-      const d = document.getElementById('mobileDrawer');
-      if (d) d.classList.toggle('open');
-    }
-    function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const isOpen = content.style.display === 'block';
-      document.querySelectorAll('.faq-content').forEach(c => c.style.display = 'none');
-      document.querySelectorAll('.faq-btn svg').forEach(s => s.style.transform = 'rotate(0deg)');
-      if (!isOpen) {
-        content.style.display = 'block';
-        btn.querySelector('svg').style.transform = 'rotate(180deg)';
-      }
-    }
-
     // Fade-Up Scroll Observer
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {

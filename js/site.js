@@ -156,6 +156,7 @@
       mobileBtn.innerHTML = hamburgerSvg;
       mobileBtn.setAttribute('aria-expanded', 'false');
       mobileBtn.setAttribute('aria-controls', 'mobileDrawer');
+      mobileBtn.removeAttribute('onclick');
       mobileBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -387,25 +388,39 @@
     }
 
     /* ── Accessible FAQ Accordion ── */
+    window.toggleFaq = function (btn) {
+      if (!btn) return;
+      var item = btn.closest('.faq-item') || btn.closest('.faq-row') || btn.parentElement;
+      var content = btn.nextElementSibling || (item && item.querySelector('.faq-content'));
+      var wasOpen = item ? item.classList.contains('active') : (content && (content.style.display === 'block' || window.getComputedStyle(content).display === 'block'));
+
+      document.querySelectorAll('.faq-item, .faq-row').forEach(function (el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.faq-content').forEach(function (c) {
+        c.style.display = 'none';
+      });
+      document.querySelectorAll('.faq-btn').forEach(function (x) {
+        x.setAttribute('aria-expanded', 'false');
+        var svg = x.querySelector('svg');
+        if (svg) svg.style.transform = 'rotate(0deg)';
+      });
+
+      if (!wasOpen) {
+        if (item) item.classList.add('active');
+        if (content) content.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+        var svg = btn.querySelector('svg');
+        if (svg) svg.style.transform = 'rotate(180deg)';
+      }
+    };
+
     document.querySelectorAll('.faq-btn').forEach(function (b) {
       b.setAttribute('aria-expanded', 'false');
-      b.addEventListener('click', function () {
-        var content = b.nextElementSibling;
-        var wasOpen = content && content.style.display === 'block';
-
-        document.querySelectorAll('.faq-content').forEach(function (c) { c.style.display = 'none'; });
-        document.querySelectorAll('.faq-btn').forEach(function (x) {
-          x.setAttribute('aria-expanded', 'false');
-          var svg = x.querySelector('svg');
-          if (svg) svg.style.transform = 'rotate(0deg)';
-        });
-
-        if (!wasOpen && content) {
-          content.style.display = 'block';
-          b.setAttribute('aria-expanded', 'true');
-          var svg = b.querySelector('svg');
-          if (svg) svg.style.transform = 'rotate(180deg)';
-        }
+      b.removeAttribute('onclick');
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.toggleFaq(b);
       });
     });
   });
